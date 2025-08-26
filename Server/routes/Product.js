@@ -1,5 +1,5 @@
 import express from "express";
-import {create,getAll,getById,updateById,deleteById,undeleteById} from "../controllers/Product.js";
+import {create,getAll,getById,updateById,deleteById,undeleteById , getLatest} from "../controllers/Product.js";
 
 const router = express.Router();
 
@@ -11,5 +11,6 @@ router
     .patch("/:id",updateById)
     .patch("/undelete/:id",undeleteById)
     .delete("/:id",deleteById)
+    .get("/get/latest", getLatest)
 
 export default router

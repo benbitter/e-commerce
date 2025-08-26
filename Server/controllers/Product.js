@@ -13,6 +13,16 @@ const create=async(req,res)=>{
     }
 }
 
+const getLatest = async (req, res) => {
+    try {
+        const results = await Product.find().sort({ createdAt: -1 }).limit(5);
+        res.status(200).json(results);
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ message: 'Error fetching latest products, please try again later' });
+    }
+};
+
 const getAll = async (req, res) => {
     try {
         const filter={}
@@ -102,4 +112,4 @@ const deleteById=async(req,res)=>{
     }
 }
 
-export {create,getAll,getById,updateById,deleteById,undeleteById}
+export {create,getAll,getById,updateById,deleteById,undeleteById,getLatest}

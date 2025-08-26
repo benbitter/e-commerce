@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setUser } from "../Store/Slices/user.js"
 
 const Login = () => {
+  const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({});
@@ -41,7 +44,8 @@ const Login = () => {
         );
 
         if (response.status === 200) {
-          console.log("Login successful:", response);
+          console.log("Login successful:", response.data);
+          dispatch(setUser(response.data));
           navigate("/");
         } else {
           setEmail("");
