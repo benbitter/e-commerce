@@ -1,9 +1,8 @@
-const mongoose=require('mongoose')
-const {Schema}=mongoose
+import mongoose from "mongoose";
 
-const addressSchema = new Schema({
+const addressSchema = new mongoose.Schema({
     user:{
-      type:Schema.Types.ObjectId,
+      type:mongoose.Schema.Types.ObjectId,
       ref:"User",
       required:true
     },

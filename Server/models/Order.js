@@ -1,18 +1,19 @@
-const mongoose=require("mongoose")
-const {Schema}=mongoose
+import mongoose from "mongoose";
 
-const orderSchema=new Schema({
+const orderSchema=new mongoose.Schema({
     user:{
-        type:Schema.Types.ObjectId,
+        type:mongoose.Schema.Types.ObjectId,
         ref:"User",
         required:true
     },
     item:{
-        type:[Schema.Types.Mixed],
+        type:[mongoose.Schema.Types.Mixed],
+        ref:"Product",
         required:true
     },
     address:{
-        type:[Schema.Types.Mixed],
+        type:[mongoose.Schema.Types.Mixed],
+        ref:"Address",
         required:true
     },
     status:{
@@ -33,6 +34,6 @@ const orderSchema=new Schema({
         type:Date,
         default:Date.now
     },
-},{versionKey:false})
+},{timestamps:true})
 
 module.exports=mongoose.model("Order",orderSchema)

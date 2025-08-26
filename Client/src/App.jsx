@@ -1,35 +1,84 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// src/components/NavbarDrawer.jsx
+import * as React from "react";
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  IconButton,
+  Drawer,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+  Box,
+  CssBaseline,
+} from "@mui/material";
+import { Menu, Home, Settings, Close } from "@mui/icons-material";
+import { Outlet } from "react-router-dom";
 
-function App() {
-  const [count, setCount] = useState(0)
+const drawerWidth = 240;
+
+export default function App() {
+  const [open, setOpen] = React.useState(false);
+
+  const toggleDrawer = () => {
+    setOpen(!open);
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <Box sx={{ display: "flex" }}>
+      <CssBaseline />
 
-export default App
+      {/* Navbar */}
+      <AppBar position="fixed">
+        <Toolbar>
+          <IconButton
+            color="inherit"
+            edge="start"
+            onClick={toggleDrawer}
+            sx={{ mr: 2 }}
+          >
+            <Menu />
+          </IconButton>
+          <Typography variant="h6" noWrap component="div">
+            My Dashboard
+          </Typography>
+        </Toolbar>
+      </AppBar>
+
+      {/* Sidebar Drawer */}
+      <Drawer
+        variant="temporary"
+        open={open}
+        onClose={toggleDrawer}
+        sx={{
+          [`& .MuiDrawer-paper`]: { width: drawerWidth, boxSizing: "border-box" },
+        }}
+      >
+        {/* Close Button inside Drawer */}
+        <IconButton onClick={toggleDrawer} sx={{ ml: "auto", p: 1 }}>
+          <Close />
+        </IconButton>
+
+        <List>
+          <ListItem button>
+            <ListItemIcon><Home /></ListItemIcon>
+            <ListItemText primary="Home" />
+          </ListItem>
+          <ListItem button>
+            <ListItemIcon><Settings /></ListItemIcon>
+            <ListItemText primary="Settings" />
+          </ListItem>
+        </List>
+      </Drawer>
+
+      {/* Main Content */}
+      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+        <Toolbar /> {/* pushes content below navbar */}
+        <Typography paragraph>
+          <Outlet />
+        </Typography>
+      </Box>
+    </Box>
+  );
+}

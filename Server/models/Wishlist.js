@@ -1,14 +1,13 @@
-const mongoose=require('mongoose')
-const {Schema}=mongoose
+import mongoose from "mongoose";
 
-const wishlistSchema=new Schema({
-    user:{
-        type:Schema.Types.ObjectId,
-        ref:"User",
+const wishlistSchema = new mongoose.Schema({
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
         require:true
     },
     product:{
-        type:Schema.Types.ObjectId,
+        type:mongoose.Schema.Types.ObjectId,
         ref:"Product",
         require:true
     },
