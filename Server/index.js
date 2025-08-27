@@ -8,8 +8,8 @@ const port = 3001;
 
 connectDB().then(async () => {
     await seedProduct();
-    await seedBrand();
-    await seedCategory();
+    // await seedBrand();
+    // await seedCategory();
     httpServer.listen(port, () => {
         console.log(`Server is running on port ${port}`);
     });

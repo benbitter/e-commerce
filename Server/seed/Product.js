@@ -1,2032 +1,6018 @@
-import Product from "../models/Product.js"
+import Product from "../models/Product.js";
 
 const products = [
-  {
-    _id: "65a7e45902e12c44f599444e",
-    title: "iPhone 9",
-    description: "An apple mobile which is nothing like apple",
-    price: 549,
-    discountPercentage: 12.96,
-    stockQuantity: 14,
-    brand: "65a7e20102e12c44f59943da",
-    category: "65a7e24602e12c44f599442c",
-    thumbnail: "https://cdn.dummyjson.com/product-images/1/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/1/1.jpg",
-      "https://cdn.dummyjson.com/product-images/1/2.jpg",
-      "https://cdn.dummyjson.com/product-images/1/3.jpg",
-      "https://cdn.dummyjson.com/product-images/1/4.jpg",
-      "https://cdn.dummyjson.com/product-images/1/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f599444f",
-    title: "Fog Scent Xpressio Perfume custom",
-    description:
-      "Product details of Best Fog Scent Xpressio Perfume 100ml For Men cool long lasting perfumes for Men",
-    price: 13,
-    discountPercentage: 8.14,
-    stockQuantity: 21,
-    brand: "65a7e20102e12c44f59943e3",
-    category: "65a7e24602e12c44f599442e",
-    thumbnail: "https://cdn.dummyjson.com/product-images/13/thumbnail.webp",
-    images: [
-      "https://cdn.dummyjson.com/product-images/13/1.jpg",
-      "https://cdn.dummyjson.com/product-images/13/2.png",
-      "https://cdn.dummyjson.com/product-images/13/3.jpg",
-      "https://cdn.dummyjson.com/product-images/13/4.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-    stockQuantityQuantity: 5,
-  },
-  {
-    _id: "65a7e45902e12c44f5994450",
-    title: "Samsung Universe 9",
-    description:
-      "Samsung's new variant which goes beyond Galaxy to the Universe",
-    price: 1249,
-    discountPercentage: 15.46,
-    stockQuantity: 36,
-    brand: "65a7e20102e12c44f59943db",
-    category: "65a7e24602e12c44f599442c",
-    thumbnail: "https://cdn.dummyjson.com/product-images/3/thumbnail.jpg",
-    images: ["https://cdn.dummyjson.com/product-images/3/1.jpg"],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f5994451",
-    title: "OPPOF19",
-    description: "OPPO F19 is officially announced on April 2021.",
-    price: 280,
-    discountPercentage: 17.91,
-    stockQuantity: 123,
-    brand: "65a7e20102e12c44f59943dc",
-    category: "65a7e24602e12c44f599442c",
-    thumbnail: "https://cdn.dummyjson.com/product-images/4/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/4/1.jpg",
-      "https://cdn.dummyjson.com/product-images/4/2.jpg",
-      "https://cdn.dummyjson.com/product-images/4/3.jpg",
-      "https://cdn.dummyjson.com/product-images/4/4.jpg",
-      "https://cdn.dummyjson.com/product-images/4/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f5994452",
-    title: "Huawei P30",
-    description:
-      "Huawei’s re-badged P30 Pro New Edition was officially unveiled yesterday in Germany and now the device has made its way to the UK.",
-    price: 499,
-    discountPercentage: 10.58,
-    stockQuantity: 32,
-    brand: "65a7e20102e12c44f59943dd",
-    category: "65a7e24602e12c44f599442c",
-    thumbnail: "https://cdn.dummyjson.com/product-images/5/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/5/1.jpg",
-      "https://cdn.dummyjson.com/product-images/5/2.jpg",
-      "https://cdn.dummyjson.com/product-images/5/3.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f5994453",
-    title: "MacBook Pro",
-    description:
-      "MacBook Pro 2021 with mini-LED display may launch between September, November",
-    price: 1749,
-    discountPercentage: 11.02,
-    stockQuantity: 83,
-    brand: "65a7e20102e12c44f59943da",
-    category: "65a7e24602e12c44f599442d",
-    thumbnail: "https://cdn.dummyjson.com/product-images/6/thumbnail.png",
-    images: [
-      "https://cdn.dummyjson.com/product-images/6/1.png",
-      "https://cdn.dummyjson.com/product-images/6/2.jpg",
-      "https://cdn.dummyjson.com/product-images/6/3.png",
-      "https://cdn.dummyjson.com/product-images/6/4.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f5994454",
-    title: "Samsung Galaxy Book",
-    description:
-      "Samsung Galaxy Book S (2020) Laptop With Intel Lakefield Chip, 8GB of RAM Launched",
-    price: 1499,
-    discountPercentage: 4.15,
-    stockQuantity: 50,
-    brand: "65a7e20102e12c44f59943db",
-    category: "65a7e24602e12c44f599442d",
-    thumbnail: "https://cdn.dummyjson.com/product-images/7/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/7/1.jpg",
-      "https://cdn.dummyjson.com/product-images/7/2.jpg",
-      "https://cdn.dummyjson.com/product-images/7/3.jpg",
-      "https://cdn.dummyjson.com/product-images/7/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f5994455",
-    title: "Microsoft Surface Laptop 4",
-    description:
-      "Style and speed. Stand out on HD video calls backed by Studio Mics. Capture ideas on the vibrant touchscreen.",
-    price: 1499,
-    discountPercentage: 10.23,
-    stockQuantity: 68,
-    brand: "65a7e20102e12c44f59943de",
-    category: "65a7e24602e12c44f599442d",
-    thumbnail: "https://cdn.dummyjson.com/product-images/8/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/8/1.jpg",
-      "https://cdn.dummyjson.com/product-images/8/2.jpg",
-      "https://cdn.dummyjson.com/product-images/8/3.jpg",
-      "https://cdn.dummyjson.com/product-images/8/4.jpg",
-      "https://cdn.dummyjson.com/product-images/8/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f5994456",
-    title: "Infinix INBOOK",
-    description:
-      "Infinix Inbook X1 Ci3 10th 8GB 256GB 14 Win10 Grey – 1 Year Warranty",
-    price: 1099,
-    discountPercentage: 11.83,
-    stockQuantity: 96,
-    brand: "65a7e20102e12c44f59943df",
-    category: "65a7e24602e12c44f599442d",
-    thumbnail: "https://cdn.dummyjson.com/product-images/9/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/9/1.jpg",
-      "https://cdn.dummyjson.com/product-images/9/2.png",
-      "https://cdn.dummyjson.com/product-images/9/3.png",
-      "https://cdn.dummyjson.com/product-images/9/4.jpg",
-      "https://cdn.dummyjson.com/product-images/9/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f5994457",
-    title: "HP Pavilion 15-DK1056WM",
-    description:
-      "HP Pavilion 15-DK1056WM Gaming Laptop 10th Gen Core i5, 8GB, 256GB SSD, GTX 1650 4GB, Windows 10",
-    price: 1099,
-    discountPercentage: 6.18,
-    stockQuantity: 89,
-    brand: "65a7e20102e12c44f59943e0",
-    category: "65a7e24602e12c44f599442d",
-    thumbnail: "https://cdn.dummyjson.com/product-images/10/thumbnail.jpeg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/10/1.jpg",
-      "https://cdn.dummyjson.com/product-images/10/2.jpg",
-      "https://cdn.dummyjson.com/product-images/10/3.jpg",
-      "https://cdn.dummyjson.com/product-images/10/thumbnail.jpeg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f5994458",
-    title: "perfume Oil",
-    description:
-      "Mega Discount, Impression of Acqua Di Gio by GiorgioArmani concentrated attar perfume Oil",
-    price: 13,
-    discountPercentage: 8.4,
-    stockQuantity: 65,
-    brand: "65a7e20102e12c44f59943e1",
-    category: "65a7e24602e12c44f599442e",
-    thumbnail: "https://cdn.dummyjson.com/product-images/11/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/11/1.jpg",
-      "https://cdn.dummyjson.com/product-images/11/2.jpg",
-      "https://cdn.dummyjson.com/product-images/11/3.jpg",
-      "https://cdn.dummyjson.com/product-images/11/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f5994459",
-    title: "Brown Perfume",
-    description: "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
-    price: 40,
-    discountPercentage: 15.66,
-    stockQuantity: 52,
-    brand: "65a7e20102e12c44f59943e2",
-    category: "65a7e24602e12c44f599442e",
-    thumbnail: "https://cdn.dummyjson.com/product-images/12/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/12/1.jpg",
-      "https://cdn.dummyjson.com/product-images/12/2.jpg",
-      "https://cdn.dummyjson.com/product-images/12/3.png",
-      "https://cdn.dummyjson.com/product-images/12/4.jpg",
-      "https://cdn.dummyjson.com/product-images/12/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f599445a",
-    title: "Fog Scent Xpressio Perfume",
-    description:
-      "Product details of Best Fog Scent Xpressio Perfume 100ml For Men cool long lasting perfumes for Men",
-    price: 13,
-    discountPercentage: 8.14,
-    stockQuantity: 61,
-    brand: "65a7e20102e12c44f59943e3",
-    category: "65a7e24602e12c44f599442e",
-    thumbnail: "https://cdn.dummyjson.com/product-images/13/thumbnail.webp",
-    images: [
-      "https://cdn.dummyjson.com/product-images/13/1.jpg",
-      "https://cdn.dummyjson.com/product-images/13/2.png",
-      "https://cdn.dummyjson.com/product-images/13/3.jpg",
-      "https://cdn.dummyjson.com/product-images/13/4.jpg",
-      "https://cdn.dummyjson.com/product-images/13/thumbnail.webp",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f599445b",
-    title: "Non-Alcoholic Concentrated Perfume Oil",
-    description:
-      "Original Al Munakh® by Mahal Al Musk | Our Impression of Climate | 6ml Non-Alcoholic Concentrated Perfume Oil",
-    price: 120,
-    discountPercentage: 15.6,
-    stockQuantity: 114,
-    brand: "65a7e20102e12c44f59943e4",
-    category: "65a7e24602e12c44f599442e",
-    thumbnail: "https://cdn.dummyjson.com/product-images/14/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/14/1.jpg",
-      "https://cdn.dummyjson.com/product-images/14/2.jpg",
-      "https://cdn.dummyjson.com/product-images/14/3.jpg",
-      "https://cdn.dummyjson.com/product-images/14/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f599445c",
-    title: "Eau De Perfume Spray",
-    description:
-      "Genuine  Al-Rehab spray perfume from UAE/Saudi Arabia/Yemen High Quality",
-    price: 30,
-    discountPercentage: 10.99,
-    stockQuantity: 105,
-    brand: "65a7e20102e12c44f59943e5",
-    category: "65a7e24602e12c44f599442e",
-    thumbnail: "https://cdn.dummyjson.com/product-images/15/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/15/1.jpg",
-      "https://cdn.dummyjson.com/product-images/15/2.jpg",
-      "https://cdn.dummyjson.com/product-images/15/3.jpg",
-      "https://cdn.dummyjson.com/product-images/15/4.jpg",
-      "https://cdn.dummyjson.com/product-images/15/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f599445d",
-    title: "Hyaluronic Acid Serum",
-    description:
-      "L'OrÃ©al Paris introduces Hyaluron Expert Replumping Serum formulated with 1.5% Hyaluronic Acid",
-    price: 19,
-    discountPercentage: 13.31,
-    stockQuantity: 110,
-    brand: "65a7e20102e12c44f59943e6",
-    category: "65a7e24602e12c44f599442f",
-    thumbnail: "https://cdn.dummyjson.com/product-images/16/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/16/1.png",
-      "https://cdn.dummyjson.com/product-images/16/2.webp",
-      "https://cdn.dummyjson.com/product-images/16/3.jpg",
-      "https://cdn.dummyjson.com/product-images/16/4.jpg",
-      "https://cdn.dummyjson.com/product-images/16/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f599445e",
-    title: "Tree Oil 30ml",
-    description:
-      "Tea tree oil contains a number of compounds, including terpinen-4-ol, that have been shown to kill certain bacteria,",
-    price: 12,
-    discountPercentage: 4.09,
-    stockQuantity: 78,
-    brand: "65a7e20102e12c44f59943e7",
-    category: "65a7e24602e12c44f599442f",
-    thumbnail: "https://cdn.dummyjson.com/product-images/17/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/17/1.jpg",
-      "https://cdn.dummyjson.com/product-images/17/2.jpg",
-      "https://cdn.dummyjson.com/product-images/17/3.jpg",
-      "https://cdn.dummyjson.com/product-images/17/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f599445f",
-    title: "Oil Free Moisturizer 100ml",
-    description:
-      "Dermive Oil Free Moisturizer with SPF 20 is specifically formulated with ceramides, hyaluronic acid & sunscreen.",
-    price: 40,
-    discountPercentage: 13.1,
-    stockQuantity: 88,
-    brand: "65a7e20102e12c44f59943e8",
-    category: "65a7e24602e12c44f599442f",
-    thumbnail: "https://cdn.dummyjson.com/product-images/18/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/18/1.jpg",
-      "https://cdn.dummyjson.com/product-images/18/2.jpg",
-      "https://cdn.dummyjson.com/product-images/18/3.jpg",
-      "https://cdn.dummyjson.com/product-images/18/4.jpg",
-      "https://cdn.dummyjson.com/product-images/18/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f5994460",
-    title: "Skin Beauty Serum.",
-    description:
-      "Product name: rorec collagen hyaluronic acid white face serum riceNet weight: 15 m",
-    price: 46,
-    discountPercentage: 10.68,
-    stockQuantity: 54,
-    brand: "65a7e20102e12c44f59943e9",
-    category: "65a7e24602e12c44f599442f",
-    thumbnail: "https://cdn.dummyjson.com/product-images/19/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/19/1.jpg",
-      "https://cdn.dummyjson.com/product-images/19/2.jpg",
-      "https://cdn.dummyjson.com/product-images/19/3.png",
-      "https://cdn.dummyjson.com/product-images/19/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f5994461",
-    title: "Freckle Treatment Cream- 15gm",
-    description:
-      "Fair & Clear is Pakistan's only pure Freckle cream which helpsfade Freckles, Darkspots and pigments. Mercury level is 0%, so there are no side effects.",
-    price: 70,
-    discountPercentage: 16.99,
-    stockQuantity: 140,
-    brand: "65a7e20102e12c44f59943ea",
-    category: "65a7e24602e12c44f599442f",
-    thumbnail: "https://cdn.dummyjson.com/product-images/20/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/20/1.jpg",
-      "https://cdn.dummyjson.com/product-images/20/2.jpg",
-      "https://cdn.dummyjson.com/product-images/20/3.jpg",
-      "https://cdn.dummyjson.com/product-images/20/4.jpg",
-      "https://cdn.dummyjson.com/product-images/20/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f5994462",
-    title: "- Daal Masoor 500 grams",
-    description: "Fine quality Branded Product Keep in a cool and dry place",
-    price: 20,
-    discountPercentage: 4.81,
-    stockQuantity: 133,
-    brand: "65a7e20102e12c44f59943eb",
-    category: "65a7e24602e12c44f5994430",
-    thumbnail: "https://cdn.dummyjson.com/product-images/21/thumbnail.png",
-    images: [
-      "https://cdn.dummyjson.com/product-images/21/1.png",
-      "https://cdn.dummyjson.com/product-images/21/2.jpg",
-      "https://cdn.dummyjson.com/product-images/21/3.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f5994463",
-    title: "Elbow Macaroni - 400 gm",
-    description: "Product details of Bake Parlor Big Elbow Macaroni - 400 gm",
-    price: 14,
-    discountPercentage: 15.58,
-    stockQuantity: 146,
-    brand: "65a7e20102e12c44f59943ec",
-    category: "65a7e24602e12c44f5994430",
-    thumbnail: "https://cdn.dummyjson.com/product-images/22/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/22/1.jpg",
-      "https://cdn.dummyjson.com/product-images/22/2.jpg",
-      "https://cdn.dummyjson.com/product-images/22/3.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f5994464",
-    title: "Orange Essence Food Flavou",
-    description:
-      "Specifications of Orange Essence Food Flavour For Cakes and Baking Food Item",
-    price: 14,
-    discountPercentage: 8.04,
-    stockQuantity: 26,
-    brand: "65a7e20102e12c44f59943ed",
-    category: "65a7e24602e12c44f5994430",
-    thumbnail: "https://cdn.dummyjson.com/product-images/23/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/23/1.jpg",
-      "https://cdn.dummyjson.com/product-images/23/2.jpg",
-      "https://cdn.dummyjson.com/product-images/23/3.jpg",
-      "https://cdn.dummyjson.com/product-images/23/4.jpg",
-      "https://cdn.dummyjson.com/product-images/23/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f5994465",
-    title: "cereals muesli fruit nuts",
-    description:
-      "original fauji cereal muesli 250gm box pack original fauji cereals muesli fruit nuts flakes breakfast cereal break fast faujicereals cerels cerel foji fouji",
-    price: 46,
-    discountPercentage: 16.8,
-    stockQuantity: 113,
-    brand: "65a7e20102e12c44f59943ee",
-    category: "65a7e24602e12c44f5994430",
-    thumbnail: "https://cdn.dummyjson.com/product-images/24/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/24/1.jpg",
-      "https://cdn.dummyjson.com/product-images/24/2.jpg",
-      "https://cdn.dummyjson.com/product-images/24/3.jpg",
-      "https://cdn.dummyjson.com/product-images/24/4.jpg",
-      "https://cdn.dummyjson.com/product-images/24/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f5994466",
-    title: "Gulab Powder 50 Gram",
-    description: "Dry Rose Flower Powder Gulab Powder 50 Gram • Treats Wounds",
-    price: 70,
-    discountPercentage: 13.58,
-    stockQuantity: 47,
-    brand: "65a7e20102e12c44f59943ef",
-    category: "65a7e24602e12c44f5994430",
-    thumbnail: "https://cdn.dummyjson.com/product-images/25/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/25/1.png",
-      "https://cdn.dummyjson.com/product-images/25/2.jpg",
-      "https://cdn.dummyjson.com/product-images/25/3.png",
-      "https://cdn.dummyjson.com/product-images/25/4.jpg",
-      "https://cdn.dummyjson.com/product-images/25/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f5994467",
-    title: "Plant Hanger For Home",
-    description:
-      "Boho Decor Plant Hanger For Home Wall Decoration Macrame Wall Hanging Shelf",
-    price: 41,
-    discountPercentage: 17.86,
-    stockQuantity: 131,
-    brand: "65a7e20102e12c44f59943f0",
-    category: "65a7e24602e12c44f5994431",
-    thumbnail: "https://cdn.dummyjson.com/product-images/26/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/26/1.jpg",
-      "https://cdn.dummyjson.com/product-images/26/2.jpg",
-      "https://cdn.dummyjson.com/product-images/26/3.jpg",
-      "https://cdn.dummyjson.com/product-images/26/4.jpg",
-      "https://cdn.dummyjson.com/product-images/26/5.jpg",
-      "https://cdn.dummyjson.com/product-images/26/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f5994468",
-    title: "Flying Wooden Bird",
-    description:
-      "Package Include 6 Birds with Adhesive Tape Shape: 3D Shaped Wooden Birds Material: Wooden MDF, Laminated 3.5mm",
-    price: 51,
-    discountPercentage: 15.58,
-    stockQuantity: 17,
-    brand: "65a7e20102e12c44f59943f1",
-    category: "65a7e24602e12c44f5994431",
-    thumbnail: "https://cdn.dummyjson.com/product-images/27/thumbnail.webp",
-    images: [
-      "https://cdn.dummyjson.com/product-images/27/1.jpg",
-      "https://cdn.dummyjson.com/product-images/27/2.jpg",
-      "https://cdn.dummyjson.com/product-images/27/3.jpg",
-      "https://cdn.dummyjson.com/product-images/27/4.jpg",
-      "https://cdn.dummyjson.com/product-images/27/thumbnail.webp",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f5994469",
-    title: "3D Embellishment Art Lamp",
-    description:
-      "3D led lamp sticker Wall sticker 3d wall art light on/off button  cell operated (included)",
-    price: 20,
-    discountPercentage: 16.49,
-    stockQuantity: 54,
-    brand: "65a7e20102e12c44f59943f2",
-    category: "65a7e24602e12c44f5994431",
-    thumbnail: "https://cdn.dummyjson.com/product-images/28/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/28/1.jpg",
-      "https://cdn.dummyjson.com/product-images/28/2.jpg",
-      "https://cdn.dummyjson.com/product-images/28/3.png",
-      "https://cdn.dummyjson.com/product-images/28/4.jpg",
-      "https://cdn.dummyjson.com/product-images/28/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f599446a",
-    title: "Handcraft Chinese style",
-    description:
-      "Handcraft Chinese style art luxury palace hotel villa mansion home decor ceramic vase with brass fruit plate",
-    price: 60,
-    discountPercentage: 15.34,
-    stockQuantity: 7,
-    brand: "65a7e20102e12c44f59943f3",
-    category: "65a7e24602e12c44f5994431",
-    thumbnail: "https://cdn.dummyjson.com/product-images/29/thumbnail.webp",
-    images: [
-      "https://cdn.dummyjson.com/product-images/29/1.jpg",
-      "https://cdn.dummyjson.com/product-images/29/2.jpg",
-      "https://cdn.dummyjson.com/product-images/29/3.webp",
-      "https://cdn.dummyjson.com/product-images/29/4.webp",
-      "https://cdn.dummyjson.com/product-images/29/thumbnail.webp",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f599446b",
-    title: "Key Holder",
-    description:
-      "Attractive DesignMetallic materialFour key hooksReliable & DurablePremium Quality",
-    price: 30,
-    discountPercentage: 2.92,
-    stockQuantity: 54,
-    brand: "65a7e20102e12c44f59943f4",
-    category: "65a7e24602e12c44f5994431",
-    thumbnail: "https://cdn.dummyjson.com/product-images/30/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/30/1.jpg",
-      "https://cdn.dummyjson.com/product-images/30/2.jpg",
-      "https://cdn.dummyjson.com/product-images/30/3.jpg",
-      "https://cdn.dummyjson.com/product-images/30/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f599446c",
-    title: "Mornadi Velvet Bed",
-    description:
-      "Mornadi Velvet Bed Base with Headboard Slats Support Classic Style Bedroom Furniture Bed Set",
-    price: 40,
-    discountPercentage: 17,
-    stockQuantity: 140,
-    brand: "65a7e20102e12c44f59943f5",
-    category: "65a7e24602e12c44f5994432",
-    thumbnail: "https://cdn.dummyjson.com/product-images/31/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/31/1.jpg",
-      "https://cdn.dummyjson.com/product-images/31/2.jpg",
-      "https://cdn.dummyjson.com/product-images/31/3.jpg",
-      "https://cdn.dummyjson.com/product-images/31/4.jpg",
-      "https://cdn.dummyjson.com/product-images/31/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f599446d",
-    title: "Sofa for Coffe Cafe",
-    description:
-      "Ratttan Outdoor furniture Set Waterproof  Rattan Sofa for Coffe Cafe",
-    price: 50,
-    discountPercentage: 15.59,
-    stockQuantity: 30,
-    brand: "65a7e20102e12c44f59943f6",
-    category: "65a7e24602e12c44f5994432",
-    thumbnail: "https://cdn.dummyjson.com/product-images/32/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/32/1.jpg",
-      "https://cdn.dummyjson.com/product-images/32/2.jpg",
-      "https://cdn.dummyjson.com/product-images/32/3.jpg",
-      "https://cdn.dummyjson.com/product-images/32/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f599446e",
-    title: "3 Tier Corner Shelves",
-    description:
-      "3 Tier Corner Shelves | 3 PCs Wall Mount Kitchen Shelf | Floating Bedroom Shelf",
-    price: 700,
-    discountPercentage: 17,
-    stockQuantity: 106,
-    brand: "65a7e20102e12c44f59943f7",
-    category: "65a7e24602e12c44f5994432",
-    thumbnail: "https://cdn.dummyjson.com/product-images/33/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/33/1.jpg",
-      "https://cdn.dummyjson.com/product-images/33/2.jpg",
-      "https://cdn.dummyjson.com/product-images/33/3.jpg",
-      "https://cdn.dummyjson.com/product-images/33/4.jpg",
-      "https://cdn.dummyjson.com/product-images/33/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f599446f",
-    title: "Plastic Table",
-    description:
-      "V﻿ery good quality plastic table for multi purpose now in reasonable price",
-    price: 50,
-    discountPercentage: 4,
-    stockQuantity: 136,
-    brand: "65a7e20102e12c44f59943f8",
-    category: "65a7e24602e12c44f5994432",
-    thumbnail: "https://cdn.dummyjson.com/product-images/34/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/34/1.jpg",
-      "https://cdn.dummyjson.com/product-images/34/2.jpg",
-      "https://cdn.dummyjson.com/product-images/34/3.jpg",
-      "https://cdn.dummyjson.com/product-images/34/4.jpg",
-      "https://cdn.dummyjson.com/product-images/34/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f5994470",
-    title: "3 DOOR PORTABLE",
-    description:
-      "Material: Stainless Steel and Fabric  Item Size: 110 cm x 45 cm x 175 cm Package Contents: 1 Storage Wardrobe",
-    price: 41,
-    discountPercentage: 7.98,
-    stockQuantity: 68,
-    brand: "65a7e20102e12c44f59943f9",
-    category: "65a7e24602e12c44f5994432",
-    thumbnail: "https://cdn.dummyjson.com/product-images/35/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/35/1.jpg",
-      "https://cdn.dummyjson.com/product-images/35/2.jpg",
-      "https://cdn.dummyjson.com/product-images/35/3.jpg",
-      "https://cdn.dummyjson.com/product-images/35/4.jpg",
-      "https://cdn.dummyjson.com/product-images/35/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f5994471",
-    title: "Sleeve Shirt Womens",
-    description:
-      "Cotton Solid Color Professional Wear Sleeve Shirt Womens Work Blouses Wholesale Clothing Casual Plain Custom Top OEM Customized",
-    price: 90,
-    discountPercentage: 10.89,
-    stockQuantity: 39,
-    brand: "65a7e20102e12c44f59943fa",
-    category: "65a7e24602e12c44f5994433",
-    thumbnail: "https://cdn.dummyjson.com/product-images/36/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/36/1.jpg",
-      "https://cdn.dummyjson.com/product-images/36/2.webp",
-      "https://cdn.dummyjson.com/product-images/36/3.webp",
-      "https://cdn.dummyjson.com/product-images/36/4.jpg",
-      "https://cdn.dummyjson.com/product-images/36/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f5994472",
-    title: "ank Tops for Womens/Girls",
-    description:
-      "PACK OF 3 CAMISOLES ,VERY COMFORTABLE SOFT COTTON STUFF, COMFORTABLE IN ALL FOUR SEASONS",
-    price: 50,
-    discountPercentage: 12.05,
-    stockQuantity: 107,
-    brand: "65a7e20102e12c44f59943fb",
-    category: "65a7e24602e12c44f5994433",
-    thumbnail: "https://cdn.dummyjson.com/product-images/37/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/37/1.jpg",
-      "https://cdn.dummyjson.com/product-images/37/2.jpg",
-      "https://cdn.dummyjson.com/product-images/37/3.jpg",
-      "https://cdn.dummyjson.com/product-images/37/4.jpg",
-      "https://cdn.dummyjson.com/product-images/37/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f5994473",
-    title: "sublimation plain kids tank",
-    description: "sublimation plain kids tank tops wholesale",
-    price: 100,
-    discountPercentage: 11.12,
-    stockQuantity: 20,
-    brand: "65a7e20102e12c44f59943fb",
-    category: "65a7e24602e12c44f5994433",
-    thumbnail: "https://cdn.dummyjson.com/product-images/38/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/38/1.png",
-      "https://cdn.dummyjson.com/product-images/38/2.jpg",
-      "https://cdn.dummyjson.com/product-images/38/3.jpg",
-      "https://cdn.dummyjson.com/product-images/38/4.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f5994474",
-    title: "Women Sweaters Wool",
-    description:
-      "2021 Custom Winter Fall Zebra Knit Crop Top Women Sweaters Wool Mohair Cos Customize Crew Neck Women' S Crop Top Sweater",
-    price: 600,
-    discountPercentage: 17.2,
-    stockQuantity: 55,
-    brand: "65a7e20102e12c44f59943fc",
-    category: "65a7e24602e12c44f5994433",
-    thumbnail: "https://cdn.dummyjson.com/product-images/39/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/39/1.jpg",
-      "https://cdn.dummyjson.com/product-images/39/2.jpg",
-      "https://cdn.dummyjson.com/product-images/39/3.jpg",
-      "https://cdn.dummyjson.com/product-images/39/4.jpg",
-      "https://cdn.dummyjson.com/product-images/39/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f5994475",
-    title: "women winter clothes",
-    description:
-      "women winter clothes thick fleece hoodie top with sweat pantjogger women sweatsuit set joggers pants two piece pants set",
-    price: 57,
-    discountPercentage: 13.39,
-    stockQuantity: 84,
-    brand: "65a7e20102e12c44f59943fc",
-    category: "65a7e24602e12c44f5994433",
-    thumbnail: "https://cdn.dummyjson.com/product-images/40/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/40/1.jpg",
-      "https://cdn.dummyjson.com/product-images/40/2.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f5994476",
-    title: "NIGHT SUIT",
-    description: "NIGHT SUIT RED MICKY MOUSE..  For Girls. Fantastic Suits.",
-    price: 55,
-    discountPercentage: 15.05,
-    stockQuantity: 21,
-    brand: "65a7e20102e12c44f59943fd",
-    category: "65a7e24602e12c44f5994434",
-    thumbnail: "https://cdn.dummyjson.com/product-images/41/thumbnail.webp",
-    images: [
-      "https://cdn.dummyjson.com/product-images/41/1.jpg",
-      "https://cdn.dummyjson.com/product-images/41/2.webp",
-      "https://cdn.dummyjson.com/product-images/41/3.jpg",
-      "https://cdn.dummyjson.com/product-images/41/4.jpg",
-      "https://cdn.dummyjson.com/product-images/41/thumbnail.webp",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f5994477",
-    title: "Stiched Kurta plus trouser",
-    description:
-      "FABRIC: LILEIN CHEST: 21 LENGHT: 37 TROUSER: (38) :ARABIC LILEIN",
-    price: 80,
-    discountPercentage: 15.37,
-    stockQuantity: 148,
-    brand: "65a7e20102e12c44f59943fe",
-    category: "65a7e24602e12c44f5994434",
-    thumbnail: "https://cdn.dummyjson.com/product-images/42/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/42/1.png",
-      "https://cdn.dummyjson.com/product-images/42/2.png",
-      "https://cdn.dummyjson.com/product-images/42/3.png",
-      "https://cdn.dummyjson.com/product-images/42/4.jpg",
-      "https://cdn.dummyjson.com/product-images/42/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f5994478",
-    title: "frock gold printed",
-    description:
-      "Ghazi fabric long frock gold printed ready to wear stitched collection (G992)",
-    price: 600,
-    discountPercentage: 15.55,
-    stockQuantity: 150,
-    brand: "65a7e20102e12c44f59943ff",
-    category: "65a7e24602e12c44f5994434",
-    thumbnail: "https://cdn.dummyjson.com/product-images/43/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/43/1.jpg",
-      "https://cdn.dummyjson.com/product-images/43/2.jpg",
-      "https://cdn.dummyjson.com/product-images/43/3.jpg",
-      "https://cdn.dummyjson.com/product-images/43/4.jpg",
-      "https://cdn.dummyjson.com/product-images/43/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f5994479",
-    title: "Ladies Multicolored Dress",
-    description:
-      "This classy shirt for women gives you a gorgeous look on everyday wear and specially for semi-casual wears.",
-    price: 79,
-    discountPercentage: 16.88,
-    stockQuantity: 2,
-    brand: "65a7e20102e12c44f59943ff",
-    category: "65a7e24602e12c44f5994434",
-    thumbnail: "https://cdn.dummyjson.com/product-images/44/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/44/1.jpg",
-      "https://cdn.dummyjson.com/product-images/44/2.jpg",
-      "https://cdn.dummyjson.com/product-images/44/3.jpg",
-      "https://cdn.dummyjson.com/product-images/44/4.jpg",
-      "https://cdn.dummyjson.com/product-images/44/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f599447a",
-    title: "Malai Maxi Dress",
-    description:
-      "Ready to wear, Unique design according to modern standard fashion, Best fitting ,Imported stuff",
-    price: 50,
-    discountPercentage: 5.07,
-    stockQuantity: 96,
-    brand: "65a7e20102e12c44f5994400",
-    category: "65a7e24602e12c44f5994434",
-    thumbnail: "https://cdn.dummyjson.com/product-images/45/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/45/1.jpg",
-      "https://cdn.dummyjson.com/product-images/45/2.webp",
-      "https://cdn.dummyjson.com/product-images/45/3.jpg",
-      "https://cdn.dummyjson.com/product-images/45/4.jpg",
-      "https://cdn.dummyjson.com/product-images/45/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f599447b",
-    title: "women's shoes",
-    description:
-      "Close: Lace, Style with bottom: Increased inside, Sole Material: Rubber",
-    price: 40,
-    discountPercentage: 16.96,
-    stockQuantity: 72,
-    brand: "65a7e20102e12c44f5994401",
-    category: "65a7e24602e12c44f5994435",
-    thumbnail: "https://cdn.dummyjson.com/product-images/46/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/46/1.webp",
-      "https://cdn.dummyjson.com/product-images/46/2.jpg",
-      "https://cdn.dummyjson.com/product-images/46/3.jpg",
-      "https://cdn.dummyjson.com/product-images/46/4.jpg",
-      "https://cdn.dummyjson.com/product-images/46/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f599447c",
-    title: "Sneaker shoes",
-    description:
-      "Synthetic Leather Casual Sneaker shoes for Women/girls Sneakers For Women",
-    price: 120,
-    discountPercentage: 10.37,
-    stockQuantity: 50,
-    brand: "65a7e20102e12c44f5994402",
-    category: "65a7e24602e12c44f5994435",
-    thumbnail: "https://cdn.dummyjson.com/product-images/47/thumbnail.jpeg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/47/1.jpg",
-      "https://cdn.dummyjson.com/product-images/47/2.jpg",
-      "https://cdn.dummyjson.com/product-images/47/3.jpg",
-      "https://cdn.dummyjson.com/product-images/47/thumbnail.jpeg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f599447d",
-    title: "Women Strip Heel",
-    description:
-      "Features: Flip-flops, Mid Heel, Comfortable, Striped Heel, Antiskid, Striped",
-    price: 40,
-    discountPercentage: 10.83,
-    stockQuantity: 25,
-    brand: "65a7e20102e12c44f5994403",
-    category: "65a7e24602e12c44f5994435",
-    thumbnail: "https://cdn.dummyjson.com/product-images/48/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/48/1.jpg",
-      "https://cdn.dummyjson.com/product-images/48/2.jpg",
-      "https://cdn.dummyjson.com/product-images/48/3.jpg",
-      "https://cdn.dummyjson.com/product-images/48/4.jpg",
-      "https://cdn.dummyjson.com/product-images/48/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f599447e",
-    title: "Chappals & Shoe Ladies Metallic",
-    description:
-      "Womens Chappals & Shoe Ladies Metallic Tong Thong Sandal Flat Summer 2020 Maasai Sandals",
-    price: 23,
-    discountPercentage: 2.62,
-    stockQuantity: 107,
-    brand: "65a7e20102e12c44f5994404",
-    category: "65a7e24602e12c44f5994435",
-    thumbnail: "https://cdn.dummyjson.com/product-images/49/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/49/1.jpg",
-      "https://cdn.dummyjson.com/product-images/49/2.jpg",
-      "https://cdn.dummyjson.com/product-images/49/3.webp",
-      "https://cdn.dummyjson.com/product-images/49/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f599447f",
-    title: "Women Shoes",
-    description:
-      "2020 New Arrivals Genuine Leather Fashion Trend Platform Summer Women Shoes",
-    price: 36,
-    discountPercentage: 16.87,
-    stockQuantity: 46,
-    brand: "65a7e20102e12c44f5994405",
-    category: "65a7e24602e12c44f5994435",
-    thumbnail: "https://cdn.dummyjson.com/product-images/50/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/50/1.jpeg",
-      "https://cdn.dummyjson.com/product-images/50/2.jpg",
-      "https://cdn.dummyjson.com/product-images/50/3.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f5994480",
-    title: "half sleeves T shirts",
-    description:
-      "Many store is creating new designs and trend every month and every year. Daraz.pk have a beautiful range of men fashion brands",
-    price: 23,
-    discountPercentage: 12.76,
-    stockQuantity: 132,
-    brand: "65a7e20102e12c44f5994406",
-    category: "65a7e24602e12c44f5994436",
-    thumbnail: "https://cdn.dummyjson.com/product-images/51/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/51/1.png",
-      "https://cdn.dummyjson.com/product-images/51/2.jpg",
-      "https://cdn.dummyjson.com/product-images/51/3.jpg",
-      "https://cdn.dummyjson.com/product-images/51/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f5994481",
-    title: "FREE FIRE T Shirt",
-    description:
-      "quality and professional print - It doesn't just look high quality, it is high quality.",
-    price: 10,
-    discountPercentage: 14.72,
-    stockQuantity: 128,
-    brand: "65a7e20102e12c44f5994407",
-    category: "65a7e24602e12c44f5994436",
-    thumbnail: "https://cdn.dummyjson.com/product-images/52/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/52/1.png",
-      "https://cdn.dummyjson.com/product-images/52/2.png",
-      "https://cdn.dummyjson.com/product-images/52/3.jpg",
-      "https://cdn.dummyjson.com/product-images/52/4.jpg",
-      "https://cdn.dummyjson.com/product-images/52/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f5994482",
-    title: "printed high quality T shirts",
-    description: "Brand: vintage Apparel ,Export quality",
-    price: 35,
-    discountPercentage: 7.54,
-    stockQuantity: 6,
-    brand: "65a7e20102e12c44f5994406",
-    category: "65a7e24602e12c44f5994436",
-    thumbnail: "https://cdn.dummyjson.com/product-images/53/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/53/1.webp",
-      "https://cdn.dummyjson.com/product-images/53/2.jpg",
-      "https://cdn.dummyjson.com/product-images/53/3.jpg",
-      "https://cdn.dummyjson.com/product-images/53/4.jpg",
-      "https://cdn.dummyjson.com/product-images/53/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f5994483",
-    title: "Pubg Printed Graphic T-Shirt",
-    description:
-      "Product Description Features: 100% Ultra soft Polyester Jersey. Vibrant & colorful printing on front. Feels soft as cotton without ever cracking",
-    price: 46,
-    discountPercentage: 16.44,
-    stockQuantity: 136,
-    brand: "65a7e20102e12c44f5994408",
-    category: "65a7e24602e12c44f5994436",
-    thumbnail: "https://cdn.dummyjson.com/product-images/54/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/54/1.jpg",
-      "https://cdn.dummyjson.com/product-images/54/2.jpg",
-      "https://cdn.dummyjson.com/product-images/54/3.jpg",
-      "https://cdn.dummyjson.com/product-images/54/4.jpg",
-      "https://cdn.dummyjson.com/product-images/54/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f5994484",
-    title: "Money Heist Printed Summer T Shirts",
-    description: "Fabric Jercy, Size: M & L Wear Stylish Dual Stiched",
-    price: 66,
-    discountPercentage: 15.97,
-    stockQuantity: 122,
-    brand: "65a7e20102e12c44f5994408",
-    category: "65a7e24602e12c44f5994436",
-    thumbnail: "https://cdn.dummyjson.com/product-images/55/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/55/1.jpg",
-      "https://cdn.dummyjson.com/product-images/55/2.webp",
-      "https://cdn.dummyjson.com/product-images/55/3.jpg",
-      "https://cdn.dummyjson.com/product-images/55/4.jpg",
-      "https://cdn.dummyjson.com/product-images/55/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f5994485",
-    title: "Sneakers Joggers Shoes",
-    description:
-      "Gender: Men , Colors: Same as DisplayedCondition: 100% Brand New",
-    price: 40,
-    discountPercentage: 12.57,
-    stockQuantity: 6,
-    brand: "65a7e20102e12c44f5994409",
-    category: "65a7e24602e12c44f5994437",
-    thumbnail: "https://cdn.dummyjson.com/product-images/56/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/56/1.jpg",
-      "https://cdn.dummyjson.com/product-images/56/2.jpg",
-      "https://cdn.dummyjson.com/product-images/56/3.jpg",
-      "https://cdn.dummyjson.com/product-images/56/4.jpg",
-      "https://cdn.dummyjson.com/product-images/56/5.jpg",
-      "https://cdn.dummyjson.com/product-images/56/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f5994486",
-    title: "Loafers for men",
-    description:
-      "Men Shoes - Loafers for men - Rubber Shoes - Nylon Shoes - Shoes for men - Moccassion - Pure Nylon (Rubber) Expot Quality.",
-    price: 47,
-    discountPercentage: 10.91,
-    stockQuantity: 20,
-    brand: "65a7e20102e12c44f599440a",
-    category: "65a7e24602e12c44f5994437",
-    thumbnail: "https://cdn.dummyjson.com/product-images/57/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/57/1.jpg",
-      "https://cdn.dummyjson.com/product-images/57/2.jpg",
-      "https://cdn.dummyjson.com/product-images/57/3.jpg",
-      "https://cdn.dummyjson.com/product-images/57/4.jpg",
-      "https://cdn.dummyjson.com/product-images/57/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f5994487",
-    title: "formal offices shoes",
-    description:
-      "Pattern Type: Solid, Material: PU, Toe Shape: Pointed Toe ,Outsole Material: Rubber",
-    price: 57,
-    discountPercentage: 12,
-    stockQuantity: 68,
-    brand: "65a7e20102e12c44f5994408",
-    category: "65a7e24602e12c44f5994437",
-    thumbnail: "https://cdn.dummyjson.com/product-images/58/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/58/1.jpg",
-      "https://cdn.dummyjson.com/product-images/58/2.jpg",
-      "https://cdn.dummyjson.com/product-images/58/3.jpg",
-      "https://cdn.dummyjson.com/product-images/58/4.jpg",
-      "https://cdn.dummyjson.com/product-images/58/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f5994488",
-    title: "Spring and summershoes",
-    description:
-      "Comfortable stretch cloth, lightweight body; ,rubber sole, anti-skid wear;",
-    price: 20,
-    discountPercentage: 8.71,
-    stockQuantity: 137,
-    brand: "65a7e20102e12c44f5994409",
-    category: "65a7e24602e12c44f5994437",
-    thumbnail: "https://cdn.dummyjson.com/product-images/59/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/59/1.jpg",
-      "https://cdn.dummyjson.com/product-images/59/2.jpg",
-      "https://cdn.dummyjson.com/product-images/59/3.jpg",
-      "https://cdn.dummyjson.com/product-images/59/4.jpg",
-      "https://cdn.dummyjson.com/product-images/59/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f5994489",
-    title: "Stylish Casual Jeans Shoes",
-    description:
-      "High Quality ,Stylish design ,Comfortable wear ,FAshion ,Durable",
-    price: 58,
-    discountPercentage: 7.55,
-    stockQuantity: 129,
-    brand: "65a7e20102e12c44f5994409",
-    category: "65a7e24602e12c44f5994437",
-    thumbnail: "https://cdn.dummyjson.com/product-images/60/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/60/1.jpg",
-      "https://cdn.dummyjson.com/product-images/60/2.jpg",
-      "https://cdn.dummyjson.com/product-images/60/3.jpg",
-      "https://cdn.dummyjson.com/product-images/60/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f599448a",
-    title: "Leather Straps Wristwatch",
-    description: "Style:Sport ,Clasp:Buckles ,Water Resistance Depth:3Bar",
-    price: 120,
-    discountPercentage: 7.14,
-    stockQuantity: 91,
-    brand: "65a7e20102e12c44f599440b",
-    category: "65a7e24602e12c44f5994438",
-    thumbnail: "https://cdn.dummyjson.com/product-images/61/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/61/1.jpg",
-      "https://cdn.dummyjson.com/product-images/61/2.png",
-      "https://cdn.dummyjson.com/product-images/61/3.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f599448b",
-    title: "Waterproof Leather Brand Watch",
-    description:
-      "Watch Crown With Environmental IPS Bronze Electroplating; Display system of 12 hours",
-    price: 46,
-    discountPercentage: 3.15,
-    stockQuantity: 95,
-    brand: "65a7e20102e12c44f599440c",
-    category: "65a7e24602e12c44f5994438",
-    thumbnail: "https://cdn.dummyjson.com/product-images/62/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/62/1.jpg",
-      "https://cdn.dummyjson.com/product-images/62/2.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f599448c",
-    title: "Royal Blue Premium Watch",
-    description:
-      "Men Silver Chain Royal Blue Premium Watch Latest Analog Watch",
-    price: 50,
-    discountPercentage: 2.56,
-    stockQuantity: 142,
-    brand: "65a7e20102e12c44f599440c",
-    category: "65a7e24602e12c44f5994438",
-    thumbnail: "https://cdn.dummyjson.com/product-images/63/thumbnail.webp",
-    images: [
-      "https://cdn.dummyjson.com/product-images/63/1.jpg",
-      "https://cdn.dummyjson.com/product-images/63/2.jpg",
-      "https://cdn.dummyjson.com/product-images/63/3.png",
-      "https://cdn.dummyjson.com/product-images/63/4.jpeg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f599448d",
-    title: "Leather Strap Skeleton Watch",
-    description:
-      "Leather Strap Skeleton Watch for Men - Stylish and Latest Design",
-    price: 46,
-    discountPercentage: 10.2,
-    stockQuantity: 61,
-    brand: "65a7e20102e12c44f599440d",
-    category: "65a7e24602e12c44f5994438",
-    thumbnail: "https://cdn.dummyjson.com/product-images/64/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/64/1.jpg",
-      "https://cdn.dummyjson.com/product-images/64/2.webp",
-      "https://cdn.dummyjson.com/product-images/64/3.jpg",
-      "https://cdn.dummyjson.com/product-images/64/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f599448e",
-    title: "Stainless Steel Wrist Watch",
-    description:
-      "Stylish Watch For Man (Luxury) Classy Men's Stainless Steel Wrist Watch - Box Packed",
-    price: 47,
-    discountPercentage: 17.79,
-    stockQuantity: 94,
-    brand: "65a7e20102e12c44f599440e",
-    category: "65a7e24602e12c44f5994438",
-    thumbnail: "https://cdn.dummyjson.com/product-images/65/thumbnail.webp",
-    images: [
-      "https://cdn.dummyjson.com/product-images/65/1.jpg",
-      "https://cdn.dummyjson.com/product-images/65/2.webp",
-      "https://cdn.dummyjson.com/product-images/65/3.jpg",
-      "https://cdn.dummyjson.com/product-images/65/4.webp",
-      "https://cdn.dummyjson.com/product-images/65/thumbnail.webp",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f599448f",
-    title: "Steel Analog Couple Watches",
-    description: "Elegant design, Stylish ,Unique & Trendy,Comfortable wear",
-    price: 35,
-    discountPercentage: 3.23,
-    stockQuantity: 24,
-    brand: "65a7e20102e12c44f599440f",
-    category: "65a7e24602e12c44f5994439",
-    thumbnail: "https://cdn.dummyjson.com/product-images/66/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/66/1.jpg",
-      "https://cdn.dummyjson.com/product-images/66/2.jpg",
-      "https://cdn.dummyjson.com/product-images/66/3.jpg",
-      "https://cdn.dummyjson.com/product-images/66/4.JPG",
-      "https://cdn.dummyjson.com/product-images/66/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f5994490",
-    title: "Fashion Magnetic Wrist Watch",
-    description:
-      "Buy this awesome  The product is originally manufactured by the company and it's a top selling product with a very reasonable",
-    price: 60,
-    discountPercentage: 16.69,
-    stockQuantity: 46,
-    brand: "65a7e20102e12c44f599440f",
-    category: "65a7e24602e12c44f5994439",
-    thumbnail: "https://cdn.dummyjson.com/product-images/67/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/67/1.jpg",
-      "https://cdn.dummyjson.com/product-images/67/2.jpg",
-      "https://cdn.dummyjson.com/product-images/67/3.jpg",
-      "https://cdn.dummyjson.com/product-images/67/4.jpg",
-      "https://cdn.dummyjson.com/product-images/67/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f5994491",
-    title: "Stylish Luxury Digital Watch",
-    description:
-      "Stylish Luxury Digital Watch For Girls / Women - Led Smart Ladies Watches For Girls",
-    price: 57,
-    discountPercentage: 9.03,
-    stockQuantity: 77,
-    brand: "65a7e20102e12c44f5994410",
-    category: "65a7e24602e12c44f5994439",
-    thumbnail: "https://cdn.dummyjson.com/product-images/68/thumbnail.webp",
-    images: [
-      "https://cdn.dummyjson.com/product-images/68/1.jpg",
-      "https://cdn.dummyjson.com/product-images/68/2.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f5994492",
-    title: "Golden Watch Pearls Bracelet Watch",
-    description:
-      "Product details of Golden Watch Pearls Bracelet Watch For Girls - Golden Chain Ladies Bracelate Watch for Women",
-    price: 47,
-    discountPercentage: 17.55,
-    stockQuantity: 89,
-    brand: "65a7e20102e12c44f5994411",
-    category: "65a7e24602e12c44f5994439",
-    thumbnail: "https://cdn.dummyjson.com/product-images/69/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/69/1.jpg",
-      "https://cdn.dummyjson.com/product-images/69/2.jpg",
-      "https://cdn.dummyjson.com/product-images/69/3.webp",
-      "https://cdn.dummyjson.com/product-images/69/4.jpg",
-      "https://cdn.dummyjson.com/product-images/69/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f5994493",
-    title: "Stainless Steel Women",
-    description:
-      "Fashion Skmei 1830 Shell Dial Stainless Steel Women Wrist Watch Lady Bracelet Watch Quartz Watches Ladies",
-    price: 35,
-    discountPercentage: 8.98,
-    stockQuantity: 111,
-    brand: "65a7e20102e12c44f5994412",
-    category: "65a7e24602e12c44f5994439",
-    thumbnail: "https://cdn.dummyjson.com/product-images/70/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/70/1.jpg",
-      "https://cdn.dummyjson.com/product-images/70/2.jpg",
-      "https://cdn.dummyjson.com/product-images/70/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f5994494",
-    title: "Women Shoulder Bags",
-    description:
-      "LouisWill Women Shoulder Bags Long Clutches Cross Body Bags Phone Bags PU Leather Hand Bags Large Capacity Card Holders Zipper Coin Purses Fashion Crossbody Bags for Girls Ladies",
-    price: 46,
-    discountPercentage: 14.65,
-    stockQuantity: 17,
-    brand: "65a7e20102e12c44f5994413",
-    category: "65a7e24602e12c44f599443a",
-    thumbnail: "https://cdn.dummyjson.com/product-images/71/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/71/1.jpg",
-      "https://cdn.dummyjson.com/product-images/71/2.jpg",
-      "https://cdn.dummyjson.com/product-images/71/3.webp",
-      "https://cdn.dummyjson.com/product-images/71/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f5994495",
-    title: "Handbag For Girls",
-    description:
-      "This fashion is designed to add a charming effect to your casual outfit. This Bag is made of synthetic leather.",
-    price: 23,
-    discountPercentage: 17.5,
-    stockQuantity: 27,
-    brand: "65a7e20102e12c44f5994413",
-    category: "65a7e24602e12c44f599443a",
-    thumbnail: "https://cdn.dummyjson.com/product-images/72/thumbnail.webp",
-    images: [
-      "https://cdn.dummyjson.com/product-images/72/1.jpg",
-      "https://cdn.dummyjson.com/product-images/72/2.png",
-      "https://cdn.dummyjson.com/product-images/72/3.webp",
-      "https://cdn.dummyjson.com/product-images/72/4.jpg",
-      "https://cdn.dummyjson.com/product-images/72/thumbnail.webp",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f5994496",
-    title: "Fancy hand clutch",
-    description:
-      "This fashion is designed to add a charming effect to your casual outfit. This Bag is made of synthetic leather.",
-    price: 44,
-    discountPercentage: 10.39,
-    stockQuantity: 101,
-    brand: "65a7e20102e12c44f5994412",
-    category: "65a7e24602e12c44f599443a",
-    thumbnail: "https://cdn.dummyjson.com/product-images/73/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/73/1.jpg",
-      "https://cdn.dummyjson.com/product-images/73/2.webp",
-      "https://cdn.dummyjson.com/product-images/73/3.jpg",
-      "https://cdn.dummyjson.com/product-images/73/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f5994497",
-    title: "Leather Hand Bag",
-    description:
-      "It features an attractive design that makes it a must have accessory in your collection. We sell different kind of bags for boys, kids, women, girls and also for unisex.",
-    price: 57,
-    discountPercentage: 11.19,
-    stockQuantity: 43,
-    brand: "65a7e20102e12c44f5994414",
-    category: "65a7e24602e12c44f599443a",
-    thumbnail: "https://cdn.dummyjson.com/product-images/74/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/74/1.jpg",
-      "https://cdn.dummyjson.com/product-images/74/2.jpg",
-      "https://cdn.dummyjson.com/product-images/74/3.jpg",
-      "https://cdn.dummyjson.com/product-images/74/4.jpg",
-      "https://cdn.dummyjson.com/product-images/74/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f5994498",
-    title: "Seven Pocket Women Bag",
-    description:
-      "Seven Pocket Women Bag Handbags Lady Shoulder Crossbody Bag Female Purse Seven Pocket Bag",
-    price: 68,
-    discountPercentage: 14.87,
-    stockQuantity: 13,
-    brand: "65a7e20102e12c44f5994415",
-    category: "65a7e24602e12c44f599443a",
-    thumbnail: "https://cdn.dummyjson.com/product-images/75/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/75/1.jpg",
-      "https://cdn.dummyjson.com/product-images/75/2.jpg",
-      "https://cdn.dummyjson.com/product-images/75/3.jpg",
-      "https://cdn.dummyjson.com/product-images/75/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f5994499",
-    title: "Silver Ring Set Women",
-    description:
-      "Jewelry Type:RingsCertificate Type:NonePlating:Silver PlatedShapeattern:noneStyle:CLASSICReligious",
-    price: 70,
-    discountPercentage: 13.57,
-    stockQuantity: 51,
-    brand: "65a7e20102e12c44f5994416",
-    category: "65a7e24602e12c44f599443b",
-    thumbnail: "https://cdn.dummyjson.com/product-images/76/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/76/1.jpg",
-      "https://cdn.dummyjson.com/product-images/76/2.jpg",
-      "https://cdn.dummyjson.com/product-images/76/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f599449a",
-    title: "Rose Ring",
-    description:
-      "Brand: The Greetings Flower Colour: RedRing Colour: GoldenSize: Adjustable",
-    price: 100,
-    discountPercentage: 3.22,
-    stockQuantity: 149,
-    brand: "65a7e20102e12c44f5994414",
-    category: "65a7e24602e12c44f599443b",
-    thumbnail: "https://cdn.dummyjson.com/product-images/77/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/77/1.jpg",
-      "https://cdn.dummyjson.com/product-images/77/2.jpg",
-      "https://cdn.dummyjson.com/product-images/77/3.jpg",
-      "https://cdn.dummyjson.com/product-images/77/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f599449b",
-    title: "Rhinestone Korean Style Open Rings",
-    description:
-      "Fashion Jewellery 3Pcs Adjustable Pearl Rhinestone Korean Style Open Rings For Women",
-    price: 30,
-    discountPercentage: 8.02,
-    stockQuantity: 9,
-    brand: "65a7e20102e12c44f5994417",
-    category: "65a7e24602e12c44f599443b",
-    thumbnail: "https://cdn.dummyjson.com/product-images/78/thumbnail.jpg",
-    images: ["https://cdn.dummyjson.com/product-images/78/thumbnail.jpg"],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f599449c",
-    title: "Elegant Female Pearl Earrings",
-    description:
-      "Elegant Female Pearl Earrings Set Zircon Pearl Earings Women Party Accessories 9 Pairs/Set",
-    price: 30,
-    discountPercentage: 12.8,
-    stockQuantity: 16,
-    brand: "65a7e20102e12c44f5994417",
-    category: "65a7e24602e12c44f599443b",
-    thumbnail: "https://cdn.dummyjson.com/product-images/79/thumbnail.jpg",
-    images: ["https://cdn.dummyjson.com/product-images/79/1.jpg"],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f599449d",
-    title: "Chain Pin Tassel Earrings",
-    description:
-      "Pair Of Ear Cuff Butterfly Long Chain Pin Tassel Earrings - Silver ( Long Life Quality Product)",
-    price: 45,
-    discountPercentage: 17.75,
-    stockQuantity: 9,
-    brand: "65a7e20102e12c44f5994418",
-    category: "65a7e24602e12c44f599443b",
-    thumbnail: "https://cdn.dummyjson.com/product-images/80/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/80/1.jpg",
-      "https://cdn.dummyjson.com/product-images/80/2.jpg",
-      "https://cdn.dummyjson.com/product-images/80/3.png",
-      "https://cdn.dummyjson.com/product-images/80/4.jpg",
-      "https://cdn.dummyjson.com/product-images/80/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f599449e",
-    title: "Round Silver Frame Sun Glasses",
-    description:
-      "A pair of sunglasses can protect your eyes from being hurt. For car driving, vacation travel, outdoor activities, social gatherings,",
-    price: 19,
-    discountPercentage: 10.1,
-    stockQuantity: 78,
-    brand: "65a7e20102e12c44f5994419",
-    category: "65a7e24602e12c44f599443c",
-    thumbnail: "https://cdn.dummyjson.com/product-images/81/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/81/1.jpg",
-      "https://cdn.dummyjson.com/product-images/81/2.jpg",
-      "https://cdn.dummyjson.com/product-images/81/3.jpg",
-      "https://cdn.dummyjson.com/product-images/81/4.webp",
-      "https://cdn.dummyjson.com/product-images/81/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f599449f",
-    title: "Kabir Singh Square Sunglass",
-    description:
-      "Orignal Metal Kabir Singh design 2020 Sunglasses Men Brand Designer Sun Glasses Kabir Singh Square Sunglass",
-    price: 50,
-    discountPercentage: 15.6,
-    stockQuantity: 78,
-    brand: "65a7e20102e12c44f5994419",
-    category: "65a7e24602e12c44f599443c",
-    thumbnail: "https://cdn.dummyjson.com/product-images/82/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/82/1.jpg",
-      "https://cdn.dummyjson.com/product-images/82/2.webp",
-      "https://cdn.dummyjson.com/product-images/82/3.jpg",
-      "https://cdn.dummyjson.com/product-images/82/4.jpg",
-      "https://cdn.dummyjson.com/product-images/82/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f59944a0",
-    title: "Wiley X Night Vision Yellow Glasses",
-    description:
-      "Wiley X Night Vision Yellow Glasses for Riders - Night Vision Anti Fog Driving Glasses - Free Night Glass Cover - Shield Eyes From Dust and Virus- For Night Sport Matches",
-    price: 30,
-    discountPercentage: 6.33,
-    stockQuantity: 115,
-    brand: "65a7e20102e12c44f599441a",
-    category: "65a7e24602e12c44f599443c",
-    thumbnail: "https://cdn.dummyjson.com/product-images/83/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/83/1.jpg",
-      "https://cdn.dummyjson.com/product-images/83/2.jpg",
-      "https://cdn.dummyjson.com/product-images/83/3.jpg",
-      "https://cdn.dummyjson.com/product-images/83/4.jpg",
-      "https://cdn.dummyjson.com/product-images/83/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f59944a1",
-    title: "Square Sunglasses",
-    description:
-      "Fashion Oversized Square Sunglasses Retro Gradient Big Frame Sunglasses For Women One Piece Gafas Shade Mirror Clear Lens 17059",
-    price: 28,
-    discountPercentage: 13.89,
-    stockQuantity: 64,
-    brand: "65a7e20102e12c44f599441a",
-    category: "65a7e24602e12c44f599443c",
-    thumbnail: "https://cdn.dummyjson.com/product-images/84/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/84/1.jpg",
-      "https://cdn.dummyjson.com/product-images/84/2.jpg",
-      "https://cdn.dummyjson.com/product-images/84/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f59944a2",
-    title: "LouisWill Men Sunglasses",
-    description:
-      "LouisWill Men Sunglasses Polarized Sunglasses UV400 Sunglasses Day Night Dual Use Safety Driving Night Vision Eyewear AL-MG Frame Sun Glasses with Free Box for Drivers",
-    price: 50,
-    discountPercentage: 11.27,
-    stockQuantity: 92,
-    brand: "65a7e20102e12c44f5994413",
-    category: "65a7e24602e12c44f599443c",
-    thumbnail: "https://cdn.dummyjson.com/product-images/85/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/85/1.jpg",
-      "https://cdn.dummyjson.com/product-images/85/2.jpg",
-      "https://cdn.dummyjson.com/product-images/85/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f59944a3",
-    title: "Bluetooth Aux",
-    description:
-      "Bluetooth Aux Bluetooth Car Aux Car Bluetooth Transmitter Aux Audio Receiver Handfree Car Bluetooth Music Receiver Universal 3.5mm Streaming A2DP Wireless Auto AUX Audio Adapter With Mic For Phone MP3",
-    price: 25,
-    discountPercentage: 10.56,
-    stockQuantity: 22,
-    brand: "65a7e20102e12c44f599441b",
-    category: "65a7e24602e12c44f599443d",
-    thumbnail: "https://cdn.dummyjson.com/product-images/86/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/86/1.jpg",
-      "https://cdn.dummyjson.com/product-images/86/2.webp",
-      "https://cdn.dummyjson.com/product-images/86/3.jpg",
-      "https://cdn.dummyjson.com/product-images/86/4.jpg",
-      "https://cdn.dummyjson.com/product-images/86/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f59944a4",
-    title: "t Temperature Controller Incubator Controller",
-    description:
-      "Both Heat and Cool Purpose, Temperature control range; -50 to +110, Temperature measurement accuracy; 0.1, Control accuracy; 0.1",
-    price: 40,
-    discountPercentage: 11.3,
-    stockQuantity: 37,
-    brand: "65a7e20102e12c44f599441c",
-    category: "65a7e24602e12c44f599443d",
-    thumbnail: "https://cdn.dummyjson.com/product-images/87/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/87/1.jpg",
-      "https://cdn.dummyjson.com/product-images/87/2.jpg",
-      "https://cdn.dummyjson.com/product-images/87/3.jpg",
-      "https://cdn.dummyjson.com/product-images/87/4.jpg",
-      "https://cdn.dummyjson.com/product-images/87/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f59944a5",
-    title: "TC Reusable Silicone Magic Washing Gloves",
-    description:
-      "TC Reusable Silicone Magic Washing Gloves with Scrubber, Cleaning Brush Scrubber Gloves Heat Resistant Pair for Cleaning of Kitchen, Dishes, Vegetables and Fruits, Bathroom, Car Wash, Pet Care and Multipurpose",
-    price: 29,
-    discountPercentage: 3.19,
-    stockQuantity: 42,
-    brand: "65a7e20102e12c44f599441d",
-    category: "65a7e24602e12c44f599443d",
-    thumbnail: "https://cdn.dummyjson.com/product-images/88/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/88/1.jpg",
-      "https://cdn.dummyjson.com/product-images/88/2.jpg",
-      "https://cdn.dummyjson.com/product-images/88/3.jpg",
-      "https://cdn.dummyjson.com/product-images/88/4.webp",
-      "https://cdn.dummyjson.com/product-images/88/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f59944a6",
-    title: "Qualcomm original Car Charger",
-    description:
-      "best Quality CHarger , Highly Recommended to all best Quality CHarger , Highly Recommended to all",
-    price: 40,
-    discountPercentage: 17.53,
-    stockQuantity: 79,
-    brand: "65a7e20102e12c44f599441d",
-    category: "65a7e24602e12c44f599443d",
-    thumbnail: "https://cdn.dummyjson.com/product-images/89/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/89/1.jpg",
-      "https://cdn.dummyjson.com/product-images/89/2.jpg",
-      "https://cdn.dummyjson.com/product-images/89/3.jpg",
-      "https://cdn.dummyjson.com/product-images/89/4.jpg",
-      "https://cdn.dummyjson.com/product-images/89/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f59944a7",
-    title: "Cycle Bike Glow",
-    description:
-      "Universal fitment and easy to install no special wires, can be easily installed and removed. Fits most standard tyre air stem valves of road, mountain bicycles, motocycles and cars.Bright led will turn on w",
-    price: 35,
-    discountPercentage: 11.08,
-    stockQuantity: 63,
-    brand: "65a7e20102e12c44f599441e",
-    category: "65a7e24602e12c44f599443d",
-    thumbnail: "https://cdn.dummyjson.com/product-images/90/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/90/1.jpg",
-      "https://cdn.dummyjson.com/product-images/90/2.jpg",
-      "https://cdn.dummyjson.com/product-images/90/3.jpg",
-      "https://cdn.dummyjson.com/product-images/90/4.jpg",
-      "https://cdn.dummyjson.com/product-images/90/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f59944a8",
-    title: "Black Motorbike",
-    description:
-      "Engine Type:Wet sump, Single Cylinder, Four Stroke, Two Valves, Air Cooled with SOHC (Single Over Head Cam) Chain Drive Bore & Stroke:47.0 x 49.5 MM",
-    price: 569,
-    discountPercentage: 13.63,
-    stockQuantity: 115,
-    brand: "65a7e20102e12c44f599441f",
-    category: "65a7e24602e12c44f599443e",
-    thumbnail: "https://cdn.dummyjson.com/product-images/91/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/91/1.jpg",
-      "https://cdn.dummyjson.com/product-images/91/2.jpg",
-      "https://cdn.dummyjson.com/product-images/91/3.jpg",
-      "https://cdn.dummyjson.com/product-images/91/4.jpg",
-      "https://cdn.dummyjson.com/product-images/91/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f59944a9",
-    title: "HOT SALE IN EUROPE electric racing motorcycle",
-    description:
-      "HOT SALE IN EUROPE electric racing motorcycle electric motorcycle for sale adult electric motorcycles",
-    price: 920,
-    discountPercentage: 14.4,
-    stockQuantity: 22,
-    brand: "65a7e20102e12c44f5994420",
-    category: "65a7e24602e12c44f599443e",
-    thumbnail: "https://cdn.dummyjson.com/product-images/92/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/92/1.jpg",
-      "https://cdn.dummyjson.com/product-images/92/2.jpg",
-      "https://cdn.dummyjson.com/product-images/92/3.jpg",
-      "https://cdn.dummyjson.com/product-images/92/4.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f59944aa",
-    title: "Automatic Motor Gas Motorcycles",
-    description:
-      "150cc 4-Stroke Motorcycle Automatic Motor Gas Motorcycles Scooter motorcycles 150cc scooter",
-    price: 1050,
-    discountPercentage: 3.34,
-    stockQuantity: 127,
-    brand: "65a7e20102e12c44f5994421",
-    category: "65a7e24602e12c44f599443e",
-    thumbnail: "https://cdn.dummyjson.com/product-images/93/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/93/1.jpg",
-      "https://cdn.dummyjson.com/product-images/93/2.jpg",
-      "https://cdn.dummyjson.com/product-images/93/3.jpg",
-      "https://cdn.dummyjson.com/product-images/93/4.jpg",
-      "https://cdn.dummyjson.com/product-images/93/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f59944ab",
-    title: "new arrivals Fashion motocross goggles",
-    description:
-      "new arrivals Fashion motocross goggles motorcycle motocross racing motorcycle",
-    price: 900,
-    discountPercentage: 3.85,
-    stockQuantity: 109,
-    brand: "65a7e20102e12c44f5994422",
-    category: "65a7e24602e12c44f599443e",
-    thumbnail: "https://cdn.dummyjson.com/product-images/94/thumbnail.webp",
-    images: [
-      "https://cdn.dummyjson.com/product-images/94/1.webp",
-      "https://cdn.dummyjson.com/product-images/94/2.jpg",
-      "https://cdn.dummyjson.com/product-images/94/3.jpg",
-      "https://cdn.dummyjson.com/product-images/94/thumbnail.webp",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f59944ac",
-    title: "Wholesale cargo lashing Belt",
-    description:
-      "Wholesale cargo lashing Belt Tie Down end Ratchet strap customized strap 25mm motorcycle 1500kgs with rubber handle",
-    price: 930,
-    discountPercentage: 17.67,
-    stockQuantity: 144,
-    brand: "65a7e20102e12c44f5994423",
-    category: "65a7e24602e12c44f599443e",
-    thumbnail: "https://cdn.dummyjson.com/product-images/95/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/95/1.jpg",
-      "https://cdn.dummyjson.com/product-images/95/2.jpg",
-      "https://cdn.dummyjson.com/product-images/95/3.jpg",
-      "https://cdn.dummyjson.com/product-images/95/4.jpg",
-      "https://cdn.dummyjson.com/product-images/95/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f59944ad",
-    title: "lighting ceiling kitchen",
-    description:
-      "Wholesale slim hanging decorative kid room lighting ceiling kitchen chandeliers pendant light modern",
-    price: 30,
-    discountPercentage: 14.89,
-    stockQuantity: 96,
-    brand: "65a7e20102e12c44f5994424",
-    category: "65a7e24602e12c44f599443f",
-    thumbnail: "https://cdn.dummyjson.com/product-images/96/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/96/1.jpg",
-      "https://cdn.dummyjson.com/product-images/96/2.jpg",
-      "https://cdn.dummyjson.com/product-images/96/3.jpg",
-      "https://cdn.dummyjson.com/product-images/96/4.jpg",
-      "https://cdn.dummyjson.com/product-images/96/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f59944ae",
-    title: "Metal Ceramic Flower",
-    description:
-      "Metal Ceramic Flower Chandelier Home Lighting American Vintage Hanging Lighting Pendant Lamp",
-    price: 35,
-    discountPercentage: 10.94,
-    stockQuantity: 146,
-    brand: "65a7e20102e12c44f5994425",
-    category: "65a7e24602e12c44f599443f",
-    thumbnail: "https://cdn.dummyjson.com/product-images/97/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/97/1.jpg",
-      "https://cdn.dummyjson.com/product-images/97/2.jpg",
-      "https://cdn.dummyjson.com/product-images/97/3.jpg",
-      "https://cdn.dummyjson.com/product-images/97/4.webp",
-      "https://cdn.dummyjson.com/product-images/97/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f59944af",
-    title: "3 lights lndenpant kitchen islang",
-    description:
-      "3 lights lndenpant kitchen islang dining room pendant rice paper chandelier contemporary led pendant light modern chandelier",
-    price: 34,
-    discountPercentage: 5.92,
-    stockQuantity: 44,
-    brand: "65a7e20102e12c44f5994426",
-    category: "65a7e24602e12c44f599443f",
-    thumbnail: "https://cdn.dummyjson.com/product-images/98/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/98/1.jpg",
-      "https://cdn.dummyjson.com/product-images/98/2.jpg",
-      "https://cdn.dummyjson.com/product-images/98/3.jpg",
-      "https://cdn.dummyjson.com/product-images/98/4.jpg",
-      "https://cdn.dummyjson.com/product-images/98/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f59944b0",
-    title: "American Vintage Wood Pendant Light",
-    description:
-      "American Vintage Wood Pendant Light Farmhouse Antique Hanging Lamp Lampara Colgante",
-    price: 46,
-    discountPercentage: 8.84,
-    stockQuantity: 138,
-    brand: "65a7e20102e12c44f5994425",
-    category: "65a7e24602e12c44f599443f",
-    thumbnail: "https://cdn.dummyjson.com/product-images/99/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/99/1.jpg",
-      "https://cdn.dummyjson.com/product-images/99/2.jpg",
-      "https://cdn.dummyjson.com/product-images/99/3.jpg",
-      "https://cdn.dummyjson.com/product-images/99/4.jpg",
-      "https://cdn.dummyjson.com/product-images/99/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-  {
-    _id: "65a7e45902e12c44f59944b1",
-    title: "Crystal chandelier maria theresa for 12 light",
-    description: "Crystal chandelier maria theresa for 12 light",
-    price: 47,
-    discountPercentage: 16,
-    stockQuantity: 133,
-    brand: "65a7e20102e12c44f5994427",
-    category: "65a7e24602e12c44f599443f",
-    thumbnail: "https://cdn.dummyjson.com/product-images/100/thumbnail.jpg",
-    images: [
-      "https://cdn.dummyjson.com/product-images/100/1.jpg",
-      "https://cdn.dummyjson.com/product-images/100/2.jpg",
-      "https://cdn.dummyjson.com/product-images/100/3.jpg",
-      "https://cdn.dummyjson.com/product-images/100/thumbnail.jpg",
-    ],
-    isDeleted: false,
-    updatedAt: "2024-02-07T09:22:57.840Z",
-  },
-];
+    {
+      "id": 1,
+      "title": "Essence Mascara Lash Princess",
+      "description": "The Essence Mascara Lash Princess is a popular mascara known for its volumizing and lengthening effects. Achieve dramatic lashes with this long-lasting and cruelty-free formula.",
+      "category": "beauty",
+      "price": 9.99,
+      "discountPercentage": 10.48,
+      "rating": 2.56,
+      "stock": 99,
+      "tags": [
+        "beauty",
+        "mascara"
+      ],
+      "brand": "Essence",
+      "sku": "BEA-ESS-ESS-001",
+      "weight": 4,
+      "dimensions": {
+        "width": 15.14,
+        "height": 13.08,
+        "depth": 22.99
+      },
+      "warrantyInformation": "1 week warranty",
+      "shippingInformation": "Ships in 3-5 business days",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 3,
+          "comment": "Would not recommend!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Eleanor Collins",
+          "reviewerEmail": "eleanor.collins@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Very satisfied!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Lucas Gordon",
+          "reviewerEmail": "lucas.gordon@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Highly impressed!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Eleanor Collins",
+          "reviewerEmail": "eleanor.collins@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "No return policy",
+      "minimumOrderQuantity": 48,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "5784719087687",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/1.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/thumbnail.webp"
+    },
+    {
+      "id": 2,
+      "title": "Eyeshadow Palette with Mirror",
+      "description": "The Eyeshadow Palette with Mirror offers a versatile range of eyeshadow shades for creating stunning eye looks. With a built-in mirror, it's convenient for on-the-go makeup application.",
+      "category": "beauty",
+      "price": 19.99,
+      "discountPercentage": 18.19,
+      "rating": 2.86,
+      "stock": 34,
+      "tags": [
+        "beauty",
+        "eyeshadow"
+      ],
+      "brand": "Glamour Beauty",
+      "sku": "BEA-GLA-EYE-002",
+      "weight": 9,
+      "dimensions": {
+        "width": 9.26,
+        "height": 22.47,
+        "depth": 27.67
+      },
+      "warrantyInformation": "1 year warranty",
+      "shippingInformation": "Ships in 2 weeks",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 5,
+          "comment": "Great product!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Savannah Gomez",
+          "reviewerEmail": "savannah.gomez@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Awesome product!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Christian Perez",
+          "reviewerEmail": "christian.perez@x.dummyjson.com"
+        },
+        {
+          "rating": 1,
+          "comment": "Poor quality!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Nicholas Bailey",
+          "reviewerEmail": "nicholas.bailey@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "7 days return policy",
+      "minimumOrderQuantity": 20,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "9170275171413",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/beauty/eyeshadow-palette-with-mirror/1.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/beauty/eyeshadow-palette-with-mirror/thumbnail.webp"
+    },
+    {
+      "id": 3,
+      "title": "Powder Canister",
+      "description": "The Powder Canister is a finely milled setting powder designed to set makeup and control shine. With a lightweight and translucent formula, it provides a smooth and matte finish.",
+      "category": "beauty",
+      "price": 14.99,
+      "discountPercentage": 9.84,
+      "rating": 4.64,
+      "stock": 89,
+      "tags": [
+        "beauty",
+        "face powder"
+      ],
+      "brand": "Velvet Touch",
+      "sku": "BEA-VEL-POW-003",
+      "weight": 8,
+      "dimensions": {
+        "width": 29.27,
+        "height": 27.93,
+        "depth": 20.59
+      },
+      "warrantyInformation": "3 months warranty",
+      "shippingInformation": "Ships in 1-2 business days",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 4,
+          "comment": "Would buy again!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Alexander Jones",
+          "reviewerEmail": "alexander.jones@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Highly impressed!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Elijah Cruz",
+          "reviewerEmail": "elijah.cruz@x.dummyjson.com"
+        },
+        {
+          "rating": 1,
+          "comment": "Very dissatisfied!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Avery Perez",
+          "reviewerEmail": "avery.perez@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "No return policy",
+      "minimumOrderQuantity": 22,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "8418883906837",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/beauty/powder-canister/1.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/beauty/powder-canister/thumbnail.webp"
+    },
+    {
+      "id": 4,
+      "title": "Red Lipstick",
+      "description": "The Red Lipstick is a classic and bold choice for adding a pop of color to your lips. With a creamy and pigmented formula, it provides a vibrant and long-lasting finish.",
+      "category": "beauty",
+      "price": 12.99,
+      "discountPercentage": 12.16,
+      "rating": 4.36,
+      "stock": 91,
+      "tags": [
+        "beauty",
+        "lipstick"
+      ],
+      "brand": "Chic Cosmetics",
+      "sku": "BEA-CHI-LIP-004",
+      "weight": 1,
+      "dimensions": {
+        "width": 18.11,
+        "height": 28.38,
+        "depth": 22.17
+      },
+      "warrantyInformation": "3 year warranty",
+      "shippingInformation": "Ships in 1 week",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 4,
+          "comment": "Great product!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Liam Garcia",
+          "reviewerEmail": "liam.garcia@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Great product!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Ruby Andrews",
+          "reviewerEmail": "ruby.andrews@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Would buy again!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Clara Berry",
+          "reviewerEmail": "clara.berry@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "7 days return policy",
+      "minimumOrderQuantity": 40,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "9467746727219",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/beauty/red-lipstick/1.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/beauty/red-lipstick/thumbnail.webp"
+    },
+    {
+      "id": 5,
+      "title": "Red Nail Polish",
+      "description": "The Red Nail Polish offers a rich and glossy red hue for vibrant and polished nails. With a quick-drying formula, it provides a salon-quality finish at home.",
+      "category": "beauty",
+      "price": 8.99,
+      "discountPercentage": 11.44,
+      "rating": 4.32,
+      "stock": 79,
+      "tags": [
+        "beauty",
+        "nail polish"
+      ],
+      "brand": "Nail Couture",
+      "sku": "BEA-NAI-NAI-005",
+      "weight": 8,
+      "dimensions": {
+        "width": 21.63,
+        "height": 16.48,
+        "depth": 29.84
+      },
+      "warrantyInformation": "1 month warranty",
+      "shippingInformation": "Ships overnight",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 2,
+          "comment": "Poor quality!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Benjamin Wilson",
+          "reviewerEmail": "benjamin.wilson@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Great product!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Liam Smith",
+          "reviewerEmail": "liam.smith@x.dummyjson.com"
+        },
+        {
+          "rating": 1,
+          "comment": "Very unhappy with my purchase!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Clara Berry",
+          "reviewerEmail": "clara.berry@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "No return policy",
+      "minimumOrderQuantity": 22,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "4063010628104",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/beauty/red-nail-polish/1.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/beauty/red-nail-polish/thumbnail.webp"
+    },
+    {
+      "id": 6,
+      "title": "Calvin Klein CK One",
+      "description": "CK One by Calvin Klein is a classic unisex fragrance, known for its fresh and clean scent. It's a versatile fragrance suitable for everyday wear.",
+      "category": "fragrances",
+      "price": 49.99,
+      "discountPercentage": 1.89,
+      "rating": 4.37,
+      "stock": 29,
+      "tags": [
+        "fragrances",
+        "perfumes"
+      ],
+      "brand": "Calvin Klein",
+      "sku": "FRA-CAL-CAL-006",
+      "weight": 7,
+      "dimensions": {
+        "width": 29.36,
+        "height": 27.76,
+        "depth": 20.72
+      },
+      "warrantyInformation": "1 week warranty",
+      "shippingInformation": "Ships overnight",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 2,
+          "comment": "Very disappointed!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Layla Young",
+          "reviewerEmail": "layla.young@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Fast shipping!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Daniel Cook",
+          "reviewerEmail": "daniel.cook@x.dummyjson.com"
+        },
+        {
+          "rating": 3,
+          "comment": "Not as described!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Jacob Cooper",
+          "reviewerEmail": "jacob.cooper@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "90 days return policy",
+      "minimumOrderQuantity": 9,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "2451534060749",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/fragrances/calvin-klein-ck-one/1.webp",
+        "https://cdn.dummyjson.com/product-images/fragrances/calvin-klein-ck-one/2.webp",
+        "https://cdn.dummyjson.com/product-images/fragrances/calvin-klein-ck-one/3.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/fragrances/calvin-klein-ck-one/thumbnail.webp"
+    },
+    {
+      "id": 7,
+      "title": "Chanel Coco Noir Eau De",
+      "description": "Coco Noir by Chanel is an elegant and mysterious fragrance, featuring notes of grapefruit, rose, and sandalwood. Perfect for evening occasions.",
+      "category": "fragrances",
+      "price": 129.99,
+      "discountPercentage": 16.51,
+      "rating": 4.26,
+      "stock": 58,
+      "tags": [
+        "fragrances",
+        "perfumes"
+      ],
+      "brand": "Chanel",
+      "sku": "FRA-CHA-CHA-007",
+      "weight": 7,
+      "dimensions": {
+        "width": 24.5,
+        "height": 25.7,
+        "depth": 25.98
+      },
+      "warrantyInformation": "3 year warranty",
+      "shippingInformation": "Ships overnight",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 4,
+          "comment": "Highly impressed!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Ruby Andrews",
+          "reviewerEmail": "ruby.andrews@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Awesome product!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Leah Henderson",
+          "reviewerEmail": "leah.henderson@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Very happy with my purchase!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Xavier Wright",
+          "reviewerEmail": "xavier.wright@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "No return policy",
+      "minimumOrderQuantity": 1,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "4091737746820",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/fragrances/chanel-coco-noir-eau-de/1.webp",
+        "https://cdn.dummyjson.com/product-images/fragrances/chanel-coco-noir-eau-de/2.webp",
+        "https://cdn.dummyjson.com/product-images/fragrances/chanel-coco-noir-eau-de/3.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/fragrances/chanel-coco-noir-eau-de/thumbnail.webp"
+    },
+    {
+      "id": 8,
+      "title": "Dior J'adore",
+      "description": "J'adore by Dior is a luxurious and floral fragrance, known for its blend of ylang-ylang, rose, and jasmine. It embodies femininity and sophistication.",
+      "category": "fragrances",
+      "price": 89.99,
+      "discountPercentage": 14.72,
+      "rating": 3.8,
+      "stock": 98,
+      "tags": [
+        "fragrances",
+        "perfumes"
+      ],
+      "brand": "Dior",
+      "sku": "FRA-DIO-DIO-008",
+      "weight": 4,
+      "dimensions": {
+        "width": 27.67,
+        "height": 28.28,
+        "depth": 11.83
+      },
+      "warrantyInformation": "1 week warranty",
+      "shippingInformation": "Ships in 2 weeks",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 5,
+          "comment": "Great value for money!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Nicholas Bailey",
+          "reviewerEmail": "nicholas.bailey@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Great value for money!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Penelope Harper",
+          "reviewerEmail": "penelope.harper@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Great product!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Emma Miller",
+          "reviewerEmail": "emma.miller@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "7 days return policy",
+      "minimumOrderQuantity": 10,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "1445086097250",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/fragrances/dior-j'adore/1.webp",
+        "https://cdn.dummyjson.com/product-images/fragrances/dior-j'adore/2.webp",
+        "https://cdn.dummyjson.com/product-images/fragrances/dior-j'adore/3.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/fragrances/dior-j'adore/thumbnail.webp"
+    },
+    {
+      "id": 9,
+      "title": "Dolce Shine Eau de",
+      "description": "Dolce Shine by Dolce & Gabbana is a vibrant and fruity fragrance, featuring notes of mango, jasmine, and blonde woods. It's a joyful and youthful scent.",
+      "category": "fragrances",
+      "price": 69.99,
+      "discountPercentage": 0.62,
+      "rating": 3.96,
+      "stock": 4,
+      "tags": [
+        "fragrances",
+        "perfumes"
+      ],
+      "brand": "Dolce & Gabbana",
+      "sku": "FRA-DOL-DOL-009",
+      "weight": 6,
+      "dimensions": {
+        "width": 27.28,
+        "height": 29.88,
+        "depth": 18.3
+      },
+      "warrantyInformation": "3 year warranty",
+      "shippingInformation": "Ships in 1 month",
+      "availabilityStatus": "Low Stock",
+      "reviews": [
+        {
+          "rating": 4,
+          "comment": "Would buy again!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Mateo Bennett",
+          "reviewerEmail": "mateo.bennett@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Highly recommended!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Nolan Gonzalez",
+          "reviewerEmail": "nolan.gonzalez@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Very happy with my purchase!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Aurora Lawson",
+          "reviewerEmail": "aurora.lawson@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "7 days return policy",
+      "minimumOrderQuantity": 2,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "3023868210708",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/fragrances/dolce-shine-eau-de/1.webp",
+        "https://cdn.dummyjson.com/product-images/fragrances/dolce-shine-eau-de/2.webp",
+        "https://cdn.dummyjson.com/product-images/fragrances/dolce-shine-eau-de/3.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/fragrances/dolce-shine-eau-de/thumbnail.webp"
+    },
+    {
+      "id": 10,
+      "title": "Gucci Bloom Eau de",
+      "description": "Gucci Bloom by Gucci is a floral and captivating fragrance, with notes of tuberose, jasmine, and Rangoon creeper. It's a modern and romantic scent.",
+      "category": "fragrances",
+      "price": 79.99,
+      "discountPercentage": 14.39,
+      "rating": 2.74,
+      "stock": 91,
+      "tags": [
+        "fragrances",
+        "perfumes"
+      ],
+      "brand": "Gucci",
+      "sku": "FRA-GUC-GUC-010",
+      "weight": 7,
+      "dimensions": {
+        "width": 20.92,
+        "height": 21.68,
+        "depth": 11.2
+      },
+      "warrantyInformation": "6 months warranty",
+      "shippingInformation": "Ships overnight",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 1,
+          "comment": "Very dissatisfied!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Cameron Perez",
+          "reviewerEmail": "cameron.perez@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Very happy with my purchase!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Daniel Cook",
+          "reviewerEmail": "daniel.cook@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Highly impressed!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Addison Wright",
+          "reviewerEmail": "addison.wright@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "No return policy",
+      "minimumOrderQuantity": 2,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "3170832177880",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/fragrances/gucci-bloom-eau-de/1.webp",
+        "https://cdn.dummyjson.com/product-images/fragrances/gucci-bloom-eau-de/2.webp",
+        "https://cdn.dummyjson.com/product-images/fragrances/gucci-bloom-eau-de/3.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/fragrances/gucci-bloom-eau-de/thumbnail.webp"
+    },
+    {
+      "id": 11,
+      "title": "Annibale Colombo Bed",
+      "description": "The Annibale Colombo Bed is a luxurious and elegant bed frame, crafted with high-quality materials for a comfortable and stylish bedroom.",
+      "category": "furniture",
+      "price": 1899.99,
+      "discountPercentage": 8.57,
+      "rating": 4.77,
+      "stock": 88,
+      "tags": [
+        "furniture",
+        "beds"
+      ],
+      "brand": "Annibale Colombo",
+      "sku": "FUR-ANN-ANN-011",
+      "weight": 10,
+      "dimensions": {
+        "width": 28.16,
+        "height": 25.36,
+        "depth": 17.28
+      },
+      "warrantyInformation": "1 year warranty",
+      "shippingInformation": "Ships in 1 month",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 2,
+          "comment": "Would not recommend!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Christopher West",
+          "reviewerEmail": "christopher.west@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Highly impressed!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Vivian Carter",
+          "reviewerEmail": "vivian.carter@x.dummyjson.com"
+        },
+        {
+          "rating": 1,
+          "comment": "Poor quality!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Mason Wright",
+          "reviewerEmail": "mason.wright@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "No return policy",
+      "minimumOrderQuantity": 1,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "3610757456581",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/furniture/annibale-colombo-bed/1.webp",
+        "https://cdn.dummyjson.com/product-images/furniture/annibale-colombo-bed/2.webp",
+        "https://cdn.dummyjson.com/product-images/furniture/annibale-colombo-bed/3.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/furniture/annibale-colombo-bed/thumbnail.webp"
+    },
+    {
+      "id": 12,
+      "title": "Annibale Colombo Sofa",
+      "description": "The Annibale Colombo Sofa is a sophisticated and comfortable seating option, featuring exquisite design and premium upholstery for your living room.",
+      "category": "furniture",
+      "price": 2499.99,
+      "discountPercentage": 14.4,
+      "rating": 3.92,
+      "stock": 60,
+      "tags": [
+        "furniture",
+        "sofas"
+      ],
+      "brand": "Annibale Colombo",
+      "sku": "FUR-ANN-ANN-012",
+      "weight": 6,
+      "dimensions": {
+        "width": 12.75,
+        "height": 20.55,
+        "depth": 19.06
+      },
+      "warrantyInformation": "Lifetime warranty",
+      "shippingInformation": "Ships in 1 week",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 3,
+          "comment": "Very unhappy with my purchase!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Christian Perez",
+          "reviewerEmail": "christian.perez@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Fast shipping!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Lillian Bishop",
+          "reviewerEmail": "lillian.bishop@x.dummyjson.com"
+        },
+        {
+          "rating": 1,
+          "comment": "Poor quality!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Lillian Simmons",
+          "reviewerEmail": "lillian.simmons@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "7 days return policy",
+      "minimumOrderQuantity": 1,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "1777662847736",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/furniture/annibale-colombo-sofa/1.webp",
+        "https://cdn.dummyjson.com/product-images/furniture/annibale-colombo-sofa/2.webp",
+        "https://cdn.dummyjson.com/product-images/furniture/annibale-colombo-sofa/3.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/furniture/annibale-colombo-sofa/thumbnail.webp"
+    },
+    {
+      "id": 13,
+      "title": "Bedside Table African Cherry",
+      "description": "The Bedside Table in African Cherry is a stylish and functional addition to your bedroom, providing convenient storage space and a touch of elegance.",
+      "category": "furniture",
+      "price": 299.99,
+      "discountPercentage": 19.09,
+      "rating": 2.87,
+      "stock": 64,
+      "tags": [
+        "furniture",
+        "bedside tables"
+      ],
+      "brand": "Furniture Co.",
+      "sku": "FUR-FUR-BED-013",
+      "weight": 2,
+      "dimensions": {
+        "width": 13.47,
+        "height": 24.99,
+        "depth": 27.35
+      },
+      "warrantyInformation": "5 year warranty",
+      "shippingInformation": "Ships overnight",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 4,
+          "comment": "Excellent quality!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Aaliyah Hanson",
+          "reviewerEmail": "aaliyah.hanson@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Excellent quality!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Liam Smith",
+          "reviewerEmail": "liam.smith@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Highly recommended!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Avery Barnes",
+          "reviewerEmail": "avery.barnes@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "7 days return policy",
+      "minimumOrderQuantity": 3,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "6441287925979",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/furniture/bedside-table-african-cherry/1.webp",
+        "https://cdn.dummyjson.com/product-images/furniture/bedside-table-african-cherry/2.webp",
+        "https://cdn.dummyjson.com/product-images/furniture/bedside-table-african-cherry/3.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/furniture/bedside-table-african-cherry/thumbnail.webp"
+    },
+    {
+      "id": 14,
+      "title": "Knoll Saarinen Executive Conference Chair",
+      "description": "The Knoll Saarinen Executive Conference Chair is a modern and ergonomic chair, perfect for your office or conference room with its timeless design.",
+      "category": "furniture",
+      "price": 499.99,
+      "discountPercentage": 2.01,
+      "rating": 4.88,
+      "stock": 26,
+      "tags": [
+        "furniture",
+        "office chairs"
+      ],
+      "brand": "Knoll",
+      "sku": "FUR-KNO-KNO-014",
+      "weight": 10,
+      "dimensions": {
+        "width": 13.81,
+        "height": 7.5,
+        "depth": 5.62
+      },
+      "warrantyInformation": "2 year warranty",
+      "shippingInformation": "Ships overnight",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 2,
+          "comment": "Waste of money!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Ella Cook",
+          "reviewerEmail": "ella.cook@x.dummyjson.com"
+        },
+        {
+          "rating": 2,
+          "comment": "Very dissatisfied!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Clara Berry",
+          "reviewerEmail": "clara.berry@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Would buy again!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Elena Long",
+          "reviewerEmail": "elena.long@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "60 days return policy",
+      "minimumOrderQuantity": 5,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "8919386859966",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/furniture/knoll-saarinen-executive-conference-chair/1.webp",
+        "https://cdn.dummyjson.com/product-images/furniture/knoll-saarinen-executive-conference-chair/2.webp",
+        "https://cdn.dummyjson.com/product-images/furniture/knoll-saarinen-executive-conference-chair/3.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/furniture/knoll-saarinen-executive-conference-chair/thumbnail.webp"
+    },
+    {
+      "id": 15,
+      "title": "Wooden Bathroom Sink With Mirror",
+      "description": "The Wooden Bathroom Sink with Mirror is a unique and stylish addition to your bathroom, featuring a wooden sink countertop and a matching mirror.",
+      "category": "furniture",
+      "price": 799.99,
+      "discountPercentage": 8.8,
+      "rating": 3.59,
+      "stock": 7,
+      "tags": [
+        "furniture",
+        "bathroom"
+      ],
+      "brand": "Bath Trends",
+      "sku": "FUR-BAT-WOO-015",
+      "weight": 10,
+      "dimensions": {
+        "width": 7.98,
+        "height": 8.88,
+        "depth": 28.46
+      },
+      "warrantyInformation": "3 year warranty",
+      "shippingInformation": "Ships in 3-5 business days",
+      "availabilityStatus": "Low Stock",
+      "reviews": [
+        {
+          "rating": 4,
+          "comment": "Fast shipping!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Logan Torres",
+          "reviewerEmail": "logan.torres@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Very pleased!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Aria Parker",
+          "reviewerEmail": "aria.parker@x.dummyjson.com"
+        },
+        {
+          "rating": 3,
+          "comment": "Poor quality!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Dylan Wells",
+          "reviewerEmail": "dylan.wells@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "60 days return policy",
+      "minimumOrderQuantity": 2,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "1958104402873",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/furniture/wooden-bathroom-sink-with-mirror/1.webp",
+        "https://cdn.dummyjson.com/product-images/furniture/wooden-bathroom-sink-with-mirror/2.webp",
+        "https://cdn.dummyjson.com/product-images/furniture/wooden-bathroom-sink-with-mirror/3.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/furniture/wooden-bathroom-sink-with-mirror/thumbnail.webp"
+    },
+    {
+      "id": 16,
+      "title": "Apple",
+      "description": "Fresh and crisp apples, perfect for snacking or incorporating into various recipes.",
+      "category": "groceries",
+      "price": 1.99,
+      "discountPercentage": 12.62,
+      "rating": 4.19,
+      "stock": 8,
+      "tags": [
+        "fruits"
+      ],
+      "sku": "GRO-BRD-APP-016",
+      "weight": 9,
+      "dimensions": {
+        "width": 13.66,
+        "height": 11.01,
+        "depth": 9.73
+      },
+      "warrantyInformation": "3 year warranty",
+      "shippingInformation": "Ships in 2 weeks",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 5,
+          "comment": "Very satisfied!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Sophia Brown",
+          "reviewerEmail": "sophia.brown@x.dummyjson.com"
+        },
+        {
+          "rating": 1,
+          "comment": "Very dissatisfied!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Scarlett Bowman",
+          "reviewerEmail": "scarlett.bowman@x.dummyjson.com"
+        },
+        {
+          "rating": 3,
+          "comment": "Very unhappy with my purchase!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "William Gonzalez",
+          "reviewerEmail": "william.gonzalez@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "90 days return policy",
+      "minimumOrderQuantity": 7,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "7962803553314",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/groceries/apple/1.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/apple/thumbnail.webp"
+    },
+    {
+      "id": 17,
+      "title": "Beef Steak",
+      "description": "High-quality beef steak, great for grilling or cooking to your preferred level of doneness.",
+      "category": "groceries",
+      "price": 12.99,
+      "discountPercentage": 9.61,
+      "rating": 4.47,
+      "stock": 86,
+      "tags": [
+        "meat"
+      ],
+      "sku": "GRO-BRD-BEE-017",
+      "weight": 10,
+      "dimensions": {
+        "width": 18.9,
+        "height": 5.77,
+        "depth": 18.57
+      },
+      "warrantyInformation": "3 year warranty",
+      "shippingInformation": "Ships overnight",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 3,
+          "comment": "Would not recommend!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Eleanor Tyler",
+          "reviewerEmail": "eleanor.tyler@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Fast shipping!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Alexander Jones",
+          "reviewerEmail": "alexander.jones@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Great value for money!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Natalie Harris",
+          "reviewerEmail": "natalie.harris@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "60 days return policy",
+      "minimumOrderQuantity": 43,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "5640063409695",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/groceries/beef-steak/1.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/beef-steak/thumbnail.webp"
+    },
+    {
+      "id": 18,
+      "title": "Cat Food",
+      "description": "Nutritious cat food formulated to meet the dietary needs of your feline friend.",
+      "category": "groceries",
+      "price": 8.99,
+      "discountPercentage": 9.58,
+      "rating": 3.13,
+      "stock": 46,
+      "tags": [
+        "pet supplies",
+        "cat food"
+      ],
+      "sku": "GRO-BRD-FOO-018",
+      "weight": 10,
+      "dimensions": {
+        "width": 18.08,
+        "height": 9.26,
+        "depth": 21.86
+      },
+      "warrantyInformation": "1 year warranty",
+      "shippingInformation": "Ships overnight",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 3,
+          "comment": "Would not recommend!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Noah Lewis",
+          "reviewerEmail": "noah.lewis@x.dummyjson.com"
+        },
+        {
+          "rating": 3,
+          "comment": "Very unhappy with my purchase!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Ruby Andrews",
+          "reviewerEmail": "ruby.andrews@x.dummyjson.com"
+        },
+        {
+          "rating": 2,
+          "comment": "Very disappointed!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Ethan Thompson",
+          "reviewerEmail": "ethan.thompson@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "No return policy",
+      "minimumOrderQuantity": 18,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "1483991328610",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/groceries/cat-food/1.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/cat-food/thumbnail.webp"
+    },
+    {
+      "id": 19,
+      "title": "Chicken Meat",
+      "description": "Fresh and tender chicken meat, suitable for various culinary preparations.",
+      "category": "groceries",
+      "price": 9.99,
+      "discountPercentage": 13.7,
+      "rating": 3.19,
+      "stock": 97,
+      "tags": [
+        "meat"
+      ],
+      "sku": "GRO-BRD-CHI-019",
+      "weight": 1,
+      "dimensions": {
+        "width": 11.03,
+        "height": 22.11,
+        "depth": 16.01
+      },
+      "warrantyInformation": "1 year warranty",
+      "shippingInformation": "Ships in 1 month",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 5,
+          "comment": "Great product!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Mateo Bennett",
+          "reviewerEmail": "mateo.bennett@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Highly recommended!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Jackson Evans",
+          "reviewerEmail": "jackson.evans@x.dummyjson.com"
+        },
+        {
+          "rating": 3,
+          "comment": "Not worth the price!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Sadie Morales",
+          "reviewerEmail": "sadie.morales@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "7 days return policy",
+      "minimumOrderQuantity": 22,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "8829514594521",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/groceries/chicken-meat/1.webp",
+        "https://cdn.dummyjson.com/product-images/groceries/chicken-meat/2.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/chicken-meat/thumbnail.webp"
+    },
+    {
+      "id": 20,
+      "title": "Cooking Oil",
+      "description": "Versatile cooking oil suitable for frying, sautéing, and various culinary applications.",
+      "category": "groceries",
+      "price": 4.99,
+      "discountPercentage": 9.33,
+      "rating": 4.8,
+      "stock": 10,
+      "tags": [
+        "cooking essentials"
+      ],
+      "sku": "GRO-BRD-COO-020",
+      "weight": 5,
+      "dimensions": {
+        "width": 19.95,
+        "height": 27.54,
+        "depth": 24.86
+      },
+      "warrantyInformation": "Lifetime warranty",
+      "shippingInformation": "Ships in 1-2 business days",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 5,
+          "comment": "Very happy with my purchase!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Victoria McDonald",
+          "reviewerEmail": "victoria.mcdonald@x.dummyjson.com"
+        },
+        {
+          "rating": 2,
+          "comment": "Would not recommend!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Hazel Evans",
+          "reviewerEmail": "hazel.evans@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Would buy again!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Zoe Bennett",
+          "reviewerEmail": "zoe.bennett@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "30 days return policy",
+      "minimumOrderQuantity": 46,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "4874727824518",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/groceries/cooking-oil/1.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/cooking-oil/thumbnail.webp"
+    },
+    {
+      "id": 21,
+      "title": "Cucumber",
+      "description": "Crisp and hydrating cucumbers, ideal for salads, snacks, or as a refreshing side.",
+      "category": "groceries",
+      "price": 1.49,
+      "discountPercentage": 0.16,
+      "rating": 4.07,
+      "stock": 84,
+      "tags": [
+        "vegetables"
+      ],
+      "sku": "GRO-BRD-CUC-021",
+      "weight": 4,
+      "dimensions": {
+        "width": 12.8,
+        "height": 28.38,
+        "depth": 21.34
+      },
+      "warrantyInformation": "2 year warranty",
+      "shippingInformation": "Ships in 1-2 business days",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 4,
+          "comment": "Great product!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Lincoln Kelly",
+          "reviewerEmail": "lincoln.kelly@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Great value for money!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Savannah Gomez",
+          "reviewerEmail": "savannah.gomez@x.dummyjson.com"
+        },
+        {
+          "rating": 2,
+          "comment": "Poor quality!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "James Davis",
+          "reviewerEmail": "james.davis@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "7 days return policy",
+      "minimumOrderQuantity": 2,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "5300066378225",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/groceries/cucumber/1.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/cucumber/thumbnail.webp"
+    },
+    {
+      "id": 22,
+      "title": "Dog Food",
+      "description": "Specially formulated dog food designed to provide essential nutrients for your canine companion.",
+      "category": "groceries",
+      "price": 10.99,
+      "discountPercentage": 10.27,
+      "rating": 4.55,
+      "stock": 71,
+      "tags": [
+        "pet supplies",
+        "dog food"
+      ],
+      "sku": "GRO-BRD-FOO-022",
+      "weight": 10,
+      "dimensions": {
+        "width": 16.93,
+        "height": 27.15,
+        "depth": 9.29
+      },
+      "warrantyInformation": "No warranty",
+      "shippingInformation": "Ships in 1-2 business days",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 5,
+          "comment": "Excellent quality!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Nicholas Edwards",
+          "reviewerEmail": "nicholas.edwards@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Awesome product!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Zachary Lee",
+          "reviewerEmail": "zachary.lee@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Great product!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Nova Cooper",
+          "reviewerEmail": "nova.cooper@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "60 days return policy",
+      "minimumOrderQuantity": 43,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "5906686116469",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/groceries/dog-food/1.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/dog-food/thumbnail.webp"
+    },
+    {
+      "id": 23,
+      "title": "Eggs",
+      "description": "Fresh eggs, a versatile ingredient for baking, cooking, or breakfast.",
+      "category": "groceries",
+      "price": 2.99,
+      "discountPercentage": 11.05,
+      "rating": 2.53,
+      "stock": 9,
+      "tags": [
+        "dairy"
+      ],
+      "sku": "GRO-BRD-EGG-023",
+      "weight": 2,
+      "dimensions": {
+        "width": 11.42,
+        "height": 7.44,
+        "depth": 16.95
+      },
+      "warrantyInformation": "1 week warranty",
+      "shippingInformation": "Ships in 1 week",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 3,
+          "comment": "Disappointing product!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Penelope King",
+          "reviewerEmail": "penelope.king@x.dummyjson.com"
+        },
+        {
+          "rating": 3,
+          "comment": "Poor quality!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Eleanor Tyler",
+          "reviewerEmail": "eleanor.tyler@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Very pleased!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Benjamin Foster",
+          "reviewerEmail": "benjamin.foster@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "No return policy",
+      "minimumOrderQuantity": 32,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "3478638588469",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/groceries/eggs/1.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/eggs/thumbnail.webp"
+    },
+    {
+      "id": 24,
+      "title": "Fish Steak",
+      "description": "Quality fish steak, suitable for grilling, baking, or pan-searing.",
+      "category": "groceries",
+      "price": 14.99,
+      "discountPercentage": 4.23,
+      "rating": 3.78,
+      "stock": 74,
+      "tags": [
+        "seafood"
+      ],
+      "sku": "GRO-BRD-FIS-024",
+      "weight": 6,
+      "dimensions": {
+        "width": 14.95,
+        "height": 26.31,
+        "depth": 11.27
+      },
+      "warrantyInformation": "1 month warranty",
+      "shippingInformation": "Ships in 3-5 business days",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 2,
+          "comment": "Would not buy again!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Caleb Perkins",
+          "reviewerEmail": "caleb.perkins@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Excellent quality!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Isabella Jackson",
+          "reviewerEmail": "isabella.jackson@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Great value for money!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Nathan Dixon",
+          "reviewerEmail": "nathan.dixon@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "60 days return policy",
+      "minimumOrderQuantity": 50,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "9595036192098",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/groceries/fish-steak/1.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/fish-steak/thumbnail.webp"
+    },
+    {
+      "id": 25,
+      "title": "Green Bell Pepper",
+      "description": "Fresh and vibrant green bell pepper, perfect for adding color and flavor to your dishes.",
+      "category": "groceries",
+      "price": 1.29,
+      "discountPercentage": 0.16,
+      "rating": 3.25,
+      "stock": 33,
+      "tags": [
+        "vegetables"
+      ],
+      "sku": "GRO-BRD-GRE-025",
+      "weight": 2,
+      "dimensions": {
+        "width": 15.33,
+        "height": 26.65,
+        "depth": 14.44
+      },
+      "warrantyInformation": "1 month warranty",
+      "shippingInformation": "Ships in 1 week",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 4,
+          "comment": "Highly recommended!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Avery Carter",
+          "reviewerEmail": "avery.carter@x.dummyjson.com"
+        },
+        {
+          "rating": 3,
+          "comment": "Would not recommend!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Henry Hill",
+          "reviewerEmail": "henry.hill@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Excellent quality!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Addison Wright",
+          "reviewerEmail": "addison.wright@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "30 days return policy",
+      "minimumOrderQuantity": 12,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "2365227493323",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/groceries/green-bell-pepper/1.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/green-bell-pepper/thumbnail.webp"
+    },
+    {
+      "id": 26,
+      "title": "Green Chili Pepper",
+      "description": "Spicy green chili pepper, ideal for adding heat to your favorite recipes.",
+      "category": "groceries",
+      "price": 0.99,
+      "discountPercentage": 1,
+      "rating": 3.66,
+      "stock": 3,
+      "tags": [
+        "vegetables"
+      ],
+      "sku": "GRO-BRD-GRE-026",
+      "weight": 7,
+      "dimensions": {
+        "width": 15.38,
+        "height": 18.12,
+        "depth": 19.92
+      },
+      "warrantyInformation": "2 year warranty",
+      "shippingInformation": "Ships in 1 week",
+      "availabilityStatus": "Low Stock",
+      "reviews": [
+        {
+          "rating": 4,
+          "comment": "Great product!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Luna Russell",
+          "reviewerEmail": "luna.russell@x.dummyjson.com"
+        },
+        {
+          "rating": 1,
+          "comment": "Waste of money!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Noah Lewis",
+          "reviewerEmail": "noah.lewis@x.dummyjson.com"
+        },
+        {
+          "rating": 3,
+          "comment": "Very disappointed!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Clara Berry",
+          "reviewerEmail": "clara.berry@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "30 days return policy",
+      "minimumOrderQuantity": 39,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "9335000538563",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/groceries/green-chili-pepper/1.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/green-chili-pepper/thumbnail.webp"
+    },
+    {
+      "id": 27,
+      "title": "Honey Jar",
+      "description": "Pure and natural honey in a convenient jar, perfect for sweetening beverages or drizzling over food.",
+      "category": "groceries",
+      "price": 6.99,
+      "discountPercentage": 14.4,
+      "rating": 3.97,
+      "stock": 34,
+      "tags": [
+        "condiments"
+      ],
+      "sku": "GRO-BRD-HON-027",
+      "weight": 2,
+      "dimensions": {
+        "width": 9.28,
+        "height": 21.72,
+        "depth": 17.74
+      },
+      "warrantyInformation": "1 month warranty",
+      "shippingInformation": "Ships in 1-2 business days",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 1,
+          "comment": "Very disappointed!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Autumn Gomez",
+          "reviewerEmail": "autumn.gomez@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Highly impressed!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Benjamin Wilson",
+          "reviewerEmail": "benjamin.wilson@x.dummyjson.com"
+        },
+        {
+          "rating": 2,
+          "comment": "Very disappointed!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Nicholas Edwards",
+          "reviewerEmail": "nicholas.edwards@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "90 days return policy",
+      "minimumOrderQuantity": 47,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "6354306346329",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/groceries/honey-jar/1.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/honey-jar/thumbnail.webp"
+    },
+    {
+      "id": 28,
+      "title": "Ice Cream",
+      "description": "Creamy and delicious ice cream, available in various flavors for a delightful treat.",
+      "category": "groceries",
+      "price": 5.49,
+      "discountPercentage": 8.69,
+      "rating": 3.39,
+      "stock": 27,
+      "tags": [
+        "desserts"
+      ],
+      "sku": "GRO-BRD-CRE-028",
+      "weight": 1,
+      "dimensions": {
+        "width": 14.83,
+        "height": 15.07,
+        "depth": 24.2
+      },
+      "warrantyInformation": "1 month warranty",
+      "shippingInformation": "Ships in 2 weeks",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 5,
+          "comment": "Very pleased!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Elijah Cruz",
+          "reviewerEmail": "elijah.cruz@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Excellent quality!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Jace Smith",
+          "reviewerEmail": "jace.smith@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Highly impressed!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Sadie Morales",
+          "reviewerEmail": "sadie.morales@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "No return policy",
+      "minimumOrderQuantity": 42,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "0788954559076",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/groceries/ice-cream/1.webp",
+        "https://cdn.dummyjson.com/product-images/groceries/ice-cream/2.webp",
+        "https://cdn.dummyjson.com/product-images/groceries/ice-cream/3.webp",
+        "https://cdn.dummyjson.com/product-images/groceries/ice-cream/4.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/ice-cream/thumbnail.webp"
+    },
+    {
+      "id": 29,
+      "title": "Juice",
+      "description": "Refreshing fruit juice, packed with vitamins and great for staying hydrated.",
+      "category": "groceries",
+      "price": 3.99,
+      "discountPercentage": 12.06,
+      "rating": 3.94,
+      "stock": 50,
+      "tags": [
+        "beverages"
+      ],
+      "sku": "GRO-BRD-JUI-029",
+      "weight": 1,
+      "dimensions": {
+        "width": 18.56,
+        "height": 21.46,
+        "depth": 28.02
+      },
+      "warrantyInformation": "6 months warranty",
+      "shippingInformation": "Ships in 1 week",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 5,
+          "comment": "Excellent quality!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Nolan Gonzalez",
+          "reviewerEmail": "nolan.gonzalez@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Would buy again!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Bella Grant",
+          "reviewerEmail": "bella.grant@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Awesome product!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Aria Flores",
+          "reviewerEmail": "aria.flores@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "No return policy",
+      "minimumOrderQuantity": 25,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "6936112580956",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/groceries/juice/1.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/juice/thumbnail.webp"
+    },
+    {
+      "id": 30,
+      "title": "Kiwi",
+      "description": "Nutrient-rich kiwi, perfect for snacking or adding a tropical twist to your dishes.",
+      "category": "groceries",
+      "price": 2.49,
+      "discountPercentage": 15.22,
+      "rating": 4.93,
+      "stock": 99,
+      "tags": [
+        "fruits"
+      ],
+      "sku": "GRO-BRD-KIW-030",
+      "weight": 5,
+      "dimensions": {
+        "width": 19.4,
+        "height": 18.67,
+        "depth": 17.13
+      },
+      "warrantyInformation": "6 months warranty",
+      "shippingInformation": "Ships overnight",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 4,
+          "comment": "Highly recommended!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Emily Brown",
+          "reviewerEmail": "emily.brown@x.dummyjson.com"
+        },
+        {
+          "rating": 2,
+          "comment": "Would not buy again!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Jackson Morales",
+          "reviewerEmail": "jackson.morales@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Fast shipping!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Nora Russell",
+          "reviewerEmail": "nora.russell@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "7 days return policy",
+      "minimumOrderQuantity": 30,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "2530169917252",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/groceries/kiwi/1.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/kiwi/thumbnail.webp"
+    },
+    {
+      "id": 31,
+      "title": "Lemon",
+      "description": "Zesty and tangy lemons, versatile for cooking, baking, or making refreshing beverages.",
+      "category": "groceries",
+      "price": 0.79,
+      "discountPercentage": 9.7,
+      "rating": 3.53,
+      "stock": 31,
+      "tags": [
+        "fruits"
+      ],
+      "sku": "GRO-BRD-LEM-031",
+      "weight": 3,
+      "dimensions": {
+        "width": 23.77,
+        "height": 9.22,
+        "depth": 12.05
+      },
+      "warrantyInformation": "No warranty",
+      "shippingInformation": "Ships in 1 month",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 5,
+          "comment": "Awesome product!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Logan Lawson",
+          "reviewerEmail": "logan.lawson@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Highly impressed!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Avery Perez",
+          "reviewerEmail": "avery.perez@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Very satisfied!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Benjamin Foster",
+          "reviewerEmail": "benjamin.foster@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "7 days return policy",
+      "minimumOrderQuantity": 29,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "4871812433378",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/groceries/lemon/1.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/lemon/thumbnail.webp"
+    },
+    {
+      "id": 32,
+      "title": "Milk",
+      "description": "Fresh and nutritious milk, a staple for various recipes and daily consumption.",
+      "category": "groceries",
+      "price": 3.49,
+      "discountPercentage": 13.74,
+      "rating": 2.61,
+      "stock": 27,
+      "tags": [
+        "dairy"
+      ],
+      "sku": "GRO-BRD-MIL-032",
+      "weight": 5,
+      "dimensions": {
+        "width": 12.92,
+        "height": 15.76,
+        "depth": 11.29
+      },
+      "warrantyInformation": "3 year warranty",
+      "shippingInformation": "Ships in 2 weeks",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 4,
+          "comment": "Very satisfied!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Nicholas Bailey",
+          "reviewerEmail": "nicholas.bailey@x.dummyjson.com"
+        },
+        {
+          "rating": 3,
+          "comment": "Would not buy again!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Harper Turner",
+          "reviewerEmail": "harper.turner@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Great value for money!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Autumn Gomez",
+          "reviewerEmail": "autumn.gomez@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "7 days return policy",
+      "minimumOrderQuantity": 5,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "9835034508303",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/groceries/milk/1.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/milk/thumbnail.webp"
+    },
+    {
+      "id": 33,
+      "title": "Mulberry",
+      "description": "Sweet and juicy mulberries, perfect for snacking or adding to desserts and cereals.",
+      "category": "groceries",
+      "price": 4.99,
+      "discountPercentage": 12.87,
+      "rating": 4.95,
+      "stock": 99,
+      "tags": [
+        "fruits"
+      ],
+      "sku": "GRO-BRD-MUL-033",
+      "weight": 5,
+      "dimensions": {
+        "width": 12.8,
+        "height": 18.54,
+        "depth": 6.31
+      },
+      "warrantyInformation": "2 year warranty",
+      "shippingInformation": "Ships in 1 week",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 5,
+          "comment": "Fast shipping!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Avery Barnes",
+          "reviewerEmail": "avery.barnes@x.dummyjson.com"
+        },
+        {
+          "rating": 2,
+          "comment": "Not worth the price!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Sadie Morales",
+          "reviewerEmail": "sadie.morales@x.dummyjson.com"
+        },
+        {
+          "rating": 1,
+          "comment": "Would not buy again!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Oscar Powers",
+          "reviewerEmail": "oscar.powers@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "No return policy",
+      "minimumOrderQuantity": 43,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "2206629068605",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/groceries/mulberry/1.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/mulberry/thumbnail.webp"
+    },
+    {
+      "id": 34,
+      "title": "Nescafe Coffee",
+      "description": "Quality coffee from Nescafe, available in various blends for a rich and satisfying cup.",
+      "category": "groceries",
+      "price": 7.99,
+      "discountPercentage": 1.59,
+      "rating": 4.82,
+      "stock": 57,
+      "tags": [
+        "beverages",
+        "coffee"
+      ],
+      "sku": "GRO-BRD-NES-034",
+      "weight": 6,
+      "dimensions": {
+        "width": 20.54,
+        "height": 29.49,
+        "depth": 29.2
+      },
+      "warrantyInformation": "1 year warranty",
+      "shippingInformation": "Ships in 1-2 business days",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 5,
+          "comment": "Very pleased!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Gabriel Adams",
+          "reviewerEmail": "gabriel.adams@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Highly recommended!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Ella Cook",
+          "reviewerEmail": "ella.cook@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Would buy again!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Logan Torres",
+          "reviewerEmail": "logan.torres@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "30 days return policy",
+      "minimumOrderQuantity": 8,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "8572637994159",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/groceries/nescafe-coffee/1.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/nescafe-coffee/thumbnail.webp"
+    },
+    {
+      "id": 35,
+      "title": "Potatoes",
+      "description": "Versatile and starchy potatoes, great for roasting, mashing, or as a side dish.",
+      "category": "groceries",
+      "price": 2.29,
+      "discountPercentage": 5.38,
+      "rating": 4.81,
+      "stock": 13,
+      "tags": [
+        "vegetables"
+      ],
+      "sku": "GRO-BRD-POT-035",
+      "weight": 9,
+      "dimensions": {
+        "width": 22.65,
+        "height": 9.83,
+        "depth": 21.75
+      },
+      "warrantyInformation": "3 year warranty",
+      "shippingInformation": "Ships in 3-5 business days",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 5,
+          "comment": "Highly impressed!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Eleanor Collins",
+          "reviewerEmail": "eleanor.collins@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Fast shipping!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Lily Torres",
+          "reviewerEmail": "lily.torres@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Highly recommended!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Ariana Ross",
+          "reviewerEmail": "ariana.ross@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "90 days return policy",
+      "minimumOrderQuantity": 9,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "3590399655074",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/groceries/potatoes/1.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/potatoes/thumbnail.webp"
+    },
+    {
+      "id": 36,
+      "title": "Protein Powder",
+      "description": "Nutrient-packed protein powder, ideal for supplementing your diet with essential proteins.",
+      "category": "groceries",
+      "price": 19.99,
+      "discountPercentage": 7.59,
+      "rating": 4.18,
+      "stock": 80,
+      "tags": [
+        "health supplements"
+      ],
+      "sku": "GRO-BRD-PRO-036",
+      "weight": 9,
+      "dimensions": {
+        "width": 9.01,
+        "height": 12.53,
+        "depth": 22.35
+      },
+      "warrantyInformation": "1 week warranty",
+      "shippingInformation": "Ships in 1 month",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 3,
+          "comment": "Very unhappy with my purchase!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Aurora Rodriguez",
+          "reviewerEmail": "aurora.rodriguez@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Would buy again!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Miles Stevenson",
+          "reviewerEmail": "miles.stevenson@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Very happy with my purchase!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Clara Berry",
+          "reviewerEmail": "clara.berry@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "No return policy",
+      "minimumOrderQuantity": 6,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "0435397154434",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/groceries/protein-powder/1.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/protein-powder/thumbnail.webp"
+    },
+    {
+      "id": 37,
+      "title": "Red Onions",
+      "description": "Flavorful and aromatic red onions, perfect for adding depth to your savory dishes.",
+      "category": "groceries",
+      "price": 1.99,
+      "discountPercentage": 9.9,
+      "rating": 4.2,
+      "stock": 82,
+      "tags": [
+        "vegetables"
+      ],
+      "sku": "GRO-BRD-ONI-037",
+      "weight": 9,
+      "dimensions": {
+        "width": 16.01,
+        "height": 24.96,
+        "depth": 12.74
+      },
+      "warrantyInformation": "1 month warranty",
+      "shippingInformation": "Ships in 3-5 business days",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 4,
+          "comment": "Fast shipping!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Maya Reed",
+          "reviewerEmail": "maya.reed@x.dummyjson.com"
+        },
+        {
+          "rating": 3,
+          "comment": "Very dissatisfied!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Evelyn Gonzalez",
+          "reviewerEmail": "evelyn.gonzalez@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Awesome product!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Jackson Evans",
+          "reviewerEmail": "jackson.evans@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "7 days return policy",
+      "minimumOrderQuantity": 8,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "4716374115631",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/groceries/red-onions/1.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/red-onions/thumbnail.webp"
+    },
+    {
+      "id": 38,
+      "title": "Rice",
+      "description": "High-quality rice, a staple for various cuisines and a versatile base for many dishes.",
+      "category": "groceries",
+      "price": 5.99,
+      "discountPercentage": 9.29,
+      "rating": 3.18,
+      "stock": 59,
+      "tags": [
+        "grains"
+      ],
+      "sku": "GRO-BRD-RIC-038",
+      "weight": 5,
+      "dimensions": {
+        "width": 17.21,
+        "height": 9.88,
+        "depth": 17.16
+      },
+      "warrantyInformation": "6 months warranty",
+      "shippingInformation": "Ships overnight",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 5,
+          "comment": "Would buy again!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Sophia Brown",
+          "reviewerEmail": "sophia.brown@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Very satisfied!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Grace Perry",
+          "reviewerEmail": "grace.perry@x.dummyjson.com"
+        },
+        {
+          "rating": 1,
+          "comment": "Very disappointed!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Cameron Burke",
+          "reviewerEmail": "cameron.burke@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "No return policy",
+      "minimumOrderQuantity": 20,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "7339757397015",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/groceries/rice/1.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/rice/thumbnail.webp"
+    },
+    {
+      "id": 39,
+      "title": "Soft Drinks",
+      "description": "Assorted soft drinks in various flavors, perfect for refreshing beverages.",
+      "category": "groceries",
+      "price": 1.99,
+      "discountPercentage": 17.48,
+      "rating": 4.75,
+      "stock": 53,
+      "tags": [
+        "beverages"
+      ],
+      "sku": "GRO-BRD-SOF-039",
+      "weight": 9,
+      "dimensions": {
+        "width": 19.75,
+        "height": 6.79,
+        "depth": 9.33
+      },
+      "warrantyInformation": "6 months warranty",
+      "shippingInformation": "Ships in 2 weeks",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 2,
+          "comment": "Would not recommend!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Zachary Lee",
+          "reviewerEmail": "zachary.lee@x.dummyjson.com"
+        },
+        {
+          "rating": 2,
+          "comment": "Would not recommend!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Oscar Powers",
+          "reviewerEmail": "oscar.powers@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Highly recommended!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Hannah Robinson",
+          "reviewerEmail": "hannah.robinson@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "7 days return policy",
+      "minimumOrderQuantity": 10,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "2991169581178",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/groceries/soft-drinks/1.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/soft-drinks/thumbnail.webp"
+    },
+    {
+      "id": 40,
+      "title": "Strawberry",
+      "description": "Sweet and succulent strawberries, great for snacking, desserts, or blending into smoothies.",
+      "category": "groceries",
+      "price": 3.99,
+      "discountPercentage": 1.12,
+      "rating": 3.08,
+      "stock": 46,
+      "tags": [
+        "fruits"
+      ],
+      "sku": "GRO-BRD-STR-040",
+      "weight": 1,
+      "dimensions": {
+        "width": 28.18,
+        "height": 21.25,
+        "depth": 28.54
+      },
+      "warrantyInformation": "1 week warranty",
+      "shippingInformation": "Ships in 1-2 business days",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 3,
+          "comment": "Would not buy again!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Amelia Perez",
+          "reviewerEmail": "amelia.perez@x.dummyjson.com"
+        },
+        {
+          "rating": 3,
+          "comment": "Would not buy again!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Olivia Wilson",
+          "reviewerEmail": "olivia.wilson@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Would buy again!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Hunter Gordon",
+          "reviewerEmail": "hunter.gordon@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "No return policy",
+      "minimumOrderQuantity": 12,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "0792647462295",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/groceries/strawberry/1.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/strawberry/thumbnail.webp"
+    },
+    {
+      "id": 41,
+      "title": "Tissue Paper Box",
+      "description": "Convenient tissue paper box for everyday use, providing soft and absorbent tissues.",
+      "category": "groceries",
+      "price": 2.49,
+      "discountPercentage": 13.28,
+      "rating": 2.69,
+      "stock": 86,
+      "tags": [
+        "household essentials"
+      ],
+      "sku": "GRO-BRD-TIS-041",
+      "weight": 1,
+      "dimensions": {
+        "width": 18.75,
+        "height": 17.58,
+        "depth": 12.43
+      },
+      "warrantyInformation": "No warranty",
+      "shippingInformation": "Ships in 1-2 business days",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 1,
+          "comment": "Not as described!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Ariana Ross",
+          "reviewerEmail": "ariana.ross@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Fast shipping!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Carter Baker",
+          "reviewerEmail": "carter.baker@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Great value for money!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Penelope Harper",
+          "reviewerEmail": "penelope.harper@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "90 days return policy",
+      "minimumOrderQuantity": 44,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "9446468291745",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/groceries/tissue-paper-box/1.webp",
+        "https://cdn.dummyjson.com/product-images/groceries/tissue-paper-box/2.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/tissue-paper-box/thumbnail.webp"
+    },
+    {
+      "id": 42,
+      "title": "Water",
+      "description": "Pure and refreshing bottled water, essential for staying hydrated throughout the day.",
+      "category": "groceries",
+      "price": 0.99,
+      "discountPercentage": 14.92,
+      "rating": 4.96,
+      "stock": 53,
+      "tags": [
+        "beverages"
+      ],
+      "sku": "GRO-BRD-WAT-042",
+      "weight": 4,
+      "dimensions": {
+        "width": 18.43,
+        "height": 7.4,
+        "depth": 17.79
+      },
+      "warrantyInformation": "3 months warranty",
+      "shippingInformation": "Ships in 1 month",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 5,
+          "comment": "Highly impressed!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Jonathan Pierce",
+          "reviewerEmail": "jonathan.pierce@x.dummyjson.com"
+        },
+        {
+          "rating": 2,
+          "comment": "Would not recommend!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Grayson Coleman",
+          "reviewerEmail": "grayson.coleman@x.dummyjson.com"
+        },
+        {
+          "rating": 3,
+          "comment": "Not as described!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Ethan Fletcher",
+          "reviewerEmail": "ethan.fletcher@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "7 days return policy",
+      "minimumOrderQuantity": 28,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "2409829645213",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/groceries/water/1.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/water/thumbnail.webp"
+    },
+    {
+      "id": 43,
+      "title": "Decoration Swing",
+      "description": "The Decoration Swing is a charming addition to your home decor. Crafted with intricate details, it adds a touch of elegance and whimsy to any room.",
+      "category": "home-decoration",
+      "price": 59.99,
+      "discountPercentage": 10.41,
+      "rating": 3.16,
+      "stock": 47,
+      "tags": [
+        "home decor",
+        "swing"
+      ],
+      "sku": "HOM-BRD-DEC-043",
+      "weight": 4,
+      "dimensions": {
+        "width": 23.84,
+        "height": 15.19,
+        "depth": 26.05
+      },
+      "warrantyInformation": "1 week warranty",
+      "shippingInformation": "Ships in 1 month",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 1,
+          "comment": "Would not buy again!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Daniel Cook",
+          "reviewerEmail": "daniel.cook@x.dummyjson.com"
+        },
+        {
+          "rating": 2,
+          "comment": "Poor quality!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Hunter Gordon",
+          "reviewerEmail": "hunter.gordon@x.dummyjson.com"
+        },
+        {
+          "rating": 3,
+          "comment": "Very unhappy with my purchase!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Stella Morris",
+          "reviewerEmail": "stella.morris@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "90 days return policy",
+      "minimumOrderQuantity": 8,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "9646971048759",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/home-decoration/decoration-swing/1.webp",
+        "https://cdn.dummyjson.com/product-images/home-decoration/decoration-swing/2.webp",
+        "https://cdn.dummyjson.com/product-images/home-decoration/decoration-swing/3.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/home-decoration/decoration-swing/thumbnail.webp"
+    },
+    {
+      "id": 44,
+      "title": "Family Tree Photo Frame",
+      "description": "The Family Tree Photo Frame is a sentimental and stylish way to display your cherished family memories. With multiple photo slots, it tells the story of your loved ones.",
+      "category": "home-decoration",
+      "price": 29.99,
+      "discountPercentage": 14.87,
+      "rating": 4.53,
+      "stock": 77,
+      "tags": [
+        "home decor",
+        "photo frame"
+      ],
+      "sku": "HOM-BRD-FAM-044",
+      "weight": 1,
+      "dimensions": {
+        "width": 17.27,
+        "height": 14.81,
+        "depth": 29.11
+      },
+      "warrantyInformation": "1 month warranty",
+      "shippingInformation": "Ships in 2 weeks",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 4,
+          "comment": "Highly impressed!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Oscar Powers",
+          "reviewerEmail": "oscar.powers@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Excellent quality!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Austin Hudson",
+          "reviewerEmail": "austin.hudson@x.dummyjson.com"
+        },
+        {
+          "rating": 2,
+          "comment": "Very dissatisfied!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Luke Cooper",
+          "reviewerEmail": "luke.cooper@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "No return policy",
+      "minimumOrderQuantity": 15,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "5398738320864",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/home-decoration/family-tree-photo-frame/1.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/home-decoration/family-tree-photo-frame/thumbnail.webp"
+    },
+    {
+      "id": 45,
+      "title": "House Showpiece Plant",
+      "description": "The House Showpiece Plant is an artificial plant that brings a touch of nature to your home without the need for maintenance. It adds greenery and style to any space.",
+      "category": "home-decoration",
+      "price": 39.99,
+      "discountPercentage": 7.46,
+      "rating": 4.67,
+      "stock": 28,
+      "tags": [
+        "home decor",
+        "artificial plants"
+      ],
+      "sku": "HOM-BRD-HOU-045",
+      "weight": 8,
+      "dimensions": {
+        "width": 8.55,
+        "height": 14.62,
+        "depth": 17.25
+      },
+      "warrantyInformation": "1 year warranty",
+      "shippingInformation": "Ships in 1 week",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 5,
+          "comment": "Very happy with my purchase!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Natalie Harris",
+          "reviewerEmail": "natalie.harris@x.dummyjson.com"
+        },
+        {
+          "rating": 1,
+          "comment": "Poor quality!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Max Russell",
+          "reviewerEmail": "max.russell@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Very pleased!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Nolan Gonzalez",
+          "reviewerEmail": "nolan.gonzalez@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "No return policy",
+      "minimumOrderQuantity": 3,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "8433795204995",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/home-decoration/house-showpiece-plant/1.webp",
+        "https://cdn.dummyjson.com/product-images/home-decoration/house-showpiece-plant/2.webp",
+        "https://cdn.dummyjson.com/product-images/home-decoration/house-showpiece-plant/3.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/home-decoration/house-showpiece-plant/thumbnail.webp"
+    },
+    {
+      "id": 46,
+      "title": "Plant Pot",
+      "description": "The Plant Pot is a stylish container for your favorite plants. With a sleek design, it complements your indoor or outdoor garden, adding a modern touch to your plant display.",
+      "category": "home-decoration",
+      "price": 14.99,
+      "discountPercentage": 6.84,
+      "rating": 3.01,
+      "stock": 59,
+      "tags": [
+        "home decor",
+        "plant accessories"
+      ],
+      "sku": "HOM-BRD-PLA-046",
+      "weight": 9,
+      "dimensions": {
+        "width": 9.83,
+        "height": 20.28,
+        "depth": 13.49
+      },
+      "warrantyInformation": "Lifetime warranty",
+      "shippingInformation": "Ships in 3-5 business days",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 4,
+          "comment": "Fast shipping!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Vivian Carter",
+          "reviewerEmail": "vivian.carter@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Very satisfied!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Ella Adams",
+          "reviewerEmail": "ella.adams@x.dummyjson.com"
+        },
+        {
+          "rating": 3,
+          "comment": "Poor quality!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Liam Smith",
+          "reviewerEmail": "liam.smith@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "30 days return policy",
+      "minimumOrderQuantity": 31,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "8477070578398",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/home-decoration/plant-pot/1.webp",
+        "https://cdn.dummyjson.com/product-images/home-decoration/plant-pot/2.webp",
+        "https://cdn.dummyjson.com/product-images/home-decoration/plant-pot/3.webp",
+        "https://cdn.dummyjson.com/product-images/home-decoration/plant-pot/4.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/home-decoration/plant-pot/thumbnail.webp"
+    },
+    {
+      "id": 47,
+      "title": "Table Lamp",
+      "description": "The Table Lamp is a functional and decorative lighting solution for your living space. With a modern design, it provides both ambient and task lighting, enhancing the atmosphere.",
+      "category": "home-decoration",
+      "price": 49.99,
+      "discountPercentage": 7.09,
+      "rating": 3.55,
+      "stock": 9,
+      "tags": [
+        "home decor",
+        "lighting"
+      ],
+      "sku": "HOM-BRD-TAB-047",
+      "weight": 4,
+      "dimensions": {
+        "width": 8.98,
+        "height": 13.41,
+        "depth": 5.65
+      },
+      "warrantyInformation": "3 months warranty",
+      "shippingInformation": "Ships in 1-2 business days",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 5,
+          "comment": "Excellent quality!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Benjamin Foster",
+          "reviewerEmail": "benjamin.foster@x.dummyjson.com"
+        },
+        {
+          "rating": 3,
+          "comment": "Would not recommend!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Sophia Jones",
+          "reviewerEmail": "sophia.jones@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Awesome product!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Natalie Harris",
+          "reviewerEmail": "natalie.harris@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "90 days return policy",
+      "minimumOrderQuantity": 2,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "8806138916048",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/home-decoration/table-lamp/1.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/home-decoration/table-lamp/thumbnail.webp"
+    },
+    {
+      "id": 48,
+      "title": "Bamboo Spatula",
+      "description": "The Bamboo Spatula is a versatile kitchen tool made from eco-friendly bamboo. Ideal for flipping, stirring, and serving various dishes.",
+      "category": "kitchen-accessories",
+      "price": 7.99,
+      "discountPercentage": 2.84,
+      "rating": 3.27,
+      "stock": 37,
+      "tags": [
+        "kitchen tools",
+        "utensils"
+      ],
+      "sku": "KIT-BRD-BAM-048",
+      "weight": 3,
+      "dimensions": {
+        "width": 21.32,
+        "height": 23.03,
+        "depth": 25.94
+      },
+      "warrantyInformation": "1 month warranty",
+      "shippingInformation": "Ships overnight",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 5,
+          "comment": "Awesome product!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Lucas Ramirez",
+          "reviewerEmail": "lucas.ramirez@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Highly recommended!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Caleb Perkins",
+          "reviewerEmail": "caleb.perkins@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Highly recommended!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Nolan Gonzalez",
+          "reviewerEmail": "nolan.gonzalez@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "60 days return policy",
+      "minimumOrderQuantity": 29,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "3988181417733",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/kitchen-accessories/bamboo-spatula/1.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/kitchen-accessories/bamboo-spatula/thumbnail.webp"
+    },
+    {
+      "id": 49,
+      "title": "Black Aluminium Cup",
+      "description": "The Black Aluminium Cup is a stylish and durable cup suitable for both hot and cold beverages. Its sleek black design adds a modern touch to your drinkware collection.",
+      "category": "kitchen-accessories",
+      "price": 5.99,
+      "discountPercentage": 15.65,
+      "rating": 4.46,
+      "stock": 75,
+      "tags": [
+        "drinkware",
+        "cups"
+      ],
+      "sku": "KIT-BRD-BLA-049",
+      "weight": 7,
+      "dimensions": {
+        "width": 5.88,
+        "height": 5.11,
+        "depth": 10.03
+      },
+      "warrantyInformation": "1 year warranty",
+      "shippingInformation": "Ships overnight",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 3,
+          "comment": "Very disappointed!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Alexander Hernandez",
+          "reviewerEmail": "alexander.hernandez@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Great value for money!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Aurora Rodriguez",
+          "reviewerEmail": "aurora.rodriguez@x.dummyjson.com"
+        },
+        {
+          "rating": 1,
+          "comment": "Not worth the price!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Benjamin Foster",
+          "reviewerEmail": "benjamin.foster@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "30 days return policy",
+      "minimumOrderQuantity": 48,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "5606164195748",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/kitchen-accessories/black-aluminium-cup/1.webp",
+        "https://cdn.dummyjson.com/product-images/kitchen-accessories/black-aluminium-cup/2.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/kitchen-accessories/black-aluminium-cup/thumbnail.webp"
+    },
+    {
+      "id": 50,
+      "title": "Black Whisk",
+      "description": "The Black Whisk is a kitchen essential for whisking and beating ingredients. Its ergonomic handle and sleek design make it a practical and stylish tool.",
+      "category": "kitchen-accessories",
+      "price": 9.99,
+      "discountPercentage": 10.24,
+      "rating": 3.9,
+      "stock": 73,
+      "tags": [
+        "kitchen tools",
+        "utensils"
+      ],
+      "sku": "KIT-BRD-BLA-050",
+      "weight": 1,
+      "dimensions": {
+        "width": 13.03,
+        "height": 5.99,
+        "depth": 20.64
+      },
+      "warrantyInformation": "3 months warranty",
+      "shippingInformation": "Ships in 1 month",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 3,
+          "comment": "Not worth the price!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Cameron Perez",
+          "reviewerEmail": "cameron.perez@x.dummyjson.com"
+        },
+        {
+          "rating": 1,
+          "comment": "Waste of money!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Benjamin Foster",
+          "reviewerEmail": "benjamin.foster@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Very pleased!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Paisley Bell",
+          "reviewerEmail": "paisley.bell@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "30 days return policy",
+      "minimumOrderQuantity": 40,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "3112495795209",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/kitchen-accessories/black-whisk/1.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/kitchen-accessories/black-whisk/thumbnail.webp"
+    },
+    {
+      "id": 51,
+      "title": "Boxed Blender",
+      "description": "The Boxed Blender is a powerful and compact blender perfect for smoothies, shakes, and more. Its convenient design and multiple functions make it a versatile kitchen appliance.",
+      "category": "kitchen-accessories",
+      "price": 39.99,
+      "discountPercentage": 7.26,
+      "rating": 4.56,
+      "stock": 9,
+      "tags": [
+        "kitchen appliances",
+        "blenders"
+      ],
+      "sku": "KIT-BRD-BOX-051",
+      "weight": 1,
+      "dimensions": {
+        "width": 9.05,
+        "height": 19.45,
+        "depth": 17.59
+      },
+      "warrantyInformation": "5 year warranty",
+      "shippingInformation": "Ships in 1-2 business days",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 5,
+          "comment": "Very pleased!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Ella Adams",
+          "reviewerEmail": "ella.adams@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Would buy again!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Ruby Andrews",
+          "reviewerEmail": "ruby.andrews@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Very happy with my purchase!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Aurora Lawson",
+          "reviewerEmail": "aurora.lawson@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "7 days return policy",
+      "minimumOrderQuantity": 4,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "4823087836817",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/kitchen-accessories/boxed-blender/1.webp",
+        "https://cdn.dummyjson.com/product-images/kitchen-accessories/boxed-blender/2.webp",
+        "https://cdn.dummyjson.com/product-images/kitchen-accessories/boxed-blender/3.webp",
+        "https://cdn.dummyjson.com/product-images/kitchen-accessories/boxed-blender/4.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/kitchen-accessories/boxed-blender/thumbnail.webp"
+    },
+    {
+      "id": 52,
+      "title": "Carbon Steel Wok",
+      "description": "The Carbon Steel Wok is a versatile cooking pan suitable for stir-frying, sautéing, and deep frying. Its sturdy construction ensures even heat distribution for delicious meals.",
+      "category": "kitchen-accessories",
+      "price": 29.99,
+      "discountPercentage": 6.53,
+      "rating": 4.05,
+      "stock": 40,
+      "tags": [
+        "cookware",
+        "woks"
+      ],
+      "sku": "KIT-BRD-CAR-052",
+      "weight": 2,
+      "dimensions": {
+        "width": 27.69,
+        "height": 7.54,
+        "depth": 10.11
+      },
+      "warrantyInformation": "2 year warranty",
+      "shippingInformation": "Ships in 1-2 business days",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 4,
+          "comment": "Excellent quality!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Nolan Bryant",
+          "reviewerEmail": "nolan.bryant@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Highly impressed!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Luna Perez",
+          "reviewerEmail": "luna.perez@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Very satisfied!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Noah Lewis",
+          "reviewerEmail": "noah.lewis@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "7 days return policy",
+      "minimumOrderQuantity": 9,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "1810862118199",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/kitchen-accessories/carbon-steel-wok/1.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/kitchen-accessories/carbon-steel-wok/thumbnail.webp"
+    },
+    {
+      "id": 53,
+      "title": "Chopping Board",
+      "description": "The Chopping Board is an essential kitchen accessory for food preparation. Made from durable material, it provides a safe and hygienic surface for cutting and chopping.",
+      "category": "kitchen-accessories",
+      "price": 12.99,
+      "discountPercentage": 8.03,
+      "rating": 3.7,
+      "stock": 14,
+      "tags": [
+        "kitchen tools",
+        "cutting boards"
+      ],
+      "sku": "KIT-BRD-CHO-053",
+      "weight": 2,
+      "dimensions": {
+        "width": 15.6,
+        "height": 6.93,
+        "depth": 8.51
+      },
+      "warrantyInformation": "3 months warranty",
+      "shippingInformation": "Ships in 2 weeks",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 5,
+          "comment": "Great value for money!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Xavier Wright",
+          "reviewerEmail": "xavier.wright@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Great value for money!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Henry Turner",
+          "reviewerEmail": "henry.turner@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Fast shipping!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Evelyn Walker",
+          "reviewerEmail": "evelyn.walker@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "No return policy",
+      "minimumOrderQuantity": 5,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "0085585730728",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/kitchen-accessories/chopping-board/1.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/kitchen-accessories/chopping-board/thumbnail.webp"
+    },
+    {
+      "id": 54,
+      "title": "Citrus Squeezer Yellow",
+      "description": "The Citrus Squeezer in Yellow is a handy tool for extracting juice from citrus fruits. Its vibrant color adds a cheerful touch to your kitchen gadgets.",
+      "category": "kitchen-accessories",
+      "price": 8.99,
+      "discountPercentage": 12.1,
+      "rating": 4.63,
+      "stock": 22,
+      "tags": [
+        "kitchen tools",
+        "juicers"
+      ],
+      "sku": "KIT-BRD-CIT-054",
+      "weight": 2,
+      "dimensions": {
+        "width": 17.16,
+        "height": 26.8,
+        "depth": 16.29
+      },
+      "warrantyInformation": "2 year warranty",
+      "shippingInformation": "Ships in 3-5 business days",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 4,
+          "comment": "Highly recommended!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Lucas Ramirez",
+          "reviewerEmail": "lucas.ramirez@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Great product!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Eleanor Collins",
+          "reviewerEmail": "eleanor.collins@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Highly impressed!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Mila Hernandez",
+          "reviewerEmail": "mila.hernandez@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "60 days return policy",
+      "minimumOrderQuantity": 38,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "2231952604189",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/kitchen-accessories/citrus-squeezer-yellow/1.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/kitchen-accessories/citrus-squeezer-yellow/thumbnail.webp"
+    },
+    {
+      "id": 55,
+      "title": "Egg Slicer",
+      "description": "The Egg Slicer is a convenient tool for slicing boiled eggs evenly. It's perfect for salads, sandwiches, and other dishes where sliced eggs are desired.",
+      "category": "kitchen-accessories",
+      "price": 6.99,
+      "discountPercentage": 14.76,
+      "rating": 3.09,
+      "stock": 40,
+      "tags": [
+        "kitchen tools",
+        "slicers"
+      ],
+      "sku": "KIT-BRD-SLI-055",
+      "weight": 2,
+      "dimensions": {
+        "width": 10.81,
+        "height": 19.15,
+        "depth": 13.18
+      },
+      "warrantyInformation": "1 week warranty",
+      "shippingInformation": "Ships in 1 month",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 3,
+          "comment": "Very dissatisfied!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Harper Garcia",
+          "reviewerEmail": "harper.garcia@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Very happy with my purchase!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Lily Torres",
+          "reviewerEmail": "lily.torres@x.dummyjson.com"
+        },
+        {
+          "rating": 1,
+          "comment": "Not worth the price!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Tyler Davis",
+          "reviewerEmail": "tyler.davis@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "No return policy",
+      "minimumOrderQuantity": 32,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "6456249953517",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/kitchen-accessories/egg-slicer/1.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/kitchen-accessories/egg-slicer/thumbnail.webp"
+    },
+    {
+      "id": 56,
+      "title": "Electric Stove",
+      "description": "The Electric Stove provides a portable and efficient cooking solution. Ideal for small kitchens or as an additional cooking surface for various culinary needs.",
+      "category": "kitchen-accessories",
+      "price": 49.99,
+      "discountPercentage": 14.04,
+      "rating": 4.11,
+      "stock": 21,
+      "tags": [
+        "kitchen appliances",
+        "cooktops"
+      ],
+      "sku": "KIT-BRD-ELE-056",
+      "weight": 5,
+      "dimensions": {
+        "width": 24.17,
+        "height": 22.55,
+        "depth": 27.49
+      },
+      "warrantyInformation": "2 year warranty",
+      "shippingInformation": "Ships in 1 week",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 1,
+          "comment": "Would not recommend!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Ava Harris",
+          "reviewerEmail": "ava.harris@x.dummyjson.com"
+        },
+        {
+          "rating": 2,
+          "comment": "Very dissatisfied!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Liam Smith",
+          "reviewerEmail": "liam.smith@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Very pleased!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Christian Perez",
+          "reviewerEmail": "christian.perez@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "7 days return policy",
+      "minimumOrderQuantity": 8,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "7534096777716",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/kitchen-accessories/electric-stove/1.webp",
+        "https://cdn.dummyjson.com/product-images/kitchen-accessories/electric-stove/2.webp",
+        "https://cdn.dummyjson.com/product-images/kitchen-accessories/electric-stove/3.webp",
+        "https://cdn.dummyjson.com/product-images/kitchen-accessories/electric-stove/4.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/kitchen-accessories/electric-stove/thumbnail.webp"
+    },
+    {
+      "id": 57,
+      "title": "Fine Mesh Strainer",
+      "description": "The Fine Mesh Strainer is a versatile tool for straining liquids and sifting dry ingredients. Its fine mesh ensures efficient filtering for smooth cooking and baking.",
+      "category": "kitchen-accessories",
+      "price": 9.99,
+      "discountPercentage": 3.5,
+      "rating": 3.04,
+      "stock": 85,
+      "tags": [
+        "kitchen tools",
+        "strainers"
+      ],
+      "sku": "KIT-BRD-FIN-057",
+      "weight": 9,
+      "dimensions": {
+        "width": 18.02,
+        "height": 13.23,
+        "depth": 15.92
+      },
+      "warrantyInformation": "1 month warranty",
+      "shippingInformation": "Ships overnight",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 5,
+          "comment": "Very pleased!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Isabella Anderson",
+          "reviewerEmail": "isabella.anderson@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Highly impressed!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Aaliyah Hanson",
+          "reviewerEmail": "aaliyah.hanson@x.dummyjson.com"
+        },
+        {
+          "rating": 2,
+          "comment": "Would not recommend!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Layla Sullivan",
+          "reviewerEmail": "layla.sullivan@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "7 days return policy",
+      "minimumOrderQuantity": 43,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "8181672477425",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/kitchen-accessories/fine-mesh-strainer/1.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/kitchen-accessories/fine-mesh-strainer/thumbnail.webp"
+    },
+    {
+      "id": 58,
+      "title": "Fork",
+      "description": "The Fork is a classic utensil for various dining and serving purposes. Its durable and ergonomic design makes it a reliable choice for everyday use.",
+      "category": "kitchen-accessories",
+      "price": 3.99,
+      "discountPercentage": 8.07,
+      "rating": 3.11,
+      "stock": 7,
+      "tags": [
+        "kitchen tools",
+        "utensils"
+      ],
+      "sku": "KIT-BRD-FOR-058",
+      "weight": 9,
+      "dimensions": {
+        "width": 12.3,
+        "height": 25.91,
+        "depth": 22.57
+      },
+      "warrantyInformation": "No warranty",
+      "shippingInformation": "Ships in 1 month",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 5,
+          "comment": "Highly impressed!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Elena Baker",
+          "reviewerEmail": "elena.baker@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Very satisfied!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Avery Scott",
+          "reviewerEmail": "avery.scott@x.dummyjson.com"
+        },
+        {
+          "rating": 2,
+          "comment": "Would not buy again!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Mateo Perez",
+          "reviewerEmail": "mateo.perez@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "No return policy",
+      "minimumOrderQuantity": 36,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "2851192866410",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/kitchen-accessories/fork/1.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/kitchen-accessories/fork/thumbnail.webp"
+    },
+    {
+      "id": 59,
+      "title": "Glass",
+      "description": "The Glass is a versatile and elegant drinking vessel suitable for a variety of beverages. Its clear design allows you to enjoy the colors and textures of your drinks.",
+      "category": "kitchen-accessories",
+      "price": 4.99,
+      "discountPercentage": 7.92,
+      "rating": 4.02,
+      "stock": 46,
+      "tags": [
+        "drinkware",
+        "glasses"
+      ],
+      "sku": "KIT-BRD-GLA-059",
+      "weight": 10,
+      "dimensions": {
+        "width": 20.23,
+        "height": 24.56,
+        "depth": 26.97
+      },
+      "warrantyInformation": "3 year warranty",
+      "shippingInformation": "Ships overnight",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 5,
+          "comment": "Very happy with my purchase!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Jackson Evans",
+          "reviewerEmail": "jackson.evans@x.dummyjson.com"
+        },
+        {
+          "rating": 3,
+          "comment": "Waste of money!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Nicholas Bailey",
+          "reviewerEmail": "nicholas.bailey@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Very satisfied!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Nathan Reed",
+          "reviewerEmail": "nathan.reed@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "7 days return policy",
+      "minimumOrderQuantity": 17,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "4900880403720",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/kitchen-accessories/glass/1.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/kitchen-accessories/glass/thumbnail.webp"
+    },
+    {
+      "id": 60,
+      "title": "Grater Black",
+      "description": "The Grater in Black is a handy kitchen tool for grating cheese, vegetables, and more. Its sleek design and sharp blades make food preparation efficient and easy.",
+      "category": "kitchen-accessories",
+      "price": 10.99,
+      "discountPercentage": 3.56,
+      "rating": 3.21,
+      "stock": 84,
+      "tags": [
+        "kitchen tools",
+        "graters"
+      ],
+      "sku": "KIT-BRD-GRA-060",
+      "weight": 3,
+      "dimensions": {
+        "width": 6.32,
+        "height": 23.11,
+        "depth": 24.64
+      },
+      "warrantyInformation": "1 month warranty",
+      "shippingInformation": "Ships in 1 week",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 1,
+          "comment": "Would not buy again!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Ella Adams",
+          "reviewerEmail": "ella.adams@x.dummyjson.com"
+        },
+        {
+          "rating": 1,
+          "comment": "Not as described!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Eli Ward",
+          "reviewerEmail": "eli.ward@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Highly impressed!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "James Garcia",
+          "reviewerEmail": "james.garcia@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "60 days return policy",
+      "minimumOrderQuantity": 5,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "2542647841284",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/kitchen-accessories/grater-black/1.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/kitchen-accessories/grater-black/thumbnail.webp"
+    },
+    {
+      "id": 61,
+      "title": "Hand Blender",
+      "description": "The Hand Blender is a versatile kitchen appliance for blending, pureeing, and mixing. Its compact design and powerful motor make it a convenient tool for various recipes.",
+      "category": "kitchen-accessories",
+      "price": 34.99,
+      "discountPercentage": 17.02,
+      "rating": 3.86,
+      "stock": 84,
+      "tags": [
+        "kitchen appliances",
+        "blenders"
+      ],
+      "sku": "KIT-BRD-HAN-061",
+      "weight": 5,
+      "dimensions": {
+        "width": 27.31,
+        "height": 21,
+        "depth": 24.27
+      },
+      "warrantyInformation": "1 year warranty",
+      "shippingInformation": "Ships in 1 week",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 5,
+          "comment": "Excellent quality!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Hazel Evans",
+          "reviewerEmail": "hazel.evans@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Highly impressed!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Hannah Howard",
+          "reviewerEmail": "hannah.howard@x.dummyjson.com"
+        },
+        {
+          "rating": 1,
+          "comment": "Would not buy again!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Jonathan Pierce",
+          "reviewerEmail": "jonathan.pierce@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "No return policy",
+      "minimumOrderQuantity": 11,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "1980575898457",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/kitchen-accessories/hand-blender/1.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/kitchen-accessories/hand-blender/thumbnail.webp"
+    },
+    {
+      "id": 62,
+      "title": "Ice Cube Tray",
+      "description": "The Ice Cube Tray is a practical accessory for making ice cubes in various shapes. Perfect for keeping your drinks cool and adding a fun element to your beverages.",
+      "category": "kitchen-accessories",
+      "price": 5.99,
+      "discountPercentage": 0.63,
+      "rating": 4.71,
+      "stock": 13,
+      "tags": [
+        "kitchen tools",
+        "ice cube trays"
+      ],
+      "sku": "KIT-BRD-CUB-062",
+      "weight": 3,
+      "dimensions": {
+        "width": 26.67,
+        "height": 18.14,
+        "depth": 5.31
+      },
+      "warrantyInformation": "1 month warranty",
+      "shippingInformation": "Ships overnight",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 5,
+          "comment": "Awesome product!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Isaac Lawrence",
+          "reviewerEmail": "isaac.lawrence@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Would buy again!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Leo Rivera",
+          "reviewerEmail": "leo.rivera@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Very pleased!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Henry Turner",
+          "reviewerEmail": "henry.turner@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "No return policy",
+      "minimumOrderQuantity": 16,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "9123541111825",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/kitchen-accessories/ice-cube-tray/1.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/kitchen-accessories/ice-cube-tray/thumbnail.webp"
+    },
+    {
+      "id": 63,
+      "title": "Kitchen Sieve",
+      "description": "The Kitchen Sieve is a versatile tool for sifting and straining dry and wet ingredients. Its fine mesh design ensures smooth results in your cooking and baking.",
+      "category": "kitchen-accessories",
+      "price": 7.99,
+      "discountPercentage": 18.91,
+      "rating": 3.09,
+      "stock": 68,
+      "tags": [
+        "kitchen tools",
+        "strainers"
+      ],
+      "sku": "KIT-BRD-KIT-063",
+      "weight": 5,
+      "dimensions": {
+        "width": 20.68,
+        "height": 6.5,
+        "depth": 7.86
+      },
+      "warrantyInformation": "1 month warranty",
+      "shippingInformation": "Ships overnight",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 5,
+          "comment": "Highly recommended!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Stella Morris",
+          "reviewerEmail": "stella.morris@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Very happy with my purchase!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Henry Adams",
+          "reviewerEmail": "henry.adams@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Awesome product!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Lillian Simmons",
+          "reviewerEmail": "lillian.simmons@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "No return policy",
+      "minimumOrderQuantity": 5,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "7119606190291",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/kitchen-accessories/kitchen-sieve/1.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/kitchen-accessories/kitchen-sieve/thumbnail.webp"
+    },
+    {
+      "id": 64,
+      "title": "Knife",
+      "description": "The Knife is an essential kitchen tool for chopping, slicing, and dicing. Its sharp blade and ergonomic handle make it a reliable choice for food preparation.",
+      "category": "kitchen-accessories",
+      "price": 14.99,
+      "discountPercentage": 18.86,
+      "rating": 3.26,
+      "stock": 7,
+      "tags": [
+        "kitchen tools",
+        "cutlery"
+      ],
+      "sku": "KIT-BRD-KNI-064",
+      "weight": 3,
+      "dimensions": {
+        "width": 25.19,
+        "height": 18.52,
+        "depth": 20.5
+      },
+      "warrantyInformation": "1 month warranty",
+      "shippingInformation": "Ships in 1 week",
+      "availabilityStatus": "Low Stock",
+      "reviews": [
+        {
+          "rating": 2,
+          "comment": "Very disappointed!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Aaliyah Martinez",
+          "reviewerEmail": "aaliyah.martinez@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Fast shipping!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Addison Wright",
+          "reviewerEmail": "addison.wright@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Very pleased!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Mateo Nguyen",
+          "reviewerEmail": "mateo.nguyen@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "7 days return policy",
+      "minimumOrderQuantity": 50,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "2258278927819",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/kitchen-accessories/knife/1.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/kitchen-accessories/knife/thumbnail.webp"
+    },
+    {
+      "id": 65,
+      "title": "Lunch Box",
+      "description": "The Lunch Box is a convenient and portable container for packing and carrying your meals. With compartments for different foods, it's perfect for on-the-go dining.",
+      "category": "kitchen-accessories",
+      "price": 12.99,
+      "discountPercentage": 10.34,
+      "rating": 4.93,
+      "stock": 94,
+      "tags": [
+        "kitchen tools",
+        "storage"
+      ],
+      "sku": "KIT-BRD-LUN-065",
+      "weight": 9,
+      "dimensions": {
+        "width": 12.45,
+        "height": 19.08,
+        "depth": 8.24
+      },
+      "warrantyInformation": "5 year warranty",
+      "shippingInformation": "Ships in 1-2 business days",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 5,
+          "comment": "Very pleased!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Jace Smith",
+          "reviewerEmail": "jace.smith@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Very happy with my purchase!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Zoe Bennett",
+          "reviewerEmail": "zoe.bennett@x.dummyjson.com"
+        },
+        {
+          "rating": 2,
+          "comment": "Poor quality!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Michael Johnson",
+          "reviewerEmail": "michael.johnson@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "30 days return policy",
+      "minimumOrderQuantity": 39,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "3287134465440",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/kitchen-accessories/lunch-box/1.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/kitchen-accessories/lunch-box/thumbnail.webp"
+    },
+    {
+      "id": 66,
+      "title": "Microwave Oven",
+      "description": "The Microwave Oven is a versatile kitchen appliance for quick and efficient cooking, reheating, and defrosting. Its compact size makes it suitable for various kitchen setups.",
+      "category": "kitchen-accessories",
+      "price": 89.99,
+      "discountPercentage": 12.13,
+      "rating": 4.82,
+      "stock": 59,
+      "tags": [
+        "kitchen appliances",
+        "microwaves"
+      ],
+      "sku": "KIT-BRD-MIC-066",
+      "weight": 9,
+      "dimensions": {
+        "width": 16.31,
+        "height": 27.45,
+        "depth": 13.05
+      },
+      "warrantyInformation": "1 year warranty",
+      "shippingInformation": "Ships in 1 week",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 3,
+          "comment": "Very dissatisfied!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Nora Russell",
+          "reviewerEmail": "nora.russell@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Fast shipping!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Alice Smith",
+          "reviewerEmail": "alice.smith@x.dummyjson.com"
+        },
+        {
+          "rating": 2,
+          "comment": "Very disappointed!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Ethan Fletcher",
+          "reviewerEmail": "ethan.fletcher@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "7 days return policy",
+      "minimumOrderQuantity": 4,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "7578271198951",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/kitchen-accessories/microwave-oven/1.webp",
+        "https://cdn.dummyjson.com/product-images/kitchen-accessories/microwave-oven/2.webp",
+        "https://cdn.dummyjson.com/product-images/kitchen-accessories/microwave-oven/3.webp",
+        "https://cdn.dummyjson.com/product-images/kitchen-accessories/microwave-oven/4.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/kitchen-accessories/microwave-oven/thumbnail.webp"
+    },
+    {
+      "id": 67,
+      "title": "Mug Tree Stand",
+      "description": "The Mug Tree Stand is a stylish and space-saving solution for organizing your mugs. Keep your favorite mugs easily accessible and neatly displayed in your kitchen.",
+      "category": "kitchen-accessories",
+      "price": 15.99,
+      "discountPercentage": 9.25,
+      "rating": 2.64,
+      "stock": 88,
+      "tags": [
+        "kitchen tools",
+        "organization"
+      ],
+      "sku": "KIT-BRD-TRE-067",
+      "weight": 3,
+      "dimensions": {
+        "width": 18.99,
+        "height": 27.14,
+        "depth": 27.29
+      },
+      "warrantyInformation": "1 year warranty",
+      "shippingInformation": "Ships in 1 month",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 1,
+          "comment": "Very unhappy with my purchase!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Bella Grant",
+          "reviewerEmail": "bella.grant@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Highly recommended!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Paisley Bell",
+          "reviewerEmail": "paisley.bell@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Fast shipping!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "David Martinez",
+          "reviewerEmail": "david.martinez@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "30 days return policy",
+      "minimumOrderQuantity": 45,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "4136081478055",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/kitchen-accessories/mug-tree-stand/1.webp",
+        "https://cdn.dummyjson.com/product-images/kitchen-accessories/mug-tree-stand/2.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/kitchen-accessories/mug-tree-stand/thumbnail.webp"
+    },
+    {
+      "id": 68,
+      "title": "Pan",
+      "description": "The Pan is a versatile and essential cookware item for frying, sautéing, and cooking various dishes. Its non-stick coating ensures easy food release and cleanup.",
+      "category": "kitchen-accessories",
+      "price": 24.99,
+      "discountPercentage": 3,
+      "rating": 2.79,
+      "stock": 90,
+      "tags": [
+        "cookware",
+        "pans"
+      ],
+      "sku": "KIT-BRD-PRD-068",
+      "weight": 8,
+      "dimensions": {
+        "width": 17.14,
+        "height": 21.7,
+        "depth": 25.75
+      },
+      "warrantyInformation": "1 year warranty",
+      "shippingInformation": "Ships in 3-5 business days",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 5,
+          "comment": "Highly impressed!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Michael Johnson",
+          "reviewerEmail": "michael.johnson@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Highly recommended!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Adrian Flores",
+          "reviewerEmail": "adrian.flores@x.dummyjson.com"
+        },
+        {
+          "rating": 1,
+          "comment": "Not as described!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Nicholas Bailey",
+          "reviewerEmail": "nicholas.bailey@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "30 days return policy",
+      "minimumOrderQuantity": 17,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "5159803862015",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/kitchen-accessories/pan/1.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/kitchen-accessories/pan/thumbnail.webp"
+    },
+    {
+      "id": 69,
+      "title": "Plate",
+      "description": "The Plate is a classic and essential dishware item for serving meals. Its durable and stylish design makes it suitable for everyday use or special occasions.",
+      "category": "kitchen-accessories",
+      "price": 3.99,
+      "discountPercentage": 7.31,
+      "rating": 3.65,
+      "stock": 66,
+      "tags": [
+        "dinnerware",
+        "plates"
+      ],
+      "sku": "KIT-BRD-PLA-069",
+      "weight": 4,
+      "dimensions": {
+        "width": 16.46,
+        "height": 5.39,
+        "depth": 13.15
+      },
+      "warrantyInformation": "1 year warranty",
+      "shippingInformation": "Ships in 1-2 business days",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 3,
+          "comment": "Disappointing product!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Mia Miller",
+          "reviewerEmail": "mia.miller@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Great product!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Henry Adams",
+          "reviewerEmail": "henry.adams@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Excellent quality!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Nora Russell",
+          "reviewerEmail": "nora.russell@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "90 days return policy",
+      "minimumOrderQuantity": 6,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "8084753475328",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/kitchen-accessories/plate/1.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/kitchen-accessories/plate/thumbnail.webp"
+    },
+    {
+      "id": 70,
+      "title": "Red Tongs",
+      "description": "The Red Tongs are versatile kitchen tongs suitable for various cooking and serving tasks. Their vibrant color adds a pop of excitement to your kitchen utensils.",
+      "category": "kitchen-accessories",
+      "price": 6.99,
+      "discountPercentage": 14.52,
+      "rating": 4.42,
+      "stock": 82,
+      "tags": [
+        "kitchen tools",
+        "tongs"
+      ],
+      "sku": "KIT-BRD-TON-070",
+      "weight": 7,
+      "dimensions": {
+        "width": 22.86,
+        "height": 26.2,
+        "depth": 17
+      },
+      "warrantyInformation": "No warranty",
+      "shippingInformation": "Ships in 1 week",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 4,
+          "comment": "Very satisfied!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Xavier Wright",
+          "reviewerEmail": "xavier.wright@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Highly recommended!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Stella Hughes",
+          "reviewerEmail": "stella.hughes@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Excellent quality!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Jaxon Barnes",
+          "reviewerEmail": "jaxon.barnes@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "30 days return policy",
+      "minimumOrderQuantity": 23,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "1919888449594",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/kitchen-accessories/red-tongs/1.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/kitchen-accessories/red-tongs/thumbnail.webp"
+    },
+    {
+      "id": 71,
+      "title": "Silver Pot With Glass Cap",
+      "description": "The Silver Pot with Glass Cap is a stylish and functional cookware item for boiling, simmering, and preparing delicious meals. Its glass cap allows you to monitor cooking progress.",
+      "category": "kitchen-accessories",
+      "price": 39.99,
+      "discountPercentage": 5.7,
+      "rating": 3.22,
+      "stock": 40,
+      "tags": [
+        "cookware",
+        "pots"
+      ],
+      "sku": "KIT-BRD-SIL-071",
+      "weight": 7,
+      "dimensions": {
+        "width": 21.03,
+        "height": 11.7,
+        "depth": 6.69
+      },
+      "warrantyInformation": "1 year warranty",
+      "shippingInformation": "Ships in 1 month",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 4,
+          "comment": "Great product!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Julian Newton",
+          "reviewerEmail": "julian.newton@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Excellent quality!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Noah Lewis",
+          "reviewerEmail": "noah.lewis@x.dummyjson.com"
+        },
+        {
+          "rating": 1,
+          "comment": "Disappointing product!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Brayden Hill",
+          "reviewerEmail": "brayden.hill@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "90 days return policy",
+      "minimumOrderQuantity": 10,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "9757232943842",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/kitchen-accessories/silver-pot-with-glass-cap/1.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/kitchen-accessories/silver-pot-with-glass-cap/thumbnail.webp"
+    },
+    {
+      "id": 72,
+      "title": "Slotted Turner",
+      "description": "The Slotted Turner is a kitchen utensil designed for flipping and turning food items. Its slotted design allows excess liquid to drain, making it ideal for frying and sautéing.",
+      "category": "kitchen-accessories",
+      "price": 8.99,
+      "discountPercentage": 13.35,
+      "rating": 3.4,
+      "stock": 88,
+      "tags": [
+        "kitchen tools",
+        "turners"
+      ],
+      "sku": "KIT-BRD-SLO-072",
+      "weight": 8,
+      "dimensions": {
+        "width": 14.41,
+        "height": 27.15,
+        "depth": 14.76
+      },
+      "warrantyInformation": "Lifetime warranty",
+      "shippingInformation": "Ships in 1-2 business days",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 1,
+          "comment": "Would not recommend!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Ava Taylor",
+          "reviewerEmail": "ava.taylor@x.dummyjson.com"
+        },
+        {
+          "rating": 2,
+          "comment": "Would not recommend!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Liam Smith",
+          "reviewerEmail": "liam.smith@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Very satisfied!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Gabriel Mitchell",
+          "reviewerEmail": "gabriel.mitchell@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "7 days return policy",
+      "minimumOrderQuantity": 34,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "4396291569672",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/kitchen-accessories/slotted-turner/1.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/kitchen-accessories/slotted-turner/thumbnail.webp"
+    },
+    {
+      "id": 73,
+      "title": "Spice Rack",
+      "description": "The Spice Rack is a convenient organizer for your spices and seasonings. Keep your kitchen essentials within reach and neatly arranged with this stylish spice rack.",
+      "category": "kitchen-accessories",
+      "price": 19.99,
+      "discountPercentage": 12.09,
+      "rating": 4.87,
+      "stock": 79,
+      "tags": [
+        "kitchen tools",
+        "organization"
+      ],
+      "sku": "KIT-BRD-SPI-073",
+      "weight": 7,
+      "dimensions": {
+        "width": 28.06,
+        "height": 22.43,
+        "depth": 26.34
+      },
+      "warrantyInformation": "1 week warranty",
+      "shippingInformation": "Ships overnight",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 5,
+          "comment": "Very satisfied!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Elena Baker",
+          "reviewerEmail": "elena.baker@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Excellent quality!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Owen Fisher",
+          "reviewerEmail": "owen.fisher@x.dummyjson.com"
+        },
+        {
+          "rating": 2,
+          "comment": "Waste of money!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Sadie Morales",
+          "reviewerEmail": "sadie.morales@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "7 days return policy",
+      "minimumOrderQuantity": 18,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "6149284465708",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/kitchen-accessories/spice-rack/1.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/kitchen-accessories/spice-rack/thumbnail.webp"
+    },
+    {
+      "id": 74,
+      "title": "Spoon",
+      "description": "The Spoon is a versatile kitchen utensil for stirring, serving, and tasting. Its ergonomic design and durable construction make it an essential tool for every kitchen.",
+      "category": "kitchen-accessories",
+      "price": 4.99,
+      "discountPercentage": 1.53,
+      "rating": 4.03,
+      "stock": 59,
+      "tags": [
+        "kitchen tools",
+        "utensils"
+      ],
+      "sku": "KIT-BRD-SPO-074",
+      "weight": 6,
+      "dimensions": {
+        "width": 8.49,
+        "height": 26.04,
+        "depth": 27.78
+      },
+      "warrantyInformation": "1 year warranty",
+      "shippingInformation": "Ships in 1-2 business days",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 3,
+          "comment": "Waste of money!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Jackson Evans",
+          "reviewerEmail": "jackson.evans@x.dummyjson.com"
+        },
+        {
+          "rating": 1,
+          "comment": "Disappointing product!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Elena Baker",
+          "reviewerEmail": "elena.baker@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Awesome product!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Bella Gonzalez",
+          "reviewerEmail": "bella.gonzalez@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "90 days return policy",
+      "minimumOrderQuantity": 15,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "7769627934740",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/kitchen-accessories/spoon/1.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/kitchen-accessories/spoon/thumbnail.webp"
+    },
+    {
+      "id": 75,
+      "title": "Tray",
+      "description": "The Tray is a functional and decorative item for serving snacks, appetizers, or drinks. Its stylish design makes it a versatile accessory for entertaining guests.",
+      "category": "kitchen-accessories",
+      "price": 16.99,
+      "discountPercentage": 7.48,
+      "rating": 4.62,
+      "stock": 71,
+      "tags": [
+        "serveware",
+        "trays"
+      ],
+      "sku": "KIT-BRD-TRA-075",
+      "weight": 10,
+      "dimensions": {
+        "width": 12.7,
+        "height": 7.52,
+        "depth": 9.72
+      },
+      "warrantyInformation": "5 year warranty",
+      "shippingInformation": "Ships in 2 weeks",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 5,
+          "comment": "Fast shipping!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Samantha Howard",
+          "reviewerEmail": "samantha.howard@x.dummyjson.com"
+        },
+        {
+          "rating": 3,
+          "comment": "Very disappointed!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Benjamin Wilson",
+          "reviewerEmail": "benjamin.wilson@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Excellent quality!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Caleb Nelson",
+          "reviewerEmail": "caleb.nelson@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "7 days return policy",
+      "minimumOrderQuantity": 23,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "5239514403214",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/kitchen-accessories/tray/1.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/kitchen-accessories/tray/thumbnail.webp"
+    },
+    {
+      "id": 76,
+      "title": "Wooden Rolling Pin",
+      "description": "The Wooden Rolling Pin is a classic kitchen tool for rolling out dough for baking. Its smooth surface and sturdy handles make it easy to achieve uniform thickness.",
+      "category": "kitchen-accessories",
+      "price": 11.99,
+      "discountPercentage": 9.75,
+      "rating": 2.92,
+      "stock": 80,
+      "tags": [
+        "kitchen tools",
+        "baking"
+      ],
+      "sku": "KIT-BRD-WOO-076",
+      "weight": 7,
+      "dimensions": {
+        "width": 5.92,
+        "height": 10.87,
+        "depth": 19.55
+      },
+      "warrantyInformation": "3 year warranty",
+      "shippingInformation": "Ships in 2 weeks",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 2,
+          "comment": "Would not recommend!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Aurora Lawson",
+          "reviewerEmail": "aurora.lawson@x.dummyjson.com"
+        },
+        {
+          "rating": 3,
+          "comment": "Very disappointed!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Ava Taylor",
+          "reviewerEmail": "ava.taylor@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Great product!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Mila Hernandez",
+          "reviewerEmail": "mila.hernandez@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "30 days return policy",
+      "minimumOrderQuantity": 11,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "6934305212813",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/kitchen-accessories/wooden-rolling-pin/1.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/kitchen-accessories/wooden-rolling-pin/thumbnail.webp"
+    },
+    {
+      "id": 77,
+      "title": "Yellow Peeler",
+      "description": "The Yellow Peeler is a handy tool for peeling fruits and vegetables with ease. Its bright yellow color adds a cheerful touch to your kitchen gadgets.",
+      "category": "kitchen-accessories",
+      "price": 5.99,
+      "discountPercentage": 12.48,
+      "rating": 4.24,
+      "stock": 35,
+      "tags": [
+        "kitchen tools",
+        "peelers"
+      ],
+      "sku": "KIT-BRD-YEL-077",
+      "weight": 7,
+      "dimensions": {
+        "width": 9.7,
+        "height": 6.43,
+        "depth": 17.93
+      },
+      "warrantyInformation": "1 month warranty",
+      "shippingInformation": "Ships in 3-5 business days",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 1,
+          "comment": "Very unhappy with my purchase!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Claire Foster",
+          "reviewerEmail": "claire.foster@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Very happy with my purchase!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Aaliyah Hanson",
+          "reviewerEmail": "aaliyah.hanson@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Great product!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Olivia Wilson",
+          "reviewerEmail": "olivia.wilson@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "90 days return policy",
+      "minimumOrderQuantity": 6,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "8946155386929",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/kitchen-accessories/yellow-peeler/1.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/kitchen-accessories/yellow-peeler/thumbnail.webp"
+    },
+    {
+      "id": 78,
+      "title": "Apple MacBook Pro 14 Inch Space Grey",
+      "description": "The MacBook Pro 14 Inch in Space Grey is a powerful and sleek laptop, featuring Apple's M1 Pro chip for exceptional performance and a stunning Retina display.",
+      "category": "laptops",
+      "price": 1999.99,
+      "discountPercentage": 4.69,
+      "rating": 3.65,
+      "stock": 24,
+      "tags": [
+        "laptops",
+        "apple"
+      ],
+      "brand": "Apple",
+      "sku": "LAP-APP-APP-078",
+      "weight": 9,
+      "dimensions": {
+        "width": 20.03,
+        "height": 9.54,
+        "depth": 14.82
+      },
+      "warrantyInformation": "3 year warranty",
+      "shippingInformation": "Ships in 2 weeks",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 5,
+          "comment": "Very happy with my purchase!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Hazel Evans",
+          "reviewerEmail": "hazel.evans@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Very happy with my purchase!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Christopher West",
+          "reviewerEmail": "christopher.west@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Very satisfied!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Aubrey Garcia",
+          "reviewerEmail": "aubrey.garcia@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "90 days return policy",
+      "minimumOrderQuantity": 1,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "5275211560367",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/laptops/apple-macbook-pro-14-inch-space-grey/1.webp",
+        "https://cdn.dummyjson.com/product-images/laptops/apple-macbook-pro-14-inch-space-grey/2.webp",
+        "https://cdn.dummyjson.com/product-images/laptops/apple-macbook-pro-14-inch-space-grey/3.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/laptops/apple-macbook-pro-14-inch-space-grey/thumbnail.webp"
+    },
+    {
+      "id": 79,
+      "title": "Asus Zenbook Pro Dual Screen Laptop",
+      "description": "The Asus Zenbook Pro Dual Screen Laptop is a high-performance device with dual screens, providing productivity and versatility for creative professionals.",
+      "category": "laptops",
+      "price": 1799.99,
+      "discountPercentage": 11.14,
+      "rating": 3.95,
+      "stock": 45,
+      "tags": [
+        "laptops"
+      ],
+      "brand": "Asus",
+      "sku": "LAP-ASU-ASU-079",
+      "weight": 9,
+      "dimensions": {
+        "width": 16.6,
+        "height": 11.49,
+        "depth": 10.89
+      },
+      "warrantyInformation": "3 year warranty",
+      "shippingInformation": "Ships in 1 month",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 4,
+          "comment": "Very happy with my purchase!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Michael Johnson",
+          "reviewerEmail": "michael.johnson@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Highly recommended!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Zoe Bennett",
+          "reviewerEmail": "zoe.bennett@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Very satisfied!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Mila Hernandez",
+          "reviewerEmail": "mila.hernandez@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "7 days return policy",
+      "minimumOrderQuantity": 1,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "7392988535158",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/laptops/asus-zenbook-pro-dual-screen-laptop/1.webp",
+        "https://cdn.dummyjson.com/product-images/laptops/asus-zenbook-pro-dual-screen-laptop/2.webp",
+        "https://cdn.dummyjson.com/product-images/laptops/asus-zenbook-pro-dual-screen-laptop/3.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/laptops/asus-zenbook-pro-dual-screen-laptop/thumbnail.webp"
+    },
+    {
+      "id": 80,
+      "title": "Huawei Matebook X Pro",
+      "description": "The Huawei Matebook X Pro is a slim and stylish laptop with a high-resolution touchscreen display, offering a premium experience for users on the go.",
+      "category": "laptops",
+      "price": 1399.99,
+      "discountPercentage": 9.38,
+      "rating": 4.98,
+      "stock": 75,
+      "tags": [
+        "laptops"
+      ],
+      "brand": "Huawei",
+      "sku": "LAP-HUA-HUA-080",
+      "weight": 9,
+      "dimensions": {
+        "width": 18.21,
+        "height": 22.83,
+        "depth": 17.26
+      },
+      "warrantyInformation": "No warranty",
+      "shippingInformation": "Ships overnight",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 4,
+          "comment": "Very satisfied!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Evan Wright",
+          "reviewerEmail": "evan.wright@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Very happy with my purchase!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Hunter Gordon",
+          "reviewerEmail": "hunter.gordon@x.dummyjson.com"
+        },
+        {
+          "rating": 1,
+          "comment": "Not worth the price!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "William Gonzalez",
+          "reviewerEmail": "william.gonzalez@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "60 days return policy",
+      "minimumOrderQuantity": 1,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "0592296671061",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/laptops/huawei-matebook-x-pro/1.webp",
+        "https://cdn.dummyjson.com/product-images/laptops/huawei-matebook-x-pro/2.webp",
+        "https://cdn.dummyjson.com/product-images/laptops/huawei-matebook-x-pro/3.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/laptops/huawei-matebook-x-pro/thumbnail.webp"
+    },
+    {
+      "id": 81,
+      "title": "Lenovo Yoga 920",
+      "description": "The Lenovo Yoga 920 is a 2-in-1 convertible laptop with a flexible hinge, allowing you to use it as a laptop or tablet, offering versatility and portability.",
+      "category": "laptops",
+      "price": 1099.99,
+      "discountPercentage": 6.55,
+      "rating": 2.86,
+      "stock": 40,
+      "tags": [
+        "laptops"
+      ],
+      "brand": "Lenovo",
+      "sku": "LAP-LEN-LEN-081",
+      "weight": 9,
+      "dimensions": {
+        "width": 20.84,
+        "height": 22.68,
+        "depth": 17.39
+      },
+      "warrantyInformation": "6 months warranty",
+      "shippingInformation": "Ships in 2 weeks",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 4,
+          "comment": "Would buy again!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Bella Gonzalez",
+          "reviewerEmail": "bella.gonzalez@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Great value for money!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Nathan Reed",
+          "reviewerEmail": "nathan.reed@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Great value for money!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Hazel Gardner",
+          "reviewerEmail": "hazel.gardner@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "No return policy",
+      "minimumOrderQuantity": 1,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "5506742916764",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/laptops/lenovo-yoga-920/1.webp",
+        "https://cdn.dummyjson.com/product-images/laptops/lenovo-yoga-920/2.webp",
+        "https://cdn.dummyjson.com/product-images/laptops/lenovo-yoga-920/3.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/laptops/lenovo-yoga-920/thumbnail.webp"
+    },
+    {
+      "id": 82,
+      "title": "New DELL XPS 13 9300 Laptop",
+      "description": "The New DELL XPS 13 9300 Laptop is a compact and powerful device, featuring a virtually borderless InfinityEdge display and high-end performance for various tasks.",
+      "category": "laptops",
+      "price": 1499.99,
+      "discountPercentage": 11.89,
+      "rating": 2.67,
+      "stock": 74,
+      "tags": [
+        "laptops"
+      ],
+      "brand": "Dell",
+      "sku": "LAP-DEL-DEL-082",
+      "weight": 2,
+      "dimensions": {
+        "width": 13.76,
+        "height": 29,
+        "depth": 21.42
+      },
+      "warrantyInformation": "2 year warranty",
+      "shippingInformation": "Ships in 2 weeks",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 3,
+          "comment": "Poor quality!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Charlotte Lopez",
+          "reviewerEmail": "charlotte.lopez@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Very satisfied!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Alice Smith",
+          "reviewerEmail": "alice.smith@x.dummyjson.com"
+        },
+        {
+          "rating": 2,
+          "comment": "Disappointing product!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Ava Taylor",
+          "reviewerEmail": "ava.taylor@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "60 days return policy",
+      "minimumOrderQuantity": 1,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "5963805976904",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/laptops/new-dell-xps-13-9300-laptop/1.webp",
+        "https://cdn.dummyjson.com/product-images/laptops/new-dell-xps-13-9300-laptop/2.webp",
+        "https://cdn.dummyjson.com/product-images/laptops/new-dell-xps-13-9300-laptop/3.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/laptops/new-dell-xps-13-9300-laptop/thumbnail.webp"
+    },
+    {
+      "id": 83,
+      "title": "Blue & Black Check Shirt",
+      "description": "The Blue & Black Check Shirt is a stylish and comfortable men's shirt featuring a classic check pattern. Made from high-quality fabric, it's suitable for both casual and semi-formal occasions.",
+      "category": "mens-shirts",
+      "price": 29.99,
+      "discountPercentage": 15.35,
+      "rating": 3.64,
+      "stock": 38,
+      "tags": [
+        "clothing",
+        "men's shirts"
+      ],
+      "brand": "Fashion Trends",
+      "sku": "MEN-FAS-BLU-083",
+      "weight": 4,
+      "dimensions": {
+        "width": 27.49,
+        "height": 23.73,
+        "depth": 28.61
+      },
+      "warrantyInformation": "3 year warranty",
+      "shippingInformation": "Ships in 3-5 business days",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 1,
+          "comment": "Waste of money!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Logan Lee",
+          "reviewerEmail": "logan.lee@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Very satisfied!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Zachary Lee",
+          "reviewerEmail": "zachary.lee@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Fast shipping!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Aurora Rodriguez",
+          "reviewerEmail": "aurora.rodriguez@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "30 days return policy",
+      "minimumOrderQuantity": 18,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "7148674604957",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/mens-shirts/blue-&-black-check-shirt/1.webp",
+        "https://cdn.dummyjson.com/product-images/mens-shirts/blue-&-black-check-shirt/2.webp",
+        "https://cdn.dummyjson.com/product-images/mens-shirts/blue-&-black-check-shirt/3.webp",
+        "https://cdn.dummyjson.com/product-images/mens-shirts/blue-&-black-check-shirt/4.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/mens-shirts/blue-&-black-check-shirt/thumbnail.webp"
+    },
+    {
+      "id": 84,
+      "title": "Gigabyte Aorus Men Tshirt",
+      "description": "The Gigabyte Aorus Men Tshirt is a cool and casual shirt for gaming enthusiasts. With the Aorus logo and sleek design, it's perfect for expressing your gaming style.",
+      "category": "mens-shirts",
+      "price": 24.99,
+      "discountPercentage": 0.94,
+      "rating": 3.18,
+      "stock": 90,
+      "tags": [
+        "clothing",
+        "men's t-shirts"
+      ],
+      "brand": "Gigabyte",
+      "sku": "MEN-GIG-GIG-084",
+      "weight": 4,
+      "dimensions": {
+        "width": 22.31,
+        "height": 26.47,
+        "depth": 13.27
+      },
+      "warrantyInformation": "3 year warranty",
+      "shippingInformation": "Ships overnight",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 5,
+          "comment": "Excellent quality!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Amelia Perez",
+          "reviewerEmail": "amelia.perez@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Awesome product!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Tyler Davis",
+          "reviewerEmail": "tyler.davis@x.dummyjson.com"
+        },
+        {
+          "rating": 1,
+          "comment": "Disappointing product!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Harper King",
+          "reviewerEmail": "harper.king@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "30 days return policy",
+      "minimumOrderQuantity": 16,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "1654388837068",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/mens-shirts/gigabyte-aorus-men-tshirt/1.webp",
+        "https://cdn.dummyjson.com/product-images/mens-shirts/gigabyte-aorus-men-tshirt/2.webp",
+        "https://cdn.dummyjson.com/product-images/mens-shirts/gigabyte-aorus-men-tshirt/3.webp",
+        "https://cdn.dummyjson.com/product-images/mens-shirts/gigabyte-aorus-men-tshirt/4.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/mens-shirts/gigabyte-aorus-men-tshirt/thumbnail.webp"
+    },
+    {
+      "id": 85,
+      "title": "Man Plaid Shirt",
+      "description": "The Man Plaid Shirt is a timeless and versatile men's shirt with a classic plaid pattern. Its comfortable fit and casual style make it a wardrobe essential for various occasions.",
+      "category": "mens-shirts",
+      "price": 34.99,
+      "discountPercentage": 19.5,
+      "rating": 3.46,
+      "stock": 82,
+      "tags": [
+        "clothing",
+        "men's shirts"
+      ],
+      "brand": "Classic Wear",
+      "sku": "MEN-CLA-PLA-085",
+      "weight": 3,
+      "dimensions": {
+        "width": 9.34,
+        "height": 5.97,
+        "depth": 10.85
+      },
+      "warrantyInformation": "1 week warranty",
+      "shippingInformation": "Ships in 1-2 business days",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 3,
+          "comment": "Disappointing product!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Aubrey Wagner",
+          "reviewerEmail": "aubrey.wagner@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Awesome product!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Evan Reed",
+          "reviewerEmail": "evan.reed@x.dummyjson.com"
+        },
+        {
+          "rating": 2,
+          "comment": "Very disappointed!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Evelyn Gonzalez",
+          "reviewerEmail": "evelyn.gonzalez@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "7 days return policy",
+      "minimumOrderQuantity": 13,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "2821496314023",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/mens-shirts/man-plaid-shirt/1.webp",
+        "https://cdn.dummyjson.com/product-images/mens-shirts/man-plaid-shirt/2.webp",
+        "https://cdn.dummyjson.com/product-images/mens-shirts/man-plaid-shirt/3.webp",
+        "https://cdn.dummyjson.com/product-images/mens-shirts/man-plaid-shirt/4.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/mens-shirts/man-plaid-shirt/thumbnail.webp"
+    },
+    {
+      "id": 86,
+      "title": "Man Short Sleeve Shirt",
+      "description": "The Man Short Sleeve Shirt is a breezy and stylish option for warm days. With a comfortable fit and short sleeves, it's perfect for a laid-back yet polished look.",
+      "category": "mens-shirts",
+      "price": 19.99,
+      "discountPercentage": 6.83,
+      "rating": 2.9,
+      "stock": 2,
+      "tags": [
+        "clothing",
+        "men's shirts"
+      ],
+      "brand": "Casual Comfort",
+      "sku": "MEN-CAS-SHO-086",
+      "weight": 2,
+      "dimensions": {
+        "width": 5.02,
+        "height": 16.57,
+        "depth": 9.6
+      },
+      "warrantyInformation": "3 year warranty",
+      "shippingInformation": "Ships in 2 weeks",
+      "availabilityStatus": "Low Stock",
+      "reviews": [
+        {
+          "rating": 5,
+          "comment": "Highly recommended!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Charlotte Lopez",
+          "reviewerEmail": "charlotte.lopez@x.dummyjson.com"
+        },
+        {
+          "rating": 2,
+          "comment": "Poor quality!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Ellie Stewart",
+          "reviewerEmail": "ellie.stewart@x.dummyjson.com"
+        },
+        {
+          "rating": 1,
+          "comment": "Would not recommend!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Sadie Morales",
+          "reviewerEmail": "sadie.morales@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "30 days return policy",
+      "minimumOrderQuantity": 4,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "9995865660204",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/mens-shirts/man-short-sleeve-shirt/1.webp",
+        "https://cdn.dummyjson.com/product-images/mens-shirts/man-short-sleeve-shirt/2.webp",
+        "https://cdn.dummyjson.com/product-images/mens-shirts/man-short-sleeve-shirt/3.webp",
+        "https://cdn.dummyjson.com/product-images/mens-shirts/man-short-sleeve-shirt/4.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/mens-shirts/man-short-sleeve-shirt/thumbnail.webp"
+    },
+    {
+      "id": 87,
+      "title": "Men Check Shirt",
+      "description": "The Men Check Shirt is a classic and versatile shirt featuring a stylish check pattern. Suitable for various occasions, it adds a smart and polished touch to your wardrobe.",
+      "category": "mens-shirts",
+      "price": 27.99,
+      "discountPercentage": 11.38,
+      "rating": 2.72,
+      "stock": 95,
+      "tags": [
+        "clothing",
+        "men's shirts"
+      ],
+      "brand": "Urban Chic",
+      "sku": "MEN-URB-CHE-087",
+      "weight": 10,
+      "dimensions": {
+        "width": 23.48,
+        "height": 7.03,
+        "depth": 27.33
+      },
+      "warrantyInformation": "No warranty",
+      "shippingInformation": "Ships in 1-2 business days",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 3,
+          "comment": "Would not recommend!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Mateo Nguyen",
+          "reviewerEmail": "mateo.nguyen@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Fast shipping!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Lucas Allen",
+          "reviewerEmail": "lucas.allen@x.dummyjson.com"
+        },
+        {
+          "rating": 2,
+          "comment": "Very unhappy with my purchase!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Henry Adams",
+          "reviewerEmail": "henry.adams@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "30 days return policy",
+      "minimumOrderQuantity": 12,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "9680331363394",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/mens-shirts/men-check-shirt/1.webp",
+        "https://cdn.dummyjson.com/product-images/mens-shirts/men-check-shirt/2.webp",
+        "https://cdn.dummyjson.com/product-images/mens-shirts/men-check-shirt/3.webp",
+        "https://cdn.dummyjson.com/product-images/mens-shirts/men-check-shirt/4.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/mens-shirts/men-check-shirt/thumbnail.webp"
+    },
+    {
+      "id": 88,
+      "title": "Nike Air Jordan 1 Red And Black",
+      "description": "The Nike Air Jordan 1 in Red and Black is an iconic basketball sneaker known for its stylish design and high-performance features, making it a favorite among sneaker enthusiasts and athletes.",
+      "category": "mens-shoes",
+      "price": 149.99,
+      "discountPercentage": 4.12,
+      "rating": 4.77,
+      "stock": 7,
+      "tags": [
+        "footwear",
+        "athletic shoes"
+      ],
+      "brand": "Nike",
+      "sku": "MEN-NIK-NIK-088",
+      "weight": 3,
+      "dimensions": {
+        "width": 17.44,
+        "height": 9.52,
+        "depth": 27
+      },
+      "warrantyInformation": "1 year warranty",
+      "shippingInformation": "Ships in 1 week",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 5,
+          "comment": "Highly impressed!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Elena Long",
+          "reviewerEmail": "elena.long@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Very happy with my purchase!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Addison Wright",
+          "reviewerEmail": "addison.wright@x.dummyjson.com"
+        },
+        {
+          "rating": 1,
+          "comment": "Waste of money!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Mason Wright",
+          "reviewerEmail": "mason.wright@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "No return policy",
+      "minimumOrderQuantity": 1,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "7631625812393",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/mens-shoes/nike-air-jordan-1-red-and-black/1.webp",
+        "https://cdn.dummyjson.com/product-images/mens-shoes/nike-air-jordan-1-red-and-black/2.webp",
+        "https://cdn.dummyjson.com/product-images/mens-shoes/nike-air-jordan-1-red-and-black/3.webp",
+        "https://cdn.dummyjson.com/product-images/mens-shoes/nike-air-jordan-1-red-and-black/4.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/mens-shoes/nike-air-jordan-1-red-and-black/thumbnail.webp"
+    },
+    {
+      "id": 89,
+      "title": "Nike Baseball Cleats",
+      "description": "Nike Baseball Cleats are designed for maximum traction and performance on the baseball field. They provide stability and support for players during games and practices.",
+      "category": "mens-shoes",
+      "price": 79.99,
+      "discountPercentage": 18.04,
+      "rating": 3.88,
+      "stock": 12,
+      "tags": [
+        "footwear",
+        "sports cleats"
+      ],
+      "brand": "Nike",
+      "sku": "MEN-NIK-NIK-089",
+      "weight": 9,
+      "dimensions": {
+        "width": 11.75,
+        "height": 26.65,
+        "depth": 19.6
+      },
+      "warrantyInformation": "6 months warranty",
+      "shippingInformation": "Ships in 2 weeks",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 5,
+          "comment": "Would buy again!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Aaron Cook",
+          "reviewerEmail": "aaron.cook@x.dummyjson.com"
+        },
+        {
+          "rating": 2,
+          "comment": "Very disappointed!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Noah Lewis",
+          "reviewerEmail": "noah.lewis@x.dummyjson.com"
+        },
+        {
+          "rating": 3,
+          "comment": "Would not recommend!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Michael Johnson",
+          "reviewerEmail": "michael.johnson@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "No return policy",
+      "minimumOrderQuantity": 3,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "2449851358796",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/mens-shoes/nike-baseball-cleats/1.webp",
+        "https://cdn.dummyjson.com/product-images/mens-shoes/nike-baseball-cleats/2.webp",
+        "https://cdn.dummyjson.com/product-images/mens-shoes/nike-baseball-cleats/3.webp",
+        "https://cdn.dummyjson.com/product-images/mens-shoes/nike-baseball-cleats/4.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/mens-shoes/nike-baseball-cleats/thumbnail.webp"
+    },
+    {
+      "id": 90,
+      "title": "Puma Future Rider Trainers",
+      "description": "The Puma Future Rider Trainers offer a blend of retro style and modern comfort. Perfect for casual wear, these trainers provide a fashionable and comfortable option for everyday use.",
+      "category": "mens-shoes",
+      "price": 89.99,
+      "discountPercentage": 4.2,
+      "rating": 4.9,
+      "stock": 90,
+      "tags": [
+        "footwear",
+        "casual shoes"
+      ],
+      "brand": "Puma",
+      "sku": "MEN-PUM-PUM-090",
+      "weight": 6,
+      "dimensions": {
+        "width": 17.45,
+        "height": 15.58,
+        "depth": 23.13
+      },
+      "warrantyInformation": "5 year warranty",
+      "shippingInformation": "Ships in 1-2 business days",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 5,
+          "comment": "Highly impressed!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Jackson Morales",
+          "reviewerEmail": "jackson.morales@x.dummyjson.com"
+        },
+        {
+          "rating": 1,
+          "comment": "Very disappointed!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Sophia Jones",
+          "reviewerEmail": "sophia.jones@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Very pleased!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Logan Torres",
+          "reviewerEmail": "logan.torres@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "90 days return policy",
+      "minimumOrderQuantity": 10,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "9715091831404",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/mens-shoes/puma-future-rider-trainers/1.webp",
+        "https://cdn.dummyjson.com/product-images/mens-shoes/puma-future-rider-trainers/2.webp",
+        "https://cdn.dummyjson.com/product-images/mens-shoes/puma-future-rider-trainers/3.webp",
+        "https://cdn.dummyjson.com/product-images/mens-shoes/puma-future-rider-trainers/4.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/mens-shoes/puma-future-rider-trainers/thumbnail.webp"
+    },
+    {
+      "id": 91,
+      "title": "Sports Sneakers Off White & Red",
+      "description": "The Sports Sneakers in Off White and Red combine style and functionality, making them a fashionable choice for sports enthusiasts. The red and off-white color combination adds a bold and energetic touch.",
+      "category": "mens-shoes",
+      "price": 119.99,
+      "discountPercentage": 4.97,
+      "rating": 4.77,
+      "stock": 17,
+      "tags": [
+        "footwear",
+        "athletic shoes"
+      ],
+      "brand": "Off White",
+      "sku": "MEN-OFF-SPO-091",
+      "weight": 7,
+      "dimensions": {
+        "width": 14.37,
+        "height": 23.44,
+        "depth": 12.84
+      },
+      "warrantyInformation": "1 week warranty",
+      "shippingInformation": "Ships in 3-5 business days",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 4,
+          "comment": "Would buy again!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Sadie Morales",
+          "reviewerEmail": "sadie.morales@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Fast shipping!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Julian Newton",
+          "reviewerEmail": "julian.newton@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Awesome product!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Logan Lee",
+          "reviewerEmail": "logan.lee@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "30 days return policy",
+      "minimumOrderQuantity": 5,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "6740319943645",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/mens-shoes/sports-sneakers-off-white-&-red/1.webp",
+        "https://cdn.dummyjson.com/product-images/mens-shoes/sports-sneakers-off-white-&-red/2.webp",
+        "https://cdn.dummyjson.com/product-images/mens-shoes/sports-sneakers-off-white-&-red/3.webp",
+        "https://cdn.dummyjson.com/product-images/mens-shoes/sports-sneakers-off-white-&-red/4.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/mens-shoes/sports-sneakers-off-white-&-red/thumbnail.webp"
+    },
+    {
+      "id": 92,
+      "title": "Sports Sneakers Off White Red",
+      "description": "Another variant of the Sports Sneakers in Off White Red, featuring a unique design. These sneakers offer style and comfort for casual occasions.",
+      "category": "mens-shoes",
+      "price": 109.99,
+      "discountPercentage": 0.04,
+      "rating": 4.69,
+      "stock": 62,
+      "tags": [
+        "footwear",
+        "casual shoes"
+      ],
+      "brand": "Off White",
+      "sku": "MEN-OFF-SPO-092",
+      "weight": 9,
+      "dimensions": {
+        "width": 21.43,
+        "height": 9.86,
+        "depth": 28.5
+      },
+      "warrantyInformation": "3 months warranty",
+      "shippingInformation": "Ships overnight",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 4,
+          "comment": "Excellent quality!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Aurora Lawson",
+          "reviewerEmail": "aurora.lawson@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Great value for money!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Gabriel Mitchell",
+          "reviewerEmail": "gabriel.mitchell@x.dummyjson.com"
+        },
+        {
+          "rating": 1,
+          "comment": "Not worth the price!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Eli Bennett",
+          "reviewerEmail": "eli.bennett@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "60 days return policy",
+      "minimumOrderQuantity": 3,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "0430266023617",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/mens-shoes/sports-sneakers-off-white-red/1.webp",
+        "https://cdn.dummyjson.com/product-images/mens-shoes/sports-sneakers-off-white-red/2.webp",
+        "https://cdn.dummyjson.com/product-images/mens-shoes/sports-sneakers-off-white-red/3.webp",
+        "https://cdn.dummyjson.com/product-images/mens-shoes/sports-sneakers-off-white-red/4.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/mens-shoes/sports-sneakers-off-white-red/thumbnail.webp"
+    },
+    {
+      "id": 93,
+      "title": "Brown Leather Belt Watch",
+      "description": "The Brown Leather Belt Watch is a stylish timepiece with a classic design. Featuring a genuine leather strap and a sleek dial, it adds a touch of sophistication to your look.",
+      "category": "mens-watches",
+      "price": 89.99,
+      "discountPercentage": 5.99,
+      "rating": 4.19,
+      "stock": 32,
+      "tags": [
+        "watches",
+        "leather watches"
+      ],
+      "brand": "Fashion Timepieces",
+      "sku": "MEN-FAS-BRO-093",
+      "weight": 10,
+      "dimensions": {
+        "width": 16.65,
+        "height": 6.15,
+        "depth": 20.18
+      },
+      "warrantyInformation": "1 year warranty",
+      "shippingInformation": "Ships in 1 month",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 1,
+          "comment": "Very unhappy with my purchase!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "James Garcia",
+          "reviewerEmail": "james.garcia@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Fast shipping!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Avery Barnes",
+          "reviewerEmail": "avery.barnes@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Would buy again!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "David Martinez",
+          "reviewerEmail": "david.martinez@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "30 days return policy",
+      "minimumOrderQuantity": 7,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "4027206714862",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/mens-watches/brown-leather-belt-watch/1.webp",
+        "https://cdn.dummyjson.com/product-images/mens-watches/brown-leather-belt-watch/2.webp",
+        "https://cdn.dummyjson.com/product-images/mens-watches/brown-leather-belt-watch/3.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/mens-watches/brown-leather-belt-watch/thumbnail.webp"
+    },
+    {
+      "id": 94,
+      "title": "Longines Master Collection",
+      "description": "The Longines Master Collection is an elegant and refined watch known for its precision and craftsmanship. With a timeless design, it's a symbol of luxury and sophistication.",
+      "category": "mens-watches",
+      "price": 1499.99,
+      "discountPercentage": 17.24,
+      "rating": 3.87,
+      "stock": 100,
+      "tags": [
+        "watches",
+        "luxury watches"
+      ],
+      "brand": "Longines",
+      "sku": "MEN-LON-LON-094",
+      "weight": 4,
+      "dimensions": {
+        "width": 15.39,
+        "height": 10.06,
+        "depth": 20.32
+      },
+      "warrantyInformation": "1 week warranty",
+      "shippingInformation": "Ships in 1-2 business days",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 4,
+          "comment": "Highly impressed!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Eli Ward",
+          "reviewerEmail": "eli.ward@x.dummyjson.com"
+        },
+        {
+          "rating": 3,
+          "comment": "Very disappointed!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Owen Fisher",
+          "reviewerEmail": "owen.fisher@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Great product!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Nathan Reed",
+          "reviewerEmail": "nathan.reed@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "7 days return policy",
+      "minimumOrderQuantity": 1,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "5984080925625",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/mens-watches/longines-master-collection/1.webp",
+        "https://cdn.dummyjson.com/product-images/mens-watches/longines-master-collection/2.webp",
+        "https://cdn.dummyjson.com/product-images/mens-watches/longines-master-collection/3.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/mens-watches/longines-master-collection/thumbnail.webp"
+    },
+    {
+      "id": 95,
+      "title": "Rolex Cellini Date Black Dial",
+      "description": "The Rolex Cellini Date with Black Dial is a classic and prestigious watch. With a black dial and date complication, it exudes sophistication and is a symbol of Rolex's heritage.",
+      "category": "mens-watches",
+      "price": 8999.99,
+      "discountPercentage": 8.88,
+      "rating": 4.97,
+      "stock": 40,
+      "tags": [
+        "watches",
+        "luxury watches"
+      ],
+      "brand": "Rolex",
+      "sku": "MEN-ROL-ROL-095",
+      "weight": 2,
+      "dimensions": {
+        "width": 13.46,
+        "height": 26.1,
+        "depth": 17.9
+      },
+      "warrantyInformation": "3 months warranty",
+      "shippingInformation": "Ships in 1 week",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 3,
+          "comment": "Not worth the price!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Owen Sullivan",
+          "reviewerEmail": "owen.sullivan@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Very satisfied!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Jonathan Pierce",
+          "reviewerEmail": "jonathan.pierce@x.dummyjson.com"
+        },
+        {
+          "rating": 1,
+          "comment": "Would not buy again!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Adrian Flores",
+          "reviewerEmail": "adrian.flores@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "90 days return policy",
+      "minimumOrderQuantity": 1,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "9663455783895",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/mens-watches/rolex-cellini-date-black-dial/1.webp",
+        "https://cdn.dummyjson.com/product-images/mens-watches/rolex-cellini-date-black-dial/2.webp",
+        "https://cdn.dummyjson.com/product-images/mens-watches/rolex-cellini-date-black-dial/3.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/mens-watches/rolex-cellini-date-black-dial/thumbnail.webp"
+    },
+    {
+      "id": 96,
+      "title": "Rolex Cellini Moonphase",
+      "description": "The Rolex Cellini Moonphase is a masterpiece of horology, featuring a moon phase complication and exquisite design. It reflects Rolex's commitment to precision and elegance.",
+      "category": "mens-watches",
+      "price": 12999.99,
+      "discountPercentage": 17.52,
+      "rating": 2.58,
+      "stock": 36,
+      "tags": [
+        "watches",
+        "luxury watches"
+      ],
+      "brand": "Rolex",
+      "sku": "MEN-ROL-ROL-096",
+      "weight": 2,
+      "dimensions": {
+        "width": 26.06,
+        "height": 25.19,
+        "depth": 13.17
+      },
+      "warrantyInformation": "6 months warranty",
+      "shippingInformation": "Ships overnight",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 3,
+          "comment": "Poor quality!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Ella Adams",
+          "reviewerEmail": "ella.adams@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Very satisfied!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Leo Rivera",
+          "reviewerEmail": "leo.rivera@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Very pleased!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Emma Miller",
+          "reviewerEmail": "emma.miller@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "7 days return policy",
+      "minimumOrderQuantity": 1,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "1957304538726",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/mens-watches/rolex-cellini-moonphase/1.webp",
+        "https://cdn.dummyjson.com/product-images/mens-watches/rolex-cellini-moonphase/2.webp",
+        "https://cdn.dummyjson.com/product-images/mens-watches/rolex-cellini-moonphase/3.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/mens-watches/rolex-cellini-moonphase/thumbnail.webp"
+    },
+    {
+      "id": 97,
+      "title": "Rolex Datejust",
+      "description": "The Rolex Datejust is an iconic and versatile timepiece with a date window. Known for its timeless design and reliability, it's a symbol of Rolex's watchmaking excellence.",
+      "category": "mens-watches",
+      "price": 10999.99,
+      "discountPercentage": 3.73,
+      "rating": 3.66,
+      "stock": 86,
+      "tags": [
+        "watches",
+        "luxury watches"
+      ],
+      "brand": "Rolex",
+      "sku": "MEN-ROL-ROL-097",
+      "weight": 4,
+      "dimensions": {
+        "width": 23.11,
+        "height": 19.97,
+        "depth": 27.04
+      },
+      "warrantyInformation": "2 year warranty",
+      "shippingInformation": "Ships in 1 month",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 4,
+          "comment": "Fast shipping!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Alice Smith",
+          "reviewerEmail": "alice.smith@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Very pleased!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Abigail Rivera",
+          "reviewerEmail": "abigail.rivera@x.dummyjson.com"
+        },
+        {
+          "rating": 3,
+          "comment": "Waste of money!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Daniel Cook",
+          "reviewerEmail": "daniel.cook@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "7 days return policy",
+      "minimumOrderQuantity": 1,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "8893788734644",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/mens-watches/rolex-datejust/1.webp",
+        "https://cdn.dummyjson.com/product-images/mens-watches/rolex-datejust/2.webp",
+        "https://cdn.dummyjson.com/product-images/mens-watches/rolex-datejust/3.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/mens-watches/rolex-datejust/thumbnail.webp"
+    },
+    {
+      "id": 98,
+      "title": "Rolex Submariner Watch",
+      "description": "The Rolex Submariner is a legendary dive watch with a rich history. Known for its durability and water resistance, it's a symbol of adventure and exploration.",
+      "category": "mens-watches",
+      "price": 13999.99,
+      "discountPercentage": 5.05,
+      "rating": 2.69,
+      "stock": 55,
+      "tags": [
+        "watches",
+        "luxury watches"
+      ],
+      "brand": "Rolex",
+      "sku": "MEN-ROL-ROL-098",
+      "weight": 4,
+      "dimensions": {
+        "width": 17.69,
+        "height": 12.48,
+        "depth": 8.75
+      },
+      "warrantyInformation": "5 year warranty",
+      "shippingInformation": "Ships in 1 month",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 4,
+          "comment": "Great value for money!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Luna Perez",
+          "reviewerEmail": "luna.perez@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Highly recommended!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Hannah Robinson",
+          "reviewerEmail": "hannah.robinson@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Fast shipping!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Aaliyah Hanson",
+          "reviewerEmail": "aaliyah.hanson@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "90 days return policy",
+      "minimumOrderQuantity": 1,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "7133320173118",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/mens-watches/rolex-submariner-watch/1.webp",
+        "https://cdn.dummyjson.com/product-images/mens-watches/rolex-submariner-watch/2.webp",
+        "https://cdn.dummyjson.com/product-images/mens-watches/rolex-submariner-watch/3.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/mens-watches/rolex-submariner-watch/thumbnail.webp"
+    },
+    {
+      "id": 99,
+      "title": "Amazon Echo Plus",
+      "description": "The Amazon Echo Plus is a smart speaker with built-in Alexa voice control. It features premium sound quality and serves as a hub for controlling smart home devices.",
+      "category": "mobile-accessories",
+      "price": 99.99,
+      "discountPercentage": 12.07,
+      "rating": 4.99,
+      "stock": 61,
+      "tags": [
+        "electronics",
+        "smart speakers"
+      ],
+      "brand": "Amazon",
+      "sku": "MOB-AMA-AMA-099",
+      "weight": 5,
+      "dimensions": {
+        "width": 12.68,
+        "height": 15.24,
+        "depth": 27.46
+      },
+      "warrantyInformation": "6 months warranty",
+      "shippingInformation": "Ships in 1 week",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 2,
+          "comment": "Would not recommend!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Chloe Morales",
+          "reviewerEmail": "chloe.morales@x.dummyjson.com"
+        },
+        {
+          "rating": 3,
+          "comment": "Very disappointed!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Mateo Perez",
+          "reviewerEmail": "mateo.perez@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Fast shipping!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Evelyn Walker",
+          "reviewerEmail": "evelyn.walker@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "7 days return policy",
+      "minimumOrderQuantity": 9,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "2256117192038",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/mobile-accessories/amazon-echo-plus/1.webp",
+        "https://cdn.dummyjson.com/product-images/mobile-accessories/amazon-echo-plus/2.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/mobile-accessories/amazon-echo-plus/thumbnail.webp"
+    },
+    {
+      "id": 100,
+      "title": "Apple Airpods",
+      "description": "The Apple Airpods offer a seamless wireless audio experience. With easy pairing, high-quality sound, and Siri integration, they are perfect for on-the-go listening.",
+      "category": "mobile-accessories",
+      "price": 129.99,
+      "discountPercentage": 15.54,
+      "rating": 4.15,
+      "stock": 67,
+      "tags": [
+        "electronics",
+        "wireless earphones"
+      ],
+      "brand": "Apple",
+      "sku": "MOB-APP-APP-100",
+      "weight": 4,
+      "dimensions": {
+        "width": 25.79,
+        "height": 18.38,
+        "depth": 11.53
+      },
+      "warrantyInformation": "3 year warranty",
+      "shippingInformation": "Ships in 3-5 business days",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 3,
+          "comment": "Would not buy again!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Christopher West",
+          "reviewerEmail": "christopher.west@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Great product!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Emma Wilson",
+          "reviewerEmail": "emma.wilson@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Excellent quality!",
+          "date": "2025-04-30T09:41:02.053Z",
+          "reviewerName": "Xavier Wright",
+          "reviewerEmail": "xavier.wright@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "No return policy",
+      "minimumOrderQuantity": 4,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "1104115683955",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-airpods/1.webp",
+        "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-airpods/2.webp",
+        "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-airpods/3.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-airpods/thumbnail.webp"
+    }
+  ]
 
 const seedProduct = async () => {
   try {
-    console.log("Seeding Product...");
     await Product.insertMany(products);
     console.log("Product seeded successfully");
   } catch (error) {

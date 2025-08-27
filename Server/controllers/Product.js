@@ -15,7 +15,7 @@ const create=async(req,res)=>{
 
 const getLatest = async (req, res) => {
     try {
-        const results = await Product.find().sort({ createdAt: -1 }).limit(5);
+        const results = await Product.find().sort({ createdAt: -1 }).limit(30);
         res.status(200).json(results);
     } catch (error) {
         console.log(error);
