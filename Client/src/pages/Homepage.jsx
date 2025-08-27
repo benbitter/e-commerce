@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { useSelector } from "react-redux";
 import axios from "axios";
@@ -7,6 +8,7 @@ import ItemCard from "../Components/ItemCard";
 const Homepage = () => {
     const userInfo = useSelector((state) => state.user.userInfo);
     const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
+    const navigate = useNavigate();
 
     const [items, setItems] = useState([]);
 
@@ -40,6 +42,9 @@ const Homepage = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full max-w-6xl">
                 {items.map((item, index) => (
                     <ItemCard
+                        onClick={() => {
+                            navigate(`/product/${item._id}`);
+                        }}
                         item={item}
                         key={index}
                     />

@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setUser } from "../Store/Slices/user.js"
+import { io } from "socket.io-client";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -45,7 +46,17 @@ const Login = () => {
 
         if (response.status === 200) {
           console.log("Login successful:", response.data);
-          dispatch(setUser(response.data));
+          const socket = await io("http://localhost:3001", {
+            query: {
+              userId: response.data._id
+            }
+          });
+          await socket.connect();
+          socket.on("connect", () => {
+            console.log("Socket connected:", socket.id);
+            dispatch(setUser({ userInfo: response.data, socketid: socket.id }));
+            navigate("/");
+          });
           navigate("/");
         } else {
           setEmail("");

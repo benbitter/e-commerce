@@ -1,11 +1,12 @@
 import React from "react";
 import Paper from "@mui/material/Paper";
 
-const ItemCard = ({ item }) => {
+const ItemCard = ({ item , onClick }) => {
   return (
     <Paper
       elevation={5}
       className="p-4 rounded-2xl shadow-md text-center flex flex-col items-center space-y-3 transition-transform duration-300 hover:scale-105 hover:shadow-xl"
+      onClick={onClick}
     >
       {/* Product Image */}
       <img

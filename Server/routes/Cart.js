@@ -1,14 +1,20 @@
 import express from "express";
-import * as cartController from "../controllers/Cart.js";
+import {
+    create,
+    getByUserId,
+    updateById,
+    deleteById,
+    deleteByUserId
+} from "../controllers/Cart.js";
 
 const router = express.Router();
 
 
 router
-    .post("/",cartController.create)
-    .get("/user/:id",cartController.getByUserId)
-    .patch("/:id",cartController.updateById)
-    .delete("/:id",cartController.deleteById)
-    .delete("/user/:id",cartController.deleteByUserId)
+    .post("/", create)
+    .get("/user/:id", getByUserId)
+    .patch("/:id", updateById)
+    .delete("/:id", deleteById)
+    .delete("/user/:id", deleteByUserId)
 
-module.exports=router
+export default router

@@ -5,11 +5,13 @@ const userSlice = createSlice({
   initialState: {
     userInfo: null,
     isLoggedIn: false,
+    socketid: null
   },
   reducers: {
     setUser: (state, action) => {
-      state.userInfo = action.payload;
+      state.userInfo = action.payload.userInfo;
       state.isLoggedIn = true;
+      state.socketid = action.payload.socket;
     },
     logout: (state) => {
       state.userInfo = null;

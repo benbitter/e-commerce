@@ -1,7 +1,8 @@
 import Cart from "../models/Cart.js";
 
-exports.create=async(req,res)=>{
+const create=async(req,res)=>{
     try {
+        console.log(req.body);
         const created=await new Cart(req.body) // .populate({path:"product",populate:{path:"brand"}});
         await created.save()
         res.status(201).json(created)
@@ -11,7 +12,7 @@ exports.create=async(req,res)=>{
     }
 }
 
-exports.getByUserId=async(req,res)=>{
+const getByUserId=async(req,res)=>{
     try {
         const {id}=req.params
         const result = await Cart.find({ user: id }).populate({path:"product",populate:{path:"brand"}});
@@ -23,7 +24,7 @@ exports.getByUserId=async(req,res)=>{
     }
 }
 
-exports.updateById=async(req,res)=>{
+const updateById=async(req,res)=>{
     try {
         const {id}=req.params
         const updated=await Cart.findByIdAndUpdate(id,req.body,{new:true}).populate({path:"product",populate:{path:"brand"}});
@@ -34,7 +35,7 @@ exports.updateById=async(req,res)=>{
     }
 }
 
-exports.deleteById=async(req,res)=>{
+const deleteById=async(req,res)=>{
     try {
         const {id}=req.params
         const deleted=await Cart.findByIdAndDelete(id)
@@ -45,7 +46,7 @@ exports.deleteById=async(req,res)=>{
     }
 }
 
-exports.deleteByUserId=async(req,res)=>{
+const deleteByUserId=async(req,res)=>{
 
     try {
         const {id}=req.params
@@ -56,4 +57,12 @@ exports.deleteByUserId=async(req,res)=>{
         res.status(500).json({message:"Some Error occured while resetting your cart"})
     }
 
+}
+
+export {
+    create,
+    getByUserId,
+    updateById,
+    deleteById,
+    deleteByUserId
 }
