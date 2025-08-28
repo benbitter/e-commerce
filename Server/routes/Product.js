@@ -1,5 +1,6 @@
 import express from "express";
-import {create,getAll,getById,updateById,deleteById,undeleteById , getLatest} from "../controllers/Product.js";
+import {create,getAll,getById,updateById,deleteById,undeleteById , getLatest,addReview ,addProduct} from "../controllers/Product.js";
+import { verifyToken } from "../middlewares/VerifyToken.js";
 
 const router = express.Router();
 
@@ -12,5 +13,7 @@ router
     .patch("/undelete/:id",undeleteById)
     .delete("/:id",deleteById)
     .get("/get/latest", getLatest)
+    .post("/review/:_id" ,verifyToken, addReview)
+    .post("/addProduct",addProduct)
 
 export default router

@@ -1,6 +1,48 @@
- import mongoose from "mongoose"
- import { Schema } from "mongoose"
+import mongoose from "mongoose"
+import { Schema } from "mongoose"
 import Product from "../models/Product.js"
+import cloudinary from "../config/cloudinary.js";
+
+
+const addProduct = async (req, res) => {
+  try {
+    const { title, description, price, stock, images } = req.body;
+
+    if (!images || images.length === 0) {
+      return res.status(400).json({ message: "No images provided" });
+    }
+
+    console.log(title ,description , price , stock , images);
+
+    // Upload each image (Base64 / URL)
+    // const uploadedUrls = [];
+    // for (let img of images) {
+    //   const result = await cloudinary.uploader.upload(img, {
+    //     folder: "products",
+    //   });
+    //   uploadedUrls.push(result.secure_url);
+    // }
+
+    const newProduct = new Product({
+      title,
+      description,
+      price,
+      stock,
+      images: images,
+      thumbnail: images[0],
+    });
+
+    const saved = await newProduct.save();
+
+    res.status(201).json({
+      message: "✅ Product added successfully",
+      product: saved,
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "❌ Failed to add product" });
+  }
+};
 
 const create=async(req,res)=>{
     try {
@@ -79,10 +121,43 @@ const getById = async (req, res) => {
     }
 }
 
-const updateById=async(req,res)=>{
-    try {
-        const {id}=req.params
-        const updated=await Product.findByIdAndUpdate(id,req.body,{new:true})
+const addReview = async (req, res) => {
+  try {
+    const { _id } = req.params; // product id
+    const user = req.user; // if you have auth middleware
+    const { rating, comment } = req.body;
+
+    console.log(rating,comment);
+
+    const review = {
+      rating,
+      comment,
+      date: new Date(),
+      reviewerName: user?.name || "Anonymous",
+      reviewerEmail: user?.email || "anonymous@example.com",
+    };
+
+    const updatedProduct = await Product.findByIdAndUpdate(
+      _id,
+      { $push: { reviews: review } },
+      { new: true }
+    );
+
+    if (!updatedProduct) {
+      return res.status(404).json({ message: "Product not found" });
+    }
+
+    res.status(200).json({ message: "Review added successfully", product: updatedProduct });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Cannot add review" });
+  }
+};
+
+const updateById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const updated = await Product.findByIdAndUpdate(id, req.body, { new: true });
         res.status(200).json(updated)
     } catch (error) {
         console.log(error);
@@ -112,4 +187,4 @@ const deleteById=async(req,res)=>{
     }
 }
 
-export {create,getAll,getById,updateById,deleteById,undeleteById,getLatest}
+export {create,getAll,getById,updateById,deleteById,undeleteById,getLatest, addReview ,addProduct}

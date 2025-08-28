@@ -1,4 +1,3 @@
-// src/components/NavbarDrawer.jsx
 import * as React from "react";
 import {
   AppBar,
@@ -14,15 +13,21 @@ import {
   CssBaseline,
 } from "@mui/material";
 import { Menu, Home, Settings, Close } from "@mui/icons-material";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 
 const drawerWidth = 240;
 
 export default function App() {
   const [open, setOpen] = React.useState(false);
+  const navigate = useNavigate();
 
   const toggleDrawer = () => {
     setOpen(!open);
+  };
+
+  const handleNavigation = (path) => {
+    navigate(path);
+    setOpen(false); // close drawer after navigation
   };
 
   return (
@@ -41,7 +46,7 @@ export default function App() {
             <Menu />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            My Dashboard
+            MY WEBSITE
           </Typography>
         </Toolbar>
       </AppBar>
@@ -61,11 +66,24 @@ export default function App() {
         </IconButton>
 
         <List>
-          <ListItem button>
+          <ListItem button onClick={() => handleNavigation("/")}>
             <ListItemIcon><Home /></ListItemIcon>
             <ListItemText primary="Home" />
           </ListItem>
-          <ListItem button>
+
+          <ListItem button onClick={() => handleNavigation("/dashboard")}>
+            <ListItemText primary="Dashboard" />
+          </ListItem>
+
+          <ListItem button onClick={() => handleNavigation("/login")}>
+            <ListItemText primary="Login" />
+          </ListItem>
+
+          <ListItem button onClick={() => handleNavigation("/register")}>
+            <ListItemText primary="Register" />
+          </ListItem>
+
+          <ListItem button onClick={() => handleNavigation("/settings")}>
             <ListItemIcon><Settings /></ListItemIcon>
             <ListItemText primary="Settings" />
           </ListItem>
@@ -75,9 +93,7 @@ export default function App() {
       {/* Main Content */}
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <Toolbar /> {/* pushes content below navbar */}
-        <Typography paragraph>
-          <Outlet />
-        </Typography>
+        <Outlet />
       </Box>
     </Box>
   );

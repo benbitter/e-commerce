@@ -3,6 +3,9 @@ import App from "../App";
 import Homepage from "../pages/Homepage";
 import Login from "../pages/Login"
 import ItemPage from "../pages/ItemPage";
+import DashBoard from "../pages/DashBoard";
+import RegisterPage from "../pages/RegisterPage";
+import AddProduct from "../pages/AddProduct";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +23,18 @@ const router = createBrowserRouter([
         {
           path: '/product/:_id',
           element: <ItemPage />
+        },
+        {
+          path : '/dashboard',
+          element : <DashBoard/>
+        },
+        {
+          path:'/register',
+          element : <RegisterPage/>
+        },
+        {
+          path : "/addproduct",
+          element:<AddProduct/>
         }
     ]
   }
