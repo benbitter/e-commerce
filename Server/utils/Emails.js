@@ -1,16 +1,17 @@
 import nodemailer from "nodemailer"
 
+// pmle rgpa vzhi bbzl
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: process.env.EMAIL,
-    pass: process.env.PASSWORD,
+    user: "princeraj1504@gmail.com",
+    pass: "pmle rgpa vzhi bbzl",
   },
 });
 
 const sendMail = async(receiverEmail,subject,body) => {
     await transporter.sendMail({
-    from: process.env.EMAIL,
+    from: "princeraj1504@gmail.com",
     to: receiverEmail,
     subject: subject,
     html: body

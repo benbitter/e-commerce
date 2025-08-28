@@ -124,10 +124,10 @@ const getById = async (req, res) => {
 const addReview = async (req, res) => {
   try {
     const { _id } = req.params; // product id
-    const user = req.user; // if you have auth middleware
-    const { rating, comment } = req.body;
+   
+    const { user , rating, comment } = req.body;
 
-    console.log(rating,comment);
+    console.log(user ,rating,comment);
 
     const review = {
       rating,
@@ -146,8 +146,11 @@ const addReview = async (req, res) => {
     if (!updatedProduct) {
       return res.status(404).json({ message: "Product not found" });
     }
+    req.io.emit("newReview", { productId: _id, review: review });
+    res.status(200).json({ message: "Review added successfully", 
+      product: updatedProduct 
+    });
 
-    res.status(200).json({ message: "Review added successfully", product: updatedProduct });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Cannot add review" });

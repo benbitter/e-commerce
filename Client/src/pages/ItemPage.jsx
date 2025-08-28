@@ -2,6 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import axios from "axios";
+import { io } from "socket.io-client";
+
+const socket = io("http://localhost:3001"); // connect to backend
+
+
 
 const ItemPage = () => {
   const [item, setItem] = useState(null);
@@ -18,10 +23,32 @@ const ItemPage = () => {
     fetchItem();
   }, [_id]);
 
-  const handleReviewSubmit = (e) => {
+  // ✅ Listen for real-time reviews
+  useEffect(() => {
+    console.log("Listening for new reviews...");
+    socket.on("newReview", (data) => {
+      if (data.productId === _id) {
+        setItem((prev) => ({
+          ...prev,
+          reviews: [...prev.reviews, data.review],
+        }));
+      }
+      console.log("New review received:", data);
+    });
+
+    return () => {
+      socket.off("newReview");
+    };
+  }, );
+
+  const handleReviewSubmit = async(e) => {
     e.preventDefault();
-    console.log("Review submitted:", review);
-    // 🔹 POST review to backend if required
+    console.log("Review submitted:", review , userInfo);
+    await axios.post(`http://localhost:3001/api/v1/products/review/${item._id}`, {
+      ...review,
+      user: userInfo,
+    });
+    setReview({ rating: 0, comment: "" });
   };
 
   const handleAddToCart = async() => {
@@ -153,22 +180,8 @@ const ItemPage = () => {
         <h2 className="text-xl font-semibold mb-3">Write a Review</h2>
         <form onSubmit={handleReviewSubmit} className="space-y-3">
           <input
-            type="text"
-            placeholder="Your Name"
-            className="border rounded px-3 py-2 w-full"
-            value={review.name}
-            onChange={(e) => setReview({ ...review, name: e.target.value })}
-          />
-          <input
-            type="email"
-            placeholder="Your Email"
-            className="border rounded px-3 py-2 w-full"
-            value={review.email}
-            onChange={(e) => setReview({ ...review, email: e.target.value })}
-          />
-          <input
             type="number"
-            placeholder="Rating (1-5)"
+            placeholder="Give Star Rating (1-5)"
             min="1"
             max="5"
             className="border rounded px-3 py-2 w-full"

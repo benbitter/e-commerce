@@ -13,7 +13,7 @@ router
     .patch("/undelete/:id",undeleteById)
     .delete("/:id",deleteById)
     .get("/get/latest", getLatest)
-    .post("/review/:_id" ,verifyToken, addReview)
+    .post("/review/:_id" ,addReview)
     .post("/addProduct",addProduct)
 
 export default router

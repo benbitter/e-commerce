@@ -7,6 +7,7 @@ import AuthRouter from './routes/Auth.js'
 import ProductRouter from './routes/Product.js'
 import CartRouter from './routes/Cart.js'
 import { Server } from "socket.io"
+import OtpRouter from "./routes/Otp.js"
 
 dotenv.config({
     path : "./.env"
@@ -25,19 +26,29 @@ app.use(express.urlencoded({ extended: true }));
 
 const httpServer = http.createServer(app);
 
-app.use("/api/v1/auth", AuthRouter);
-app.use("/api/v1/products", ProductRouter);
-app.use("/api/v1/cart", CartRouter);
-app.get("/",(req,res)=>{
-    res.send("Hello World");
-})
-
 const io = new Server(httpServer, {
     cors: {
         origin: "http://localhost:5173",
         credentials: true
     }
 });
+
+// 🔥 attach io to req
+app.use((req, res, next) => {
+  req.io = io;
+  next();
+});
+
+app.use("/api/v1/auth", AuthRouter);
+app.use("/api/v1/products", ProductRouter);
+app.use("/api/v1/cart", CartRouter);
+app.use("/api/v1/otp", OtpRouter);
+
+app.get("/",(req,res)=>{
+    res.send("Hello World");
+})
+
+
 
 // used to store online users
 const userSocketMap = {}; // {userId: socketId}
