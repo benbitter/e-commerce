@@ -14,11 +14,18 @@ import {
 } from "@mui/material";
 import { Menu, Home, Settings, Close } from "@mui/icons-material";
 import { Outlet, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setUser } from "./Store/Slices/user.js"
+import { useEffect } from 'react';
+import { io } from "socket.io-client";
+import axios from "axios";
 
 const drawerWidth = 240;
 
 export default function App() {
   const [open, setOpen] = React.useState(false);
+  const dispatch = useDispatch();
+
   const navigate = useNavigate();
 
   const toggleDrawer = () => {
@@ -29,6 +36,27 @@ export default function App() {
     navigate(path);
     setOpen(false); // close drawer after navigation
   };
+
+  useEffect(() => {
+
+    const fetchuser = async () => {
+      const response = await axios.get("http://localhost:3001/api/v1/auth/check-auth", { withCredentials: true });
+      if (response.status === 200) {
+        console.log("User fetched successfully:", response.data);
+        const socket = await io("http://localhost:3001", {
+          query: {
+            userId: response.data._id
+          }
+        });
+        await socket.connect();
+        socket.on("connect", () => {
+          console.log("Socket connected:", socket.id);
+          dispatch(setUser({ userInfo: response.data, socketid: socket.id }));
+        });
+      }
+    };
+    fetchuser();
+  }, []);
 
   return (
     <Box sx={{ display: "flex" }}>

@@ -1,6 +1,6 @@
 import Address from "../models/Address.js"
 
-exports.create=async(req,res)=>{
+const create=async(req,res)=>{
     try {
         const created=new Address(req.body)
         await created.save()
@@ -11,7 +11,7 @@ exports.create=async(req,res)=>{
     }
 }
 
-exports.getByUserId = async (req, res) => {
+const getByUserId = async (req, res) => {
     try {
         const {id}=req.params
         const results=await Address.find({user:id})
@@ -23,7 +23,7 @@ exports.getByUserId = async (req, res) => {
     }
 };
 
-exports.updateById=async(req,res)=>{
+const updateById=async(req,res)=>{
     try {
         const {id}=req.params
         const updated=await Address.findByIdAndUpdate(id,req.body,{new:true})
@@ -35,7 +35,7 @@ exports.updateById=async(req,res)=>{
     }
 }
 
-exports.deleteById=async(req,res)=>{
+const deleteById=async(req,res)=>{
     try {
         const {id}=req.params
         const deleted=await Address.findByIdAndDelete(id)
@@ -46,4 +46,9 @@ exports.deleteById=async(req,res)=>{
     }
 }
 
-
+export {
+    create,
+    getByUserId,
+    updateById,
+    deleteById
+}

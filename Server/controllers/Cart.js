@@ -12,6 +12,20 @@ const create=async(req,res)=>{
     }
 }
 
+const getcarts=async(req,res)=>{
+    try {
+        // const result = await Cart.find().populate({path:"product",populate:{path:"brand"}});
+        // res.status(200).json(result);
+        const user = req.user;
+        const carts = await Cart.find({ user: user._id }).populate({path:"product"});
+        res.status(200).json(carts);
+
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({message:'Error fetching cart items, please trying again later'})
+    }
+}
+
 const getByUserId=async(req,res)=>{
     try {
         const {id}=req.params
@@ -64,5 +78,6 @@ export {
     getByUserId,
     updateById,
     deleteById,
-    deleteByUserId
+    deleteByUserId,
+    getcarts
 }

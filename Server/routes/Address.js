@@ -1,13 +1,18 @@
 import express from "express";
-import * as addressController from "../controllers/Address.js";
+import {
+    create,
+    getByUserId,
+    updateById,
+    deleteById
+} from "../controllers/Address.js";
 
 const router = express.Router();
 
 
 router
-    .post("/",addressController.create)
-    .get("/user/:id",addressController.getByUserId)
-    .patch('/:id',addressController.updateById)
-    .delete('/:id',addressController.deleteById)
+    .post("/", create)
+    .get("/user/:id", getByUserId)
+    .patch('/:id', updateById)
+    .delete('/:id', deleteById)
 
-module.exports=router
+export default router

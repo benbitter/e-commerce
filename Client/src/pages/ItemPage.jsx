@@ -11,6 +11,7 @@ const socket = io("http://localhost:3001"); // connect to backend
 const ItemPage = () => {
   const [item, setItem] = useState(null);
   const [review, setReview] = useState({ rating: 0, comment: "", name: "", email: "" });
+  const [seller, setseller] = useState(null);
   const { _id } = useParams();
   const userInfo = useSelector((state) => state.user.userInfo);
     const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
@@ -21,6 +22,16 @@ const ItemPage = () => {
       setItem(response.data);
     };
     fetchItem();
+  }, [_id]);
+
+  useEffect(() => {
+    const fetchItem = async () => {
+      const res = await axios.get(`http://localhost:3001/api/v1/products/getseller/${_id}`)
+      setseller(res.data.sellerEmail)
+      // console.log(seller)
+    };
+    fetchItem();
+    // console.log(seller)
   }, [_id]);
 
   // ✅ Listen for real-time reviews
@@ -47,7 +58,7 @@ const ItemPage = () => {
     await axios.post(`http://localhost:3001/api/v1/products/review/${item._id}`, {
       ...review,
       user: userInfo,
-    });
+    } );
     setReview({ rating: 0, comment: "" });
   };
 
@@ -72,7 +83,8 @@ const ItemPage = () => {
   return (
     <div className="max-w-5xl mx-auto p-6 space-y-6">
       {/* Product Title */}
-      <h1 className="text-2xl font-bold text-gray-800">{item.title}</h1>
+      <h1 className="text-2xl font-bold text-gray-800 ">{item.title}</h1>
+      <h1 className="text-2xl font-bold text-gray-800 ">{seller}</h1>
 
       {/* Thumbnail + Details */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

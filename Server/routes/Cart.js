@@ -4,8 +4,10 @@ import {
     getByUserId,
     updateById,
     deleteById,
-    deleteByUserId
+    deleteByUserId,
+    getcarts
 } from "../controllers/Cart.js";
+import { verifyToken } from "../middlewares/VerifyToken.js";
 
 const router = express.Router();
 
@@ -16,5 +18,6 @@ router
     .patch("/:id", updateById)
     .delete("/:id", deleteById)
     .delete("/user/:id", deleteByUserId)
+    .get('/getcarts',verifyToken,getcarts)
 
 export default router

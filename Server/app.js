@@ -8,6 +8,7 @@ import ProductRouter from './routes/Product.js'
 import CartRouter from './routes/Cart.js'
 import { Server } from "socket.io"
 import OtpRouter from "./routes/Otp.js"
+import AddressRouter from "./routes/Address.js"
 
 dotenv.config({
     path : "./.env"
@@ -43,6 +44,7 @@ app.use("/api/v1/auth", AuthRouter);
 app.use("/api/v1/products", ProductRouter);
 app.use("/api/v1/cart", CartRouter);
 app.use("/api/v1/otp", OtpRouter);
+app.use("/api/v1/address", AddressRouter);
 
 app.get("/",(req,res)=>{
     res.send("Hello World");
@@ -58,11 +60,17 @@ io.on("connection", (socket) => {
   console.log("A user connected", socket.id);
 
   const userId = socket.handshake.query.userId;
-  console.log('userid' , userId);
   if (userId) userSocketMap[userId] = socket.id;
 
-  // io.emit() is used to send events to all the connected clients
   io.emit("getOnlineUsers", Object.keys(userSocketMap));
+
+  // ✅ Handle chat messages
+  socket.on("sendMessage", ({ senderId, receiverId, message }) => {
+    const receiverSocketId = userSocketMap[receiverId];
+    if (receiverSocketId) {
+      io.to(receiverSocketId).emit("receiveMessage", { senderId, message });
+    }
+  });
 
   socket.on("disconnect", () => {
     console.log("A user disconnected", socket.id);
@@ -70,5 +78,6 @@ io.on("connection", (socket) => {
     io.emit("getOnlineUsers", Object.keys(userSocketMap));
   });
 });
+
 
 export{httpServer}

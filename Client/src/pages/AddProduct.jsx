@@ -44,7 +44,7 @@ const AddProduct = () => {
       await axios.post("http://localhost:3001/api/v1/products/addProduct", {
         ...formData,
         images: uploadedUrls,
-      });
+      },{withCredentials: true});
 
       alert("✅ Product added!");
       setFormData({ title: "", description: "", price: "", stock: "" });

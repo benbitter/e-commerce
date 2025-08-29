@@ -2,7 +2,19 @@ import mongoose from "mongoose"
 import { Schema } from "mongoose"
 import Product from "../models/Product.js"
 import cloudinary from "../config/cloudinary.js";
+import Seller from "../models/Seller.js";
 
+const getSellerfromProductId = async(req,res)=>{
+  try {
+    
+    const {_id} = req.params;
+    const seller = await Seller.findOne({productid : _id});
+    return res.status(200).json(seller);
+
+  } catch (error) {
+    return res.status(400).json({message : "cannot not find seller" ,error });
+  }
+}
 
 const addProduct = async (req, res) => {
   try {
@@ -33,6 +45,13 @@ const addProduct = async (req, res) => {
     });
 
     const saved = await newProduct.save();
+
+    const seller = new Seller({
+      sellerEmail: req.user.email,
+      productid: saved._id,
+    });
+
+    await seller.save();
 
     res.status(201).json({
       message: "✅ Product added successfully",
@@ -190,4 +209,4 @@ const deleteById=async(req,res)=>{
     }
 }
 
-export {create,getAll,getById,updateById,deleteById,undeleteById,getLatest, addReview ,addProduct}
+export {create,getAll,getById,updateById,deleteById,undeleteById,getLatest, addReview ,addProduct,getSellerfromProductId}

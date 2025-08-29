@@ -6,6 +6,9 @@ import ItemPage from "../pages/ItemPage";
 import DashBoard from "../pages/DashBoard";
 import RegisterPage from "../pages/RegisterPage";
 import AddProduct from "../pages/AddProduct";
+import ChatPage from "../pages/ChatPage";
+import Cart from "../pages/Cart";
+import Address from "../pages/Address";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +38,18 @@ const router = createBrowserRouter([
         {
           path : "/addproduct",
           element:<AddProduct/>
+        },
+        {
+          path: "/chat/:receiverId",
+          element: <ChatPage />
+        },
+        {
+          path: "/cart",
+          element: <Cart />
+        },
+        {
+          path: "/address",
+          element: <Address />
         }
     ]
   }
