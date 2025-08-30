@@ -9,6 +9,7 @@ import CartRouter from './routes/Cart.js'
 import { Server } from "socket.io"
 import OtpRouter from "./routes/Otp.js"
 import AddressRouter from "./routes/Address.js"
+import OrderRouter from "./routes/Order.js"
 
 dotenv.config({
     path : "./.env"
@@ -45,6 +46,7 @@ app.use("/api/v1/products", ProductRouter);
 app.use("/api/v1/cart", CartRouter);
 app.use("/api/v1/otp", OtpRouter);
 app.use("/api/v1/address", AddressRouter);
+app.use("/api/v1/orders", OrderRouter);
 
 app.get("/",(req,res)=>{
     res.send("Hello World");

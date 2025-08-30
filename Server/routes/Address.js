@@ -3,8 +3,10 @@ import {
     create,
     getByUserId,
     updateById,
-    deleteById
+    deleteById,
+    getAddresses
 } from "../controllers/Address.js";
+import { verifyToken } from "../middlewares/VerifyToken.js";
 
 const router = express.Router();
 
@@ -14,5 +16,6 @@ router
     .get("/user/:id", getByUserId)
     .patch('/:id', updateById)
     .delete('/:id', deleteById)
+    .get("/", verifyToken, getAddresses)
 
 export default router

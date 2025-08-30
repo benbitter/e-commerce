@@ -1,15 +1,22 @@
 import express from "express";
-import * as orderController from "../controllers/Order.js";
+import {
+    create,
+    getByUserId,
+    getAll,
+    updateById
+} from "../controllers/Order.js";
+import { verifyToken } from "../middlewares/VerifyToken.js";
+
 
 const router = express.Router();
 
 
 
 router
-    .post("/",orderController.create)
-    .get("/",orderController.getAll)
-    .get("/user/:id",orderController.getByUserId)
-    .patch("/:id",orderController.updateById)
+    .post("/", verifyToken, create)
+    .get("/", getAll)
+    .get("/user/:id", getByUserId)
+    .patch("/:id", updateById)
 
 
-module.exports=router
+export default router

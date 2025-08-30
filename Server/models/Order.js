@@ -7,12 +7,12 @@ const orderSchema=new mongoose.Schema({
         required:true
     },
     item:{
-        type:[mongoose.Schema.Types.Mixed],
-        ref:"Product",
+        type:[mongoose.Schema.Types.ObjectId],
+        ref:"Cart",
         required:true
     },
     address:{
-        type:[mongoose.Schema.Types.Mixed],
+        type:mongoose.Schema.Types.ObjectId,
         ref:"Address",
         required:true
     },
@@ -36,4 +36,6 @@ const orderSchema=new mongoose.Schema({
     },
 },{timestamps:true})
 
-module.exports=mongoose.model("Order",orderSchema)
+const Order=mongoose.model("Order",orderSchema)
+
+export default Order

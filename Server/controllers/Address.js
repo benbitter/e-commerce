@@ -11,6 +11,17 @@ const create=async(req,res)=>{
     }
 }
 
+const getAddresses = async (req, res) => {
+    try {
+        const user = req.user;
+        const results = await Address.find({ user: user._id })
+        res.status(200).json(results)
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({message:'Error fetching addresses, please try again later'})
+    }
+}
+
 const getByUserId = async (req, res) => {
     try {
         const {id}=req.params
@@ -50,5 +61,6 @@ export {
     create,
     getByUserId,
     updateById,
-    deleteById
+    deleteById,
+    getAddresses
 }

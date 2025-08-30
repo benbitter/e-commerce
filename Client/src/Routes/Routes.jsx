@@ -9,6 +9,7 @@ import AddProduct from "../pages/AddProduct";
 import ChatPage from "../pages/ChatPage";
 import Cart from "../pages/Cart";
 import Address from "../pages/Address";
+import CheckOut from "../pages/CheckOut";
 
 const router = createBrowserRouter([
   {
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
         {
           path: "/address",
           element: <Address />
+        },
+        {
+          path: "/checkout",
+          element: <CheckOut />
         }
     ]
   }
