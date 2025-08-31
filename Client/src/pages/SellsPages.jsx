@@ -41,8 +41,8 @@ export const SellsPages = () => {
           "http://localhost:3001/api/v1/products/getSellerProducts/sells",
           { withCredentials: true }
         );
-        console.log("Fetched products:", response.data);
         setProducts(response.data);
+        console.log(response.data);
       } catch (error) {
         console.error("Error fetching sells data:", error);
       }
@@ -50,6 +50,25 @@ export const SellsPages = () => {
 
     fetchData();
   }, []);
+
+  // ✅ Delete product function
+  const handleDelete = async (id) => {
+    if (!window.confirm("⚠️ Are you sure you want to delete this product?")) return;
+
+    try {
+      await axios.delete(
+        `http://localhost:3001/api/v1/products/${id}`,
+        { withCredentials: true }
+      );
+
+      // Remove from UI instantly
+      setProducts((prev) => prev.filter((p) => p.product._id !== id));
+      alert("✅ Product deleted successfully");
+    } catch (error) {
+      console.error("Error deleting product:", error);
+      alert("❌ Failed to delete product");
+    }
+  };
 
   if (isLoading) {
     return (
@@ -73,27 +92,40 @@ export const SellsPages = () => {
         </button>
       </div>
 
-      {products?.length === 0 ? (
+      {(products.length === 0 )? (
         <p className="text-gray-500">You haven’t added any products yet.</p>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {products?.map((product) => (
             <div
-              key={product.product._id}
+              key={product?.product?._id}
               className="border rounded-xl shadow-sm p-4 bg-white hover:shadow-md transition"
             >
               <img
-                src={product.product.thumbnail || "https://via.placeholder.com/150"}
-                alt={product.product.title}
+                src={
+                  product?.product?.thumbnail ||
+                  "https://via.placeholder.com/150"
+                }
+                alt={product?.product?.title}
                 className="w-full h-40 object-cover rounded-lg mb-3"
               />
               <h2 className="text-lg font-semibold text-gray-700">
-                {product.product.title}
+                {product?.product?.title}
               </h2>
               <p className="text-sm text-gray-500 line-clamp-2">
-                {product.product.description}
+                {product?.product?.description}
               </p>
-              <p className="mt-2 text-blue-600 font-bold">₹{product.product.price}</p>
+              <p className="mt-2 text-blue-600 font-bold">
+                ₹{product?.product?.price}
+              </p>
+
+              {/* Delete Button */}
+              <button
+                onClick={() => handleDelete(product?.product?._id)}
+                className="mt-3 bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-lg w-full transition-all"
+              >
+                Delete
+              </button>
             </div>
           ))}
         </div>

@@ -8,7 +8,7 @@ const AddProduct = () => {
     price: "",
     stock: "",
   });
-  const [files, setFiles] = useState([]); // store raw files
+  const [files, setFiles] = useState([]);
   const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
@@ -16,35 +16,53 @@ const AddProduct = () => {
   };
 
   const handleFileChange = (e) => {
-    setFiles(Array.from(e.target.files)); // keep files in state
+    setFiles(Array.from(e.target.files));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // ✅ Basic validation
+    if (
+      !formData.title.trim() ||
+      !formData.description.trim() ||
+      !formData.price ||
+      !formData.stock
+    ) {
+      alert("⚠️ Please fill all required fields.");
+      return;
+    }
+
+    if (files.length === 0) {
+      alert("⚠️ Please upload at least one image.");
+      return;
+    }
+
     setLoading(true);
 
     try {
-      // 1️⃣ Upload all files to Cloudinary
       const uploadedUrls = [];
-
       for (let file of files) {
         const data = new FormData();
         data.append("file", file);
-        data.append("upload_preset", "commerce_preset"); // your unsigned preset
+        data.append("upload_preset", "commerce_preset");
 
         const res = await axios.post(
           "https://api.cloudinary.com/v1_1/ddxc4p1qb/image/upload",
           data
         );
-
         uploadedUrls.push(res.data.secure_url);
-        console.log(res);
       }
-      // 2️⃣ Send product details + image URLs to backend
-      await axios.post("http://localhost:3001/api/v1/products/addProduct", {
-        ...formData,
-        images: uploadedUrls,
-      },{withCredentials: true});
+
+      // ✅ Send only if data is valid
+      await axios.post(
+        "http://localhost:3001/api/v1/products/addProduct",
+        {
+          ...formData,
+          images: uploadedUrls,
+        },
+        { withCredentials: true }
+      );
 
       alert("✅ Product added!");
       setFormData({ title: "", description: "", price: "", stock: "" });
@@ -66,6 +84,7 @@ const AddProduct = () => {
         value={formData.title}
         onChange={handleChange}
         className="border p-2 w-full"
+        required
       />
       <textarea
         name="description"
@@ -73,6 +92,7 @@ const AddProduct = () => {
         value={formData.description}
         onChange={handleChange}
         className="border p-2 w-full"
+        required
       />
       <input
         type="number"
@@ -81,6 +101,7 @@ const AddProduct = () => {
         value={formData.price}
         onChange={handleChange}
         className="border p-2 w-full"
+        required
       />
       <input
         type="number"
@@ -89,8 +110,9 @@ const AddProduct = () => {
         value={formData.stock}
         onChange={handleChange}
         className="border p-2 w-full"
+        required
       />
-      <input type="file" multiple onChange={handleFileChange} />
+      <input type="file" multiple onChange={handleFileChange} required />
 
       <button
         type="submit"

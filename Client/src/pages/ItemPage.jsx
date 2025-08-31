@@ -88,6 +88,25 @@ const ItemPage = () => {
     setWishlistNote(""); // reset note
   };
 
+  // 🔹 Share handler
+  const handleShare = async () => {
+    const productUrl = `${window.location.origin}/product/${item._id}`;
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: item.title,
+          text: `Check out this product: ${item.title}`,
+          url: productUrl,
+        });
+      } catch (err) {
+        console.error("Error sharing:", err);
+      }
+    } else {
+      navigator.clipboard.writeText(productUrl);
+      alert("Product link copied to clipboard!");
+    }
+  };
+
   if (!item) return <div className="text-center text-lg font-semibold">Loading...</div>;
 
   return (
@@ -127,21 +146,32 @@ const ItemPage = () => {
           <p><strong>Min Order Quantity:</strong> {item.minimumOrderQuantity}</p>
 
           {/* Buttons */}
-          <div className="flex gap-4 mt-4">
-            {isLoggedIn &&<button
-              onClick={handleAddToCart}
-              className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700"
-              disabled={cartAdded}
+          <div className="flex gap-4 mt-4 flex-wrap">
+            {isLoggedIn && (
+              <button
+                onClick={handleAddToCart}
+                className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700"
+                disabled={cartAdded}
+              >
+                {cartAdded ? "Added to Cart" : "Add to Cart"}
+              </button>
+            )}
+            {isLoggedIn && (
+              <button
+                onClick={handleAddToWishlist}
+                className="bg-pink-500 text-white px-4 py-2 rounded-md hover:bg-pink-600"
+                disabled={wishlistAdded}
+              >
+                {wishlistAdded ? "Added to Wishlist" : "Add to Wishlist"}
+              </button>
+            )}
+            {/* 🔹 Share Button */}
+            <button
+              onClick={handleShare}
+              className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600"
             >
-              {cartAdded ? "Added to Cart" : "Add to Cart"}
-            </button>}
-            {isLoggedIn &&<button
-              onClick={handleAddToWishlist}
-              className="bg-pink-500 text-white px-4 py-2 rounded-md hover:bg-pink-600"
-              disabled={wishlistAdded}
-            >
-              {wishlistAdded ? "Added to Wishlist" : "Add to Wishlist"}
-            </button>}
+              Share
+            </button>
           </div>
         </div>
       </div>
@@ -215,7 +245,7 @@ const ItemPage = () => {
           item.reviews.map((rev, idx) => (
             <div key={idx} className="border-b py-2">
               <p>
-                <strong>{rev.reviewerName}</strong> ({rev.reviewerEmail})
+                <strong>{rev.reviewerEmail}</strong>
               </p>
               <p>⭐ {rev.rating}</p>
               <p>{rev.comment}</p>

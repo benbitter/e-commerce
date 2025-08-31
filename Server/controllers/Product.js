@@ -214,7 +214,8 @@ const undeleteById=async(req,res)=>{
 const deleteById=async(req,res)=>{
     try {
         const {id}=req.params
-        const deleted=await Product.findByIdAndUpdate(id,{isDeleted:true},{new:true}).populate("brand")
+        console.log(id);
+        const deleted=await Product.findByIdAndDelete(id,{new:true});
         res.status(200).json(deleted)
     } catch (error) {
         console.log(error);

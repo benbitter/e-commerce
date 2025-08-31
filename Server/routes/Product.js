@@ -20,4 +20,7 @@ router
     .post("/addProduct", verifyToken, addProduct)
     .get("/getseller/:_id",getSellerfromProductId )
     .get("/getSellerProducts/sells", verifyToken, getSellerProducts)
+
+
+
 export default router
