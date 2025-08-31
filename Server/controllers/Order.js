@@ -33,8 +33,8 @@ const create=async(req,res)=>{
 
 const getByUserId=async(req,res)=>{
     try {
-        const {id}=req.params
-        const results=await Order.find({user:id})
+        const user = req.user
+        const results=await Order.find({user:user._id})
         res.status(200).json(results)
     } catch (error) {
         console.log(error);

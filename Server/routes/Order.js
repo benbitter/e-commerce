@@ -15,7 +15,7 @@ const router = express.Router();
 router
     .post("/", verifyToken, create)
     .get("/", getAll)
-    .get("/user/:id", getByUserId)
+    .get("/user", verifyToken, getByUserId)
     .patch("/:id", updateById)
 
 

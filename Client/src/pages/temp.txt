@@ -6,19 +6,15 @@ import { io } from "socket.io-client";
 
 const socket = io("http://localhost:3001"); // connect to backend
 
+
+
 const ItemPage = () => {
   const [item, setItem] = useState(null);
   const [review, setReview] = useState({ rating: 0, comment: "", name: "", email: "" });
   const [seller, setseller] = useState(null);
   const { _id } = useParams();
   const userInfo = useSelector((state) => state.user.userInfo);
-  const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
-
-  // 🔹 New states
-  const [cartAdded, setCartAdded] = useState(false);
-  const [wishlistAdded, setWishlistAdded] = useState(false);
-  const [showWishlistDialog, setShowWishlistDialog] = useState(false);
-  const [wishlistNote, setWishlistNote] = useState("");
+    const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
 
   useEffect(() => {
     const fetchItem = async () => {
@@ -30,12 +26,15 @@ const ItemPage = () => {
 
   useEffect(() => {
     const fetchItem = async () => {
-      const res = await axios.get(`http://localhost:3001/api/v1/products/getseller/${_id}`);
-      setseller(res.data.sellerEmail);
+      const res = await axios.get(`http://localhost:3001/api/v1/products/getseller/${_id}`)
+      setseller(res.data.sellerEmail)
+      // console.log(seller)
     };
     fetchItem();
+    // console.log(seller)
   }, [_id]);
 
+  // ✅ Listen for real-time reviews
   useEffect(() => {
     console.log("Listening for new reviews...");
     socket.on("newReview", (data) => {
@@ -51,41 +50,32 @@ const ItemPage = () => {
     return () => {
       socket.off("newReview");
     };
-  }, [_id]);
+  }, );
 
-  const handleReviewSubmit = async (e) => {
+  const handleReviewSubmit = async(e) => {
     e.preventDefault();
-    console.log("Review submitted:", review, userInfo);
+    console.log("Review submitted:", review , userInfo);
     await axios.post(`http://localhost:3001/api/v1/products/review/${item._id}`, {
       ...review,
       user: userInfo,
-    });
+    } );
     setReview({ rating: 0, comment: "" });
   };
 
-  const handleAddToCart = async () => {
+  const handleAddToCart = async() => {
     console.log("Added to cart:", item);
-    await axios.post("http://localhost:3001/api/v1/cart", {
+    console.log("User Info:", userInfo);
+    const res = await axios.post("http://localhost:3001/api/v1/cart", {
       user: userInfo._id,
       product: item._id,
-      quantity: item.minimumOrderQuantity,
+      quantity:item.minimumOrderQuantity
     });
-    setCartAdded(true); // 🔹 change button text
   };
 
   const handleAddToWishlist = () => {
-    setShowWishlistDialog(true); // 🔹 open dialog
-  };
-
-  const handleWishlistSubmit = async () => {
-    await axios.post("http://localhost:3001/api/v1/wishlist", {
-      user: userInfo._id,
-      product: item._id,
-      note: wishlistNote,
-    });
-    setWishlistAdded(true); // 🔹 change button text
-    setShowWishlistDialog(false); // close dialog
-    setWishlistNote(""); // reset note
+    console.log("Added to wishlist:", item);
+    // 🔹 Dispatch Redux action or POST to backend here
+    // dispatch(addToWishlist(item));
   };
 
   if (!item) return <div className="text-center text-lg font-semibold">Loading...</div>;
@@ -128,53 +118,21 @@ const ItemPage = () => {
 
           {/* Buttons */}
           <div className="flex gap-4 mt-4">
-            {isLoggedIn &&<button
+            <button
               onClick={handleAddToCart}
               className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700"
-              disabled={cartAdded}
             >
-              {cartAdded ? "Added to Cart" : "Add to Cart"}
-            </button>}
-            {isLoggedIn &&<button
+              Add to Cart
+            </button>
+            <button
               onClick={handleAddToWishlist}
               className="bg-pink-500 text-white px-4 py-2 rounded-md hover:bg-pink-600"
-              disabled={wishlistAdded}
             >
-              {wishlistAdded ? "Added to Wishlist" : "Add to Wishlist"}
-            </button>}
+              Add to Wishlist
+            </button>
           </div>
         </div>
       </div>
-
-      {/* Wishlist Dialog */}
-      {showWishlistDialog && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="bg-white p-6 rounded-md shadow-lg w-96">
-            <h2 className="text-lg font-semibold mb-3">Add a Note</h2>
-            <textarea
-              className="border rounded w-full p-2 mb-4"
-              rows="3"
-              placeholder="Enter your note..."
-              value={wishlistNote}
-              onChange={(e) => setWishlistNote(e.target.value)}
-            ></textarea>
-            <div className="flex justify-end gap-3">
-              <button
-                onClick={() => setShowWishlistDialog(false)}
-                className="px-4 py-2 bg-gray-300 rounded-md"
-              >
-                Cancel
-              </button>
-              <button
-                onClick={handleWishlistSubmit}
-                className="px-4 py-2 bg-pink-500 text-white rounded-md hover:bg-pink-600"
-              >
-                OK
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
 
       {/* Tags */}
       {item.tags?.length > 0 && (

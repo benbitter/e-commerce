@@ -11,14 +11,17 @@ import {
   DialogContent,
   DialogActions,
 } from "@mui/material";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
-const RegisterPage = ()=>{
+const RegisterPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState({});
   const [otpDialogOpen, setOtpDialogOpen] = useState(false);
   const [otp, setOtp] = useState("");
+  const navigate = useNavigate();
 
   const validate = () => {
     let temp = {};
@@ -44,17 +47,59 @@ const RegisterPage = ()=>{
 
   const handleSendOtp = () => {
     if (validate()) {
-      // Call your send OTP handler here
+      const registerUser = async () => {
+        try {
+          const response = await axios.post("http://localhost:3001/api/v1/otp/send-otp", {
+            email,
+            password,
+          });
+          if (response.status === 201) {
+            alert("User already exists");
+            setEmail("");
+            setPassword("");
+            setConfirmPassword("");
+          } else if (response.status === 200) {
+            alert("OTP sent successfully");
+            setOtpDialogOpen(true);
+          } else {
+            alert("Failed to send OTP");
+            navigate(0);
+          }
+          // console.log("User registered successfully:", response.data);
+        } catch (error) {
+          console.error("Registration error:", error);
+        }
+      };
+      registerUser();
       console.log("Sending OTP to:", email);
-
-      // Open OTP Dialog
-      setOtpDialogOpen(true);
     }
   };
 
   const handleVerifyOtp = () => {
     if (otp.length === 6) {
-      console.log("Verifying OTP:", otp);
+      try {
+        const verify = async() => {
+
+          const response = await axios.post("http://localhost:3001/api/v1/otp/verify-otp", {
+            email,
+            otp,
+          });
+          if (response.status === 200) {
+            alert("OTP verified successfully");
+            navigate("/");
+            navigate(0);
+          }
+          else if(response.status === 202)
+          {
+            alert("OTP expired");
+            navigate(0);
+          }
+        };
+        verify();
+      } catch (error) {
+        navigate(0);
+        console.error("OTP verification error:", error);
+      }
       setOtpDialogOpen(false);
     } else {
       alert("Please enter a valid 6-digit OTP");

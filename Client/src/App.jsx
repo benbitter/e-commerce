@@ -19,13 +19,16 @@ import { setUser } from "./Store/Slices/user.js"
 import { useEffect } from 'react';
 import { io } from "socket.io-client";
 import axios from "axios";
+import { useSelector } from "react-redux";
+
 
 const drawerWidth = 240;
 
 export default function App() {
   const [open, setOpen] = React.useState(false);
   const dispatch = useDispatch();
-
+const userInfo = useSelector((state) => state.user.userInfo);
+  const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
   const navigate = useNavigate();
 
   const toggleDrawer = () => {
@@ -33,7 +36,26 @@ export default function App() {
   };
 
   const handleNavigation = (path) => {
-    navigate(path);
+    if(path === "/logout")
+    {
+      // Perform logout actions
+      const logout = async()=>{
+
+        await axios.get("http://localhost:3001/api/v1/auth/logout", { withCredentials: true })
+        .then((response) => {
+          console.log("Logout successful:", response.data);
+          dispatch(setUser({ userInfo: null, socketid: null ,isLoggedIn: false}));
+          navigate("/");
+        })
+        .catch((error) => {
+          console.error("Logout error:", error);
+        });
+      }
+      logout();
+      navigate(0);
+    }else{
+      navigate(path);
+    }
     setOpen(false); // close drawer after navigation
   };
 
@@ -93,29 +115,53 @@ export default function App() {
           <Close />
         </IconButton>
 
+
         <List>
-          <ListItem button onClick={() => handleNavigation("/")}>
-            <ListItemIcon><Home /></ListItemIcon>
+        {/* Home */}
+          <ListItem className="cursor-pointer" button onClick={() => handleNavigation("/")}  >
+            <ListItemIcon>
+              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#7CA7D8"><path d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z"/></svg>
+            </ListItemIcon>
             <ListItemText primary="Home" />
           </ListItem>
 
-          <ListItem button onClick={() => handleNavigation("/dashboard")}>
+          {isLoggedIn && <ListItem className="cursor-pointer" button onClick={() => handleNavigation("/dashboard")}>
+            <ListItemIcon>
+              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#7CA7D8"><path d="M520-600v-240h320v240H520ZM120-440v-400h320v400H120Zm400 320v-400h320v400H520Zm-400 0v-240h320v240H120Zm80-400h160v-240H200v240Zm400 320h160v-240H600v240Zm0-480h160v-80H600v80ZM200-200h160v-80H200v80Zm160-320Zm240-160Zm0 240ZM360-280Z"/></svg>
+            </ListItemIcon>
             <ListItemText primary="Dashboard" />
-          </ListItem>
+          </ListItem>}
 
-          <ListItem button onClick={() => handleNavigation("/login")}>
+          {!isLoggedIn && <ListItem className="cursor-pointer" button onClick={() => handleNavigation("/login")}>
+            <ListItemIcon>
+              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#7CA7D8"><path d="M480-120v-80h280v-560H480v-80h280q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H480Zm-80-160-55-58 102-102H120v-80h327L345-622l55-58 200 200-200 200Z"/></svg>
+            </ListItemIcon>
             <ListItemText primary="Login" />
-          </ListItem>
+          </ListItem>}
 
-          <ListItem button onClick={() => handleNavigation("/register")}>
-            <ListItemText primary="Register" />
-          </ListItem>
+          { isLoggedIn && <ListItem className="cursor-pointer" button onClick={() => handleNavigation("/logout")}>
+            <ListItemIcon>
+              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#7CA7D8"><path d="M480-120v-80h280v-560H480v-80h280q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H480Zm-80-160-55-58 102-102H120v-80h327L345-622l55-58 200 200-200 200Z"/></svg>
+            </ListItemIcon>
+            <ListItemText primary="Logout" />
+          </ListItem>}
 
-          <ListItem button onClick={() => handleNavigation("/settings")}>
-            <ListItemIcon><Settings /></ListItemIcon>
-            <ListItemText primary="Settings" />
-          </ListItem>
+          { !isLoggedIn && <ListItem className="cursor-pointer" button onClick={() => handleNavigation("/register")}>
+            <ListItemIcon>
+              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#7CA7D8"><path d="M480-120v-80h280v-560H480v-80h280q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H480Zm-80-160-55-58 102-102H120v-80h327L345-622l55-58 200 200-200 200Z"/></svg>
+            </ListItemIcon>
+            <ListItemText primary="Sign Up" />
+          </ListItem>}
+
+          { isLoggedIn && <ListItem lassName="cursor-pointer" button onClick={() => handleNavigation("/cart")}>
+            <ListItemIcon>
+              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#7CA7D8"><path d="M280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM246-720l96 200h280l110-200H246Zm-38-80h590q23 0 35 20.5t1 41.5L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68-39.5t-2-78.5l54-98-144-304H40v-80h130l38 80Zm134 280h280-280Z"/></svg>
+            </ListItemIcon>
+            <ListItemText primary="Cart" />
+          </ListItem>}
         </List>
+
+
       </Drawer>
 
       {/* Main Content */}

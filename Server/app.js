@@ -10,6 +10,7 @@ import { Server } from "socket.io"
 import OtpRouter from "./routes/Otp.js"
 import AddressRouter from "./routes/Address.js"
 import OrderRouter from "./routes/Order.js"
+import WishlistRouter from "./routes/Wishlist.js"
 
 dotenv.config({
     path : "./.env"
@@ -35,7 +36,7 @@ const io = new Server(httpServer, {
     }
 });
 
-// 🔥 attach io to req
+// attach io to req
 app.use((req, res, next) => {
   req.io = io;
   next();
@@ -47,6 +48,7 @@ app.use("/api/v1/cart", CartRouter);
 app.use("/api/v1/otp", OtpRouter);
 app.use("/api/v1/address", AddressRouter);
 app.use("/api/v1/orders", OrderRouter);
+app.use("/api/v1/wishlist", WishlistRouter);
 
 app.get("/",(req,res)=>{
     res.send("Hello World");
@@ -66,7 +68,7 @@ io.on("connection", (socket) => {
 
   io.emit("getOnlineUsers", Object.keys(userSocketMap));
 
-  // ✅ Handle chat messages
+  // Handle chat messages
   socket.on("sendMessage", ({ senderId, receiverId, message }) => {
     const receiverSocketId = userSocketMap[receiverId];
     if (receiverSocketId) {

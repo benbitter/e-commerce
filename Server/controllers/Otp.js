@@ -11,7 +11,7 @@ const sendOtp = async (req, res) => {
     const user = await User.findOne({ email });
 
     if (user) {
-        return res.status(400).json({ message: "User already exists" });
+        return res.status(201).json({ message: "User already exists" });
     }
 
     // Generate OTP
@@ -22,7 +22,7 @@ const sendOtp = async (req, res) => {
         email,
         password,
         otp,
-        expiresAt: Date.now() + 1 * 60 * 1000 // 1 minute expiration
+        expiresAt: Date.now() + 2 * 60 * 1000 // 2 minute expiration
     });
     console.log(otpEntry);
     await otpEntry.save();
@@ -32,7 +32,7 @@ const sendOtp = async (req, res) => {
     await sendMail(
       email,
       "Your OTP Code",
-      `<h2>Your OTP is: <b>${otp}</b></h2><p>It will expire in 1 minute.</p>`
+      `<h2>Your OTP is: <b>${otp}</b></h2><p>It will expire in 2 minute.</p>`
     );
     
     res.status(200).json({ message: "OTP sent successfully" });
@@ -48,12 +48,12 @@ const verifyOtp = async (req, res) => {
     try {
         const otpEntry = await Otp.findOne({ email, otp });
         if (!otpEntry) {
-            return res.status(400).json({ message: "Invalid OTP" });
+            return res.status(201).json({ message: "Enter a valid OTP" });
         }
 
         // Check if OTP is expired
         if (otpEntry.expiresAt < Date.now()) {
-            return res.status(400).json({ message: "OTP has expired" });
+            return res.status(202).json({ message: "OTP has expired" });
         }
 
         const hashedPassword=await bcrypt.hash(otpEntry.password,10)
@@ -64,6 +64,8 @@ const verifyOtp = async (req, res) => {
                 password: hashedPassword
             });
             await newUser.save();
+
+            
 
         // OTP is valid and user is registered
         res.status(200).json({ message: "OTP verified successfully" });

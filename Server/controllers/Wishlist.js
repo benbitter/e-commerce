@@ -1,8 +1,8 @@
 import Wishlist from "../models/Wishlist.js"
 
-exports.create=async(req,res)=>{
+const create=async(req,res)=>{
     try {
-        const created=await new Wishlist(req.body).populate({path:"product",populate:["brand"]})
+        const created=await new Wishlist(req.body).populate({path:"product"})
         await created.save()
         res.status(201).json(created)
     } catch (error) {
@@ -10,7 +10,7 @@ exports.create=async(req,res)=>{
         res.status(500).json({message:"Error adding product to wishlist, please try again later"})
     }
 }
-exports.getByUserId=async(req,res)=>{
+const getByUserId=async(req,res)=>{
     try {
         const {id}=req.params
         let skip=0
@@ -34,7 +34,7 @@ exports.getByUserId=async(req,res)=>{
         res.status(500).json({message:"Error fetching your wishlist, please try again later"})
     }
 }
-exports.updateById=async(req,res)=>{
+const updateById=async(req,res)=>{
     try {
         const {id}=req.params
         const updated=await Wishlist.findByIdAndUpdate(id,req.body,{new:true}).populate("product")
@@ -44,7 +44,7 @@ exports.updateById=async(req,res)=>{
         res.status(500).json({message:"Error updating your wishlist, please try again later"})
     }
 }
-exports.deleteById=async(req,res)=>{
+const deleteById=async(req,res)=>{
     try {
         const {id}=req.params
         const deleted=await Wishlist.findByIdAndDelete(id)
@@ -53,4 +53,11 @@ exports.deleteById=async(req,res)=>{
         console.log(error);
         res.status(500).json({message:"Error deleting that product from wishlist, please try again later"})
     }
+}
+
+export {
+    create,
+    getByUserId,
+    updateById,
+    deleteById
 }
