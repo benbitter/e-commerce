@@ -18,7 +18,7 @@ dotenv.config({
 
 const app = express()
 app.use(cors({
-    origin : "https://kaleidoscopic-frangipane-1914f3.netlify.app",
+    origin : "https://curious-brigadeiros-ac4189.netlify.app/",
     credentials : true,
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
 }))
@@ -31,7 +31,7 @@ const httpServer = http.createServer(app);
 
 const io = new Server(httpServer, {
     cors: {
-        origin: "https://kaleidoscopic-frangipane-1914f3.netlify.app",
+        origin: "https://curious-brigadeiros-ac4189.netlify.app/",
         methods: ["GET", "POST"],
         credentials: true,
     }
