@@ -12,7 +12,7 @@ import {
   Box,
   CssBaseline,
 } from "@mui/material";
-import { Menu, Home, Settings, Close } from "@mui/icons-material";
+import { Menu,Close} from "@mui/icons-material";
 import { Outlet, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setUser } from "./Store/Slices/user.js"
@@ -95,9 +95,14 @@ const userInfo = useSelector((state) => state.user.userInfo);
           >
             <Menu />
           </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            MY WEBSITE
-          </Typography>
+            <div className="w-full flex justify-between" >
+              <p>
+                Welcome to My Website
+              </p>
+              <p onClick={() => navigate("/search")}>
+                search
+              </p>
+            </div>
         </Toolbar>
       </AppBar>
 

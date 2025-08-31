@@ -6,8 +6,9 @@ const sellerSchema = new mongoose.Schema({
         type : String,
         require : true
     },
-    productid :{
-        type : String,
+    product :{
+        type : mongoose.Schema.Types.ObjectId,
+        ref : "Product",
         require : true
     }
 },{timestamps:true});

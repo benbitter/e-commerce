@@ -152,6 +152,29 @@ const resendOtp=async(req,res)=>{
     }
 }
 
+const makeAdmin = async(req,res)=>{
+    try {
+        const {userId}=req.body
+
+        // checks if user exists or not
+        const isExistingUser=await User.findById(userId)
+
+        // if user does not exists then returns a 404 response
+        if(!isExistingUser){
+            return res.status(404).json({message:"User not found"})
+        }
+
+        // updates the user role to admin
+        isExistingUser.isAdmin=true
+        await isExistingUser.save()
+
+        res.status(200).json({message:"User role updated to admin"})
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({message:"Some error occured while making user admin"})
+    }
+}
+
 const forgotPassword=async(req,res)=>{
     let newToken;
     try {
@@ -266,4 +289,4 @@ const checkAuth=async(req,res)=>{
     }
 }
 
-export { signup, login, verifyOtp, resendOtp, forgotPassword, resetPassword, logout, checkAuth };
+export { signup, login, verifyOtp, resendOtp, forgotPassword, resetPassword, logout, checkAuth , makeAdmin};

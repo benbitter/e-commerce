@@ -16,6 +16,18 @@ const getSellerfromProductId = async(req,res)=>{
   }
 }
 
+const getSellerProducts = async (req, res) => {
+  try {
+    const seller = req.user.email;
+    const products = await Seller.find({ sellerEmail: seller }).populate("product");
+    return res.status(200).json(
+      products
+    );
+  } catch (error) {
+    return res.status(400).json({ message: "Cannot find products for this seller", error });
+  }
+};
+
 const addProduct = async (req, res) => {
   try {
     const { title, description, price, stock, images } = req.body;
@@ -48,7 +60,7 @@ const addProduct = async (req, res) => {
 
     const seller = new Seller({
       sellerEmail: req.user.email,
-      productid: saved._id,
+      product: newProduct._id,
     });
 
     await seller.save();
@@ -85,49 +97,50 @@ const getLatest = async (req, res) => {
 };
 
 const getAll = async (req, res) => {
-    try {
-        const filter={}
-        const sort={}
-        let skip=0
-        let limit=0
+  try {
+    const { page = 1, limit = 10, search = "", category, minPrice, maxPrice } = req.query;
 
-        if(req.query.brand){
-            filter.brand={$in:req.query.brand}
-        }
+    const query = {};
 
-        if(req.query.category){
-            filter.category={$in:req.query.category}
-        }
-
-        if(req.query.user){
-            filter['isDeleted']=false
-        }
-
-        if(req.query.sort){
-            sort[req.query.sort]=req.query.order?req.query.order==='asc'?1:-1:1
-        }
-
-        if(req.query.page && req.query.limit){
-
-            const pageSize=req.query.limit
-            const page=req.query.page
-
-            skip=pageSize*(page-1)
-            limit=pageSize
-        }
-
-        const totalDocs=await Product.find(filter).sort(sort).populate("brand").countDocuments().exec()
-        const results=await Product.find(filter).sort(sort).populate("brand").skip(skip).limit(limit).exec()
-
-        res.set("X-Total-Count",totalDocs)
-
-        res.status(200).json(results)
-    
-    } catch (error) {
-        console.log(error);
-        res.status(500).json({message:'Error fetching products, please try again later'})
+    // 🔍 Search by title (case-insensitive, anywhere in string)
+    if (search) {
+      query.title = { $regex: search, $options: "i" };
     }
+
+    // 📂 Filter by category
+    if (category) {
+      query.category = category;
+    }
+
+    // 💰 Filter by price range
+    if (minPrice || maxPrice) {
+      query.price = {};
+      if (minPrice) query.price.$gte = Number(minPrice);
+      if (maxPrice) query.price.$lte = Number(maxPrice);
+    }
+
+    // 📄 Pagination
+    const skip = (page - 1) * limit;
+    const results = await Product.find(query).skip(skip).limit(Number(limit));
+    const total = await Product.countDocuments(query);
+
+    // Get all categories for dropdown filter
+    const categories = await Product.distinct("category");
+
+    res.status(200).json({
+      results,
+      total,
+      totalPages: Math.ceil(total / limit),
+      currentPage: Number(page),
+      categories
+    });
+
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Error fetching products, please try again later' });
+  }
 };
+
 
 const getById = async (req, res) => {
     try {
@@ -209,4 +222,4 @@ const deleteById=async(req,res)=>{
     }
 }
 
-export {create,getAll,getById,updateById,deleteById,undeleteById,getLatest, addReview ,addProduct,getSellerfromProductId}
+export {create,getAll,getById,updateById,deleteById,undeleteById,getLatest, addReview ,addProduct,getSellerfromProductId , getSellerProducts}

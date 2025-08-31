@@ -10,6 +10,8 @@ import ChatPage from "../pages/ChatPage";
 import Cart from "../pages/Cart";
 import Address from "../pages/Address";
 import CheckOut from "../pages/CheckOut";
+import { SellsPages } from "../pages/SellsPages";
+import Search from "../pages/Search";
 
 const router = createBrowserRouter([
   {
@@ -55,6 +57,14 @@ const router = createBrowserRouter([
         {
           path: "/checkout",
           element: <CheckOut />
+        },
+        {
+          path: "/sells",
+          element: <SellsPages />
+        },
+        {
+          path: "/search",
+          element: <Search />
         }
     ]
   }

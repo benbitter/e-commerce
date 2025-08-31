@@ -12,16 +12,25 @@ const Dashboard = () => {
   const [addresses, setAddresses] = useState([]);
   const [wishlist, setWishlist] = useState([]);
   const [showDialog, setShowDialog] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   // Redirect if not logged in
-  useEffect(() => {
-    if (!isLoggedIn) {
-      navigate("/");
+  useEffect(()=>{
+    const check = async()=>{
+      const response = await axios.get("http://localhost:3001/api/v1/auth/check-auth", { withCredentials: true });
+      if (response.status === 200) {
+        setIsLoading(false);
+      } else {
+        navigate("/");
+      }
     }
-  }, [isLoggedIn, navigate]);
+    check();
+  }, [navigate]);
+
 
   // Fetch Orders
-  useEffect(() => {
+  useEffect(() => 
+  {
     const fetchOrders = async () => {
       try {
         const response = await axios.get(
@@ -31,6 +40,8 @@ const Dashboard = () => {
         setOrders(response.data);
       } catch (error) {
         console.log("Error fetching user orders:", error);
+        navigate("/");
+        navigate(0);
       }
     };
     if (userInfo) fetchOrders();
@@ -45,6 +56,8 @@ const Dashboard = () => {
         });
         setAddresses(res.data);
       } catch (error) {
+        navigate("/");
+        navigate(0);
         console.error("Error fetching user addresses:", error);
       }
     };
@@ -57,12 +70,14 @@ const Dashboard = () => {
       try {
         if (!userInfo?._id) return;
         const res = await axios.get(
-          `http://localhost:3001/api/v1/wishlist/user/${userInfo._id}`,
+          `http://localhost:3001/api/v1/wishlist/user/${userInfo?._id}`,
           { withCredentials: true }
         );
         setWishlist(res.data);
       } catch (error) {
         console.error("Error fetching user wishlist:", error);
+        navigate("/");
+        navigate(0);
       }
     };
     fetchUserWishlist();
@@ -77,6 +92,8 @@ const Dashboard = () => {
       setWishlist((prev) => prev.filter((item) => item._id !== id));
     } catch (err) {
       console.error("Error deleting wishlist:", err);
+      navigate("/");
+        navigate(0);
     }
   };
 
@@ -84,16 +101,26 @@ const Dashboard = () => {
   const handleBecomeSeller = async () => {
     try {
       await axios.post(
-        "http://localhost:3001/api/v1/user/makeseller",
-        {},
+        "http://localhost:3001/api/v1/auth/makeAdmin",
+        {userId : userInfo?._id},
         { withCredentials: true }
       );
       setShowDialog(true);
       // Ideally update redux userInfo here as well
     } catch (err) {
       console.error("Error making seller:", err);
+      navigate("/");
+        navigate(0);
     }
   };
+
+  if(isLoading) {
+    return (
+      <div className="flex justify-center items-center min-h-screen">
+        <p className="text-gray-600 text-lg">Loading...</p>
+      </div>
+    );
+  }
 
   return (
     <div className="p-6 bg-gray-100 min-h-screen">
@@ -102,10 +129,10 @@ const Dashboard = () => {
 
         {/* User Info */}
         <div className="mb-6">
-          <p className="text-gray-700"><b>Email:</b> {userInfo.email}</p>
+          <p className="text-gray-700"><b>Email:</b> {userInfo?.email}</p>
           <p className="text-gray-700">
             <b>Role:</b>{" "}
-            {userInfo.isAdmin ? (
+            {userInfo?.isAdmin ? (
               <span className="bg-green-200 text-green-800 px-2 py-1 rounded-md">
                 Verified Seller
               </span>
@@ -116,7 +143,7 @@ const Dashboard = () => {
         </div>
 
         {/* Become Seller Switch */}
-        {!userInfo.isAdmin && (
+        {!userInfo?.isAdmin && (
           <div className="mb-6 flex items-center space-x-3">
             <span className="text-gray-700">Become a Seller</span>
             <label className="relative inline-flex items-center cursor-pointer">
@@ -218,12 +245,12 @@ const Dashboard = () => {
         </div>
 
         {/* Admin Access */}
-        {userInfo.isAdmin && (
+        {userInfo?.isAdmin && (
           <button
             className="mt-8 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700"
-            onClick={() => navigate("/addproduct")}
+            onClick={() => navigate("/sells")}
           >
-            Add New Item
+            My Products
           </button>
         )}
       </div>
@@ -239,7 +266,7 @@ const Dashboard = () => {
               You are now a <b>Seller</b> on our platform.
             </p>
             <button
-              onClick={() => setShowDialog(false)}
+              onClick={() => { setShowDialog(false);  }}
               className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700"
             >
               Close
