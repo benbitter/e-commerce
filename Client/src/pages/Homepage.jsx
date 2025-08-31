@@ -16,7 +16,7 @@ const Homepage = () => {
         const fetchItems = async () => {
             try {
                 const response = await axios.get(
-                    "http://localhost:3001/api/v1/products/get/latest"
+                    `${import.meta.env.VITE_BASE_URL}/api/v1/products/get/latest`
                 );
                 setItems(response.data);
             } catch (error) {

@@ -15,7 +15,7 @@ const Search = () => {
 
   const fetchProducts = async () => {
     try {
-      const response = await axios.get("http://localhost:3001/api/v1/products", {
+      const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/api/v1/products`, {
         params: { page, limit: 10, search, category, minPrice, maxPrice }
       });
       console.log("Products fetched successfully:", response.data);
