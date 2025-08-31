@@ -60,7 +60,7 @@ const Address = () => {
     try {
       setLoading(true);
       await axios.post(
-        `${import.meta.env.VITE_BASE_URL}/api/v1/address`,
+        `https://ecommercebackend-8w7r.onrender.com/api/v1/address`,
         { ...formData, user: userInfo._id },
         { withCredentials: true }
       );

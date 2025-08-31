@@ -16,7 +16,7 @@ export const SellsPages = () => {
     const check = async () => {
       try {
         const response = await axios.get(
-          `${import.meta.env.VITE_BASE_URL}/api/v1/auth/check-auth`,
+          `https://ecommercebackend-8w7r.onrender.com/api/v1/auth/check-auth`,
           { withCredentials: true }
         );
 
@@ -38,7 +38,7 @@ export const SellsPages = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `${import.meta.env.VITE_BASE_URL}/api/v1/products/getSellerProducts/sells`,
+          `https://ecommercebackend-8w7r.onrender.com/api/v1/products/getSellerProducts/sells`,
           { withCredentials: true }
         );
         setProducts(response.data);
@@ -57,7 +57,7 @@ export const SellsPages = () => {
 
     try {
       await axios.delete(
-        `${import.meta.env.VITE_BASE_URL}/api/v1/products/${id}`,
+        `https://ecommercebackend-8w7r.onrender.com/api/v1/products/${id}`,
         { withCredentials: true }
       );
 

@@ -19,7 +19,7 @@ const CheckOut = () => {
     const fetchUserCart = async () => {
       try {
         const res = await axios.get(
-          `${import.meta.env.VITE_BASE_URL}/api/v1/cart/getcarts`,
+          `https://ecommercebackend-8w7r.onrender.com/api/v1/cart/getcarts`,
           { withCredentials: true }
         );
         setCartItems(res.data || []);
@@ -34,7 +34,7 @@ const CheckOut = () => {
   useEffect(() => {
     const fetchUserAddress = async () => {
       try {
-        const res = await axios.get(`${import.meta.env.VITE_BASE_URL}/api/v1/address`, {
+        const res = await axios.get(`https://ecommercebackend-8w7r.onrender.com/api/v1/address`, {
           withCredentials: true,
         });
         setAddresses(res.data || []);
@@ -65,7 +65,7 @@ const CheckOut = () => {
     try {
       setLoading(true);
       const res = await axios.post(
-        `${import.meta.env.VITE_BASE_URL}/api/v1/orders`,
+        `https://ecommercebackend-8w7r.onrender.com/api/v1/orders`,
         {
           user: userInfo._id,
           item: cartItems.map((c) => c._id), // cart item IDs
@@ -77,7 +77,7 @@ const CheckOut = () => {
       );
       console.log("invoice",res.data);
       alert("✅ Order placed successfully! \n Invoice will be sent to your email.");
-      await axios.delete(`${import.meta.env.VITE_BASE_URL}/api/v1/cart/user/${userInfo._id}`, { withCredentials: true });
+      await axios.delete(`https://ecommercebackend-8w7r.onrender.com/api/v1/cart/user/${userInfo._id}`, { withCredentials: true });
       setLoading(false);
       navigate("/");
     } catch (error) {

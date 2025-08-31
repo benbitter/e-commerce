@@ -18,7 +18,7 @@ const ChatPage = () => {
       // navigate("/");
     } else {
       // ✅ Connect to socket with userId
-      const newSocket = io(`${import.meta.env.VITE_BASE_URL}`, {
+      const newSocket = io(`https://ecommercebackend-8w7r.onrender.com`, {
         query: { userId: userInfo._id },
       });
       setSocket(newSocket);

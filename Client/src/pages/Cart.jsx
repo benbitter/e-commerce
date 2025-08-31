@@ -11,7 +11,7 @@ const Cart = () => {
     const fetchCartItems = async () => {
       try {
         const response = await axios.get(
-          `${import.meta.env.VITE_BASE_URL}/api/v1/cart/getcarts`,
+          `https://ecommercebackend-8w7r.onrender.com/api/v1/cart/getcarts`,
           { withCredentials: true }
         );
         console.log("Cart items fetched successfully:", response.data);
@@ -30,7 +30,7 @@ const Cart = () => {
   const handleRemove = async (productId) => {
     try {
       await axios.delete(
-        `${import.meta.env.VITE_BASE_URL}/api/v1/cart/${productId}`,
+        `https://ecommercebackend-8w7r.onrender.com/api/v1/cart/${productId}`,
         { withCredentials: true }
       );
       setCartItems(cartItems.filter((item) => item._id !== productId));
@@ -45,7 +45,7 @@ const Cart = () => {
 
     try {
       await axios.patch(
-        `${import.meta.env.VITE_BASE_URL}/api/v1/cart/${productId}`,
+        `https://ecommercebackend-8w7r.onrender.com/api/v1/cart/${productId}`,
         { quantity: newQuantity },
         { withCredentials: true }
       );

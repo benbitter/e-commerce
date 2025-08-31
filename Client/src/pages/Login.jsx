@@ -39,14 +39,14 @@ const Login = () => {
     if (validate()) {
       try {
         const response = await axios.post(
-          `${import.meta.env.VITE_BASE_URL}/api/v1/auth/login`,
+          `https://ecommercebackend-8w7r.onrender.com/api/v1/auth/login`,
           { email, password },
           { withCredentials: true }
         );
 
         if (response.status === 200) {
           console.log("Login successful:", response.data);
-          const socket = await io(`${import.meta.env.VITE_BASE_URL}`, {
+          const socket = await io(`https://ecommercebackend-8w7r.onrender.com`, {
             query: {
               userId: response.data._id
             }

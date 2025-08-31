@@ -16,7 +16,7 @@ const Homepage = () => {
         const fetchItems = async () => {
             try {
                 const response = await axios.get(
-                    `${import.meta.env.VITE_BASE_URL}/api/v1/products/get/latest`
+                    `https://ecommercebackend-8w7r.onrender.com/api/v1/products/get/latest`
                 );
                 setItems(response.data);
             } catch (error) {
