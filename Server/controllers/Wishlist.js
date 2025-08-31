@@ -13,21 +13,8 @@ const create=async(req,res)=>{
 const getByUserId=async(req,res)=>{
     try {
         const {id}=req.params
-        let skip=0
-        let limit=0
 
-        if(req.query.page && req.query.limit){
-            const pageSize=req.query.limit
-            const page=req.query.page
-
-            skip=pageSize*(page-1)
-            limit=pageSize
-        }
-
-        const result=await Wishlist.find({user:id}).skip(skip).limit(limit).populate({path:"product",populate:['brand']})
-        const totalResults=await Wishlist.find({user:id}).countDocuments().exec()
-
-        res.set("X-Total-Count",totalResults)
+        const result=await Wishlist.find({user:id}).populate({path:"product"})
         res.status(200).json(result)
     } catch (error) {
         console.log(error);
