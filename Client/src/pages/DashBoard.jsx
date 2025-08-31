@@ -106,7 +106,7 @@ const Dashboard = () => {
         { withCredentials: true }
       );
       setShowDialog(true);
-      // Ideally update redux userInfo here as well
+      navigate(0);
     } catch (err) {
       console.error("Error making seller:", err);
       navigate("/");
@@ -159,10 +159,10 @@ const Dashboard = () => {
         )}
 
         <button
-          onClick={() => navigate("/profile")}
+          onClick={() => navigate("/address")}
           className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700"
         >
-          Edit Profile
+          Add Address
         </button>
 
         {/* Orders */}

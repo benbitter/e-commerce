@@ -32,11 +32,6 @@ const Homepage = () => {
             {/* Heading */}
             <div className="text-3xl text-center mb-6">
                 Our latest additions
-                {isLoggedIn && userInfo && (
-                    <span className="ml-2 text-blue-500">
-                        {`Welcome back, ${userInfo.email}!`}
-                    </span>
-                )}
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full max-w-6xl">

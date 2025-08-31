@@ -76,7 +76,8 @@ const CheckOut = () => {
         { withCredentials: true }
       );
       console.log("invoice",res.data);
-      alert("✅ Order placed successfully! Invoice will be sent to your email.");
+      alert("✅ Order placed successfully! \n Invoice will be sent to your email.");
+      await axios.delete(`http://localhost:3001/api/v1/cart/user/${userInfo._id}`, { withCredentials: true });
       setLoading(false);
       navigate("/");
     } catch (error) {

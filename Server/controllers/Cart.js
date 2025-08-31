@@ -41,7 +41,7 @@ const getByUserId=async(req,res)=>{
 const updateById=async(req,res)=>{
     try {
         const {id}=req.params
-        const updated=await Cart.findByIdAndUpdate(id,req.body,{new:true}).populate({path:"product",populate:{path:"brand"}});
+        const updated=await Cart.findByIdAndUpdate(id,req.body,{new:true}).populate({path:"product"});
         res.status(200).json(updated)
     } catch (error) {
         console.log(error);

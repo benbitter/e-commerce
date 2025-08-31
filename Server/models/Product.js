@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import crypto from "crypto"
 
 const productSchema= new mongoose.Schema({
 id: { type: Number, required: false },
@@ -47,6 +48,15 @@ id: { type: Number, required: false },
   images: [{ type: String, required: false }],
   thumbnail: { type: String, required: false },
 },{timestamps:true})
+
+productSchema.pre('save', function(next) {
+  if (!this.sku) {
+    const seed = process.env.SEED || 'GHW25-XXXX';
+    const checksum = crypto.createHash('sha256').update(seed + this.title).digest('hex').slice(0,15);
+    this.sku = `SKU-${checksum}`;
+  }
+  next();
+});
 
 const Product = mongoose.model('Product',productSchema)
 

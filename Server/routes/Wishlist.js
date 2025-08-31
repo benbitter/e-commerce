@@ -3,7 +3,8 @@ import {
     create,
     getByUserId,
     updateById,
-    deleteById
+    deleteById,
+    deleteByUserId
 } from "../controllers/Wishlist.js";
 
 const router = express.Router();
@@ -15,5 +16,6 @@ router
     .get("/user/:id", getByUserId)
     .patch("/:id", updateById)
     .delete("/:id", deleteById)
+    .delete("/user/:id", deleteByUserId)
 
 export default router

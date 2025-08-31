@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Search = () => {
   const [products, setProducts] = useState([]);
+  const navigate = useNavigate();
   const [categories, setCategories] = useState([]);
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("");
@@ -82,7 +84,7 @@ const Search = () => {
       {/* Products */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {products.map((p) => (
-          <div key={p._id} className="border p-4 rounded shadow hover:shadow-lg transition">
+          <div onClick={() => {navigate(`/product/${p._id}`)}} key={p._id} className="border p-4 rounded shadow hover:shadow-lg transition">
             <img src={p.thumbnail || "https://via.placeholder.com/150"} alt={p.title} className="w-full h-40 object-cover mb-3 rounded"/>
             <h3 className="text-lg font-semibold">{p.title}</h3>
             <p className="text-gray-600">₹{p.price}</p>

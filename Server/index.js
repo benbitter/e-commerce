@@ -7,7 +7,7 @@ import { seedCategory } from "./seed/Category.js";
 const port = 3001;
 
 connectDB().then(async () => {
-    // await seedProduct();
+    await seedProduct();
     // await seedBrand();
     // await seedCategory();
     httpServer.listen(port, () => {

@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchCartItems = async () => {
@@ -28,7 +30,7 @@ const Cart = () => {
   const handleRemove = async (productId) => {
     try {
       await axios.delete(
-        `http://localhost:3001/api/v1/cart/remove/${productId}`,
+        `http://localhost:3001/api/v1/cart/${productId}`,
         { withCredentials: true }
       );
       setCartItems(cartItems.filter((item) => item._id !== productId));
@@ -42,8 +44,8 @@ const Cart = () => {
     if (newQuantity < minQty) return; // prevent going below minimumOrderQuantity
 
     try {
-      await axios.put(
-        `http://localhost:3001/api/v1/cart/update/${productId}`,
+      await axios.patch(
+        `http://localhost:3001/api/v1/cart/${productId}`,
         { quantity: newQuantity },
         { withCredentials: true }
       );
@@ -65,7 +67,7 @@ const Cart = () => {
   );
 
   const handleCheckout = () => {
-    alert("Checkout clicked!");
+    navigate("/checkout");
   };
 
   if (loading) return <p className="text-center mt-4">Loading cart...</p>;

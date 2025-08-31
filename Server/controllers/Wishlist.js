@@ -42,9 +42,21 @@ const deleteById=async(req,res)=>{
     }
 }
 
+const deleteByUserId=async(req,res)=>{
+    try {
+        const {id}=req.params
+        await Wishlist.deleteMany({user:id})
+        res.sendStatus(204)
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({message:"Some Error occured while resetting your wishlist"})
+    }
+}
+
 export {
     create,
     getByUserId,
     updateById,
-    deleteById
+    deleteById,
+    deleteByUserId
 }
