@@ -18,7 +18,7 @@ dotenv.config({
 
 const app = express()
 app.use(cors({
-    origin : "https://ecommerceclient-kbsc.onrender.com",
+    origin : "https://superlative-pony-6d1ee6.netlify.app/",
     credentials : true,
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
 }))
@@ -31,7 +31,7 @@ const httpServer = http.createServer(app);
 
 const io = new Server(httpServer, {
     cors: {
-        origin: "https://ecommerceclient-kbsc.onrender.com",
+        origin: "https://superlative-pony-6d1ee6.netlify.app/",
         methods: ["GET", "POST"],
         credentials: true,
     }
