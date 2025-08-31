@@ -18,7 +18,7 @@ dotenv.config({
 
 const app = express()
 app.use(cors({
-    origin : ["http://localhost:5173" , "https://ecommerceclient-kbsc.onrender.com"],
+    origin : "https://ecommerceclient-kbsc.onrender.com",
     credentials : true,
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
 }))
@@ -31,8 +31,9 @@ const httpServer = http.createServer(app);
 
 const io = new Server(httpServer, {
     cors: {
-        origin: ["http://localhost:5173" , "https://ecommerceclient-kbsc.onrender.com"],
-        credentials: true
+        origin: "https://ecommerceclient-kbsc.onrender.com",
+        methods: ["GET", "POST"],
+        credentials: true,
     }
 });
 
