@@ -17,7 +17,7 @@ const Dashboard = () => {
   // Redirect if not logged in
   useEffect(()=>{
     const check = async()=>{
-      const response = await axios.get("http://localhost:3001/api/v1/auth/check-auth", { withCredentials: true });
+      const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/api/v1/auth/check-auth`, { withCredentials: true });
       if (response.status === 200) {
         setIsLoading(false);
       } else {
@@ -34,7 +34,7 @@ const Dashboard = () => {
     const fetchOrders = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3001/api/v1/orders/user",
+          `${import.meta.env.VITE_BASE_URL}/api/v1/orders/user`,
           { withCredentials: true }
         );
         setOrders(response.data);
@@ -51,7 +51,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchUserAddress = async () => {
       try {
-        const res = await axios.get("http://localhost:3001/api/v1/address", {
+        const res = await axios.get(`${import.meta.env.VITE_BASE_URL}/api/v1/address`, {
           withCredentials: true,
         });
         setAddresses(res.data);
@@ -70,7 +70,7 @@ const Dashboard = () => {
       try {
         if (!userInfo?._id) return;
         const res = await axios.get(
-          `http://localhost:3001/api/v1/wishlist/user/${userInfo?._id}`,
+          `${import.meta.env.VITE_BASE_URL}/api/v1/wishlist/user/${userInfo?._id}`,
           { withCredentials: true }
         );
         setWishlist(res.data);
@@ -86,7 +86,7 @@ const Dashboard = () => {
   // Delete wishlist item
   const handleDeleteWishlist = async (id) => {
     try {
-      await axios.delete(`http://localhost:3001/api/v1/wishlist/${id}`, {
+      await axios.delete(`${import.meta.env.VITE_BASE_URL}/api/v1/wishlist/${id}`, {
         withCredentials: true,
       });
       setWishlist((prev) => prev.filter((item) => item._id !== id));
@@ -101,7 +101,7 @@ const Dashboard = () => {
   const handleBecomeSeller = async () => {
     try {
       await axios.post(
-        "http://localhost:3001/api/v1/auth/makeAdmin",
+        `${import.meta.env.VITE_BASE_URL}/api/v1/auth/makeAdmin`,
         {userId : userInfo?._id},
         { withCredentials: true }
       );
@@ -250,7 +250,7 @@ const Dashboard = () => {
             className="mt-8 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700"
             onClick={() => navigate("/sells")}
           >
-            My Products
+            My Sells
           </button>
         )}
       </div>

@@ -60,7 +60,7 @@ const Address = () => {
     try {
       setLoading(true);
       await axios.post(
-        "http://localhost:3001/api/v1/address",
+        `${import.meta.env.VITE_BASE_URL}/api/v1/address`,
         { ...formData, user: userInfo._id },
         { withCredentials: true }
       );

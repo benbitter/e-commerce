@@ -16,7 +16,7 @@ export const SellsPages = () => {
     const check = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3001/api/v1/auth/check-auth",
+          `${import.meta.env.VITE_BASE_URL}/api/v1/auth/check-auth`,
           { withCredentials: true }
         );
 
@@ -38,7 +38,7 @@ export const SellsPages = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3001/api/v1/products/getSellerProducts/sells",
+          `${import.meta.env.VITE_BASE_URL}/api/v1/products/getSellerProducts/sells`,
           { withCredentials: true }
         );
         setProducts(response.data);
@@ -57,7 +57,7 @@ export const SellsPages = () => {
 
     try {
       await axios.delete(
-        `http://localhost:3001/api/v1/products/${id}`,
+        `${import.meta.env.VITE_BASE_URL}/api/v1/products/${id}`,
         { withCredentials: true }
       );
 

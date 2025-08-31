@@ -56,7 +56,7 @@ const AddProduct = () => {
 
       // ✅ Send only if data is valid
       await axios.post(
-        "http://localhost:3001/api/v1/products/addProduct",
+        `${import.meta.env.VITE_BASE_URL}/api/v1/products/addProduct`,
         {
           ...formData,
           images: uploadedUrls,

@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import axios from "axios";
 import { io } from "socket.io-client";
 
-const socket = io("http://localhost:3001"); // connect to backend
+const socket = io(`${import.meta.env.VITE_BASE_URL}`); // connect to backend
 
 const ItemPage = () => {
   const [item, setItem] = useState(null);
@@ -56,7 +56,7 @@ const ItemPage = () => {
   const handleReviewSubmit = async (e) => {
     e.preventDefault();
     console.log("Review submitted:", review, userInfo);
-    await axios.post(`http://localhost:3001/api/v1/products/review/${item._id}`, {
+    await axios.post(`${import.meta.env.VITE_BASE_URL}/api/v1/products/review/${item._id}`, {
       ...review,
       user: userInfo,
     });
@@ -65,7 +65,7 @@ const ItemPage = () => {
 
   const handleAddToCart = async () => {
     console.log("Added to cart:", item);
-    await axios.post("http://localhost:3001/api/v1/cart", {
+    await axios.post(`${import.meta.env.VITE_BASE_URL}/api/v1/cart`, {
       user: userInfo._id,
       product: item._id,
       quantity: item.minimumOrderQuantity,
@@ -78,7 +78,7 @@ const ItemPage = () => {
   };
 
   const handleWishlistSubmit = async () => {
-    await axios.post("http://localhost:3001/api/v1/wishlist", {
+    await axios.post(`${import.meta.env.VITE_BASE_URL}/api/v1/wishlist`, {
       user: userInfo._id,
       product: item._id,
       note: wishlistNote,

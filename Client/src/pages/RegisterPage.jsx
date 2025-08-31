@@ -49,7 +49,7 @@ const RegisterPage = () => {
     if (validate()) {
       const registerUser = async () => {
         try {
-          const response = await axios.post("http://localhost:3001/api/v1/otp/send-otp", {
+          const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/api/v1/otp/send-otp`, {
             email,
             password,
           });
@@ -80,7 +80,7 @@ const RegisterPage = () => {
       try {
         const verify = async() => {
 
-          const response = await axios.post("http://localhost:3001/api/v1/otp/verify-otp", {
+          const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/api/v1/otp/verify-otp`, {
             email,
             otp,
           });

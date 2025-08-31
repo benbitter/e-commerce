@@ -18,7 +18,7 @@ const ChatPage = () => {
       // navigate("/");
     } else {
       // ✅ Connect to socket with userId
-      const newSocket = io("http://localhost:3001", {
+      const newSocket = io(`${import.meta.env.VITE_BASE_URL}`, {
         query: { userId: userInfo._id },
       });
       setSocket(newSocket);

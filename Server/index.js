@@ -4,7 +4,7 @@ import { seedProduct } from "./seed/Product.js";
 import { seedBrand } from "./seed/Brand.js";
 import { seedCategory } from "./seed/Category.js";
 
-const port = 3001;
+const port = process.env.PORT || 3001;
 
 connectDB().then(async () => {
     // await seedProduct();

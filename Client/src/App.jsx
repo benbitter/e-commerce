@@ -41,7 +41,7 @@ const userInfo = useSelector((state) => state.user.userInfo);
       // Perform logout actions
       const logout = async()=>{
 
-        await axios.get("http://localhost:3001/api/v1/auth/logout", { withCredentials: true })
+        await axios.get(`${import.meta.env.VITE_BASE_URL}/api/v1/auth/logout`, { withCredentials: true })
         .then((response) => {
           console.log("Logout successful:", response.data);
           dispatch(setUser({ userInfo: null, socketid: null ,isLoggedIn: false}));
@@ -62,10 +62,10 @@ const userInfo = useSelector((state) => state.user.userInfo);
   useEffect(() => {
 
     const fetchuser = async () => {
-      const response = await axios.get("http://localhost:3001/api/v1/auth/check-auth", { withCredentials: true });
+      const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/api/v1/auth/check-auth`, { withCredentials: true });
       if (response.status === 200) {
         console.log("User fetched successfully:", response.data);
-        const socket = await io("http://localhost:3001", {
+        const socket = await io(`${import.meta.env.VITE_BASE_URL}`, {
           query: {
             userId: response.data._id
           }

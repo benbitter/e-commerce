@@ -39,14 +39,14 @@ const Login = () => {
     if (validate()) {
       try {
         const response = await axios.post(
-          "http://localhost:3001/api/v1/auth/login",
+          `${import.meta.env.VITE_BASE_URL}/api/v1/auth/login`,
           { email, password },
           { withCredentials: true }
         );
 
         if (response.status === 200) {
           console.log("Login successful:", response.data);
-          const socket = await io("http://localhost:3001", {
+          const socket = await io(`${import.meta.env.VITE_BASE_URL}`, {
             query: {
               userId: response.data._id
             }
